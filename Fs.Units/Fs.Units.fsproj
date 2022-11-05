@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Simple\Length.fs" />
+        <Compile Include="Simple\Time.fs" />
+        <Compile Include="Simple\Mass.fs" />
+        <Compile Include="Simple\Temperature.fs" />
+        <Compile Include="Simple\Angle.fs" />
+        <Compile Include="Simple\DataStorage.fs" />
+        <Compile Include="Simple\FuelEconomy.fs" />
+        <Compile Include="Simple\Frequency.fs" />
+        <Compile Include="Simple\Illuminance.fs" />
+        <Compile Include="Simple\Current.fs" />
+        <Compile Include="Compound\Area.fs" />
+        <Compile Include="Compound\Volume.fs" />
+        <Compile Include="Compound\Inertia.fs" />
+        <Compile Include="Compound\Speed.fs" />
+        <Compile Include="Compound\Force.fs" />
+        <Compile Include="Compound\DataTransferRate.fs" />
+        <Compile Include="Compound\Density.fs" />
+        <Compile Include="Compound\Pressure.fs" />
+        <Compile Include="Compound\Power.fs" />
+        <Compile Include="Compound\Energy.fs" />
+        <Compile Include="Compound\ElectricCharge.fs" />
+        <Compile Include="Compound\ElectromotiveForce.fs" />
+        <Compile Include="Compound\Capacitance.fs" />
+        <Compile Include="Compound\Inductance.fs" />
+    </ItemGroup>
+
+</Project>

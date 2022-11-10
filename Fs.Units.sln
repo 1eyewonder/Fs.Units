@@ -2,7 +2,9 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units", "Fs.Units\Fs.Units.fsproj", "{0BEF09E5-F0DB-4E5C-A2A7-5A0B4ABCD8E6}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units.Tests", "Fs.Units.Tests\Fs.Units.Tests.fsproj", "{E39D2DE0-2DF8-466C-A8E3-9334585E2FA0}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units.Tests.Unit", "Fs.Units.Tests.Unit\Fs.Units.Tests.Unit.fsproj", "{E39D2DE0-2DF8-466C-A8E3-9334585E2FA0}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units.Tests.Benchmark", "Fs.Units.Tests.Benchmark\Fs.Units.Tests.Benchmark.fsproj", "{32FF53B5-CFF9-447A-9ACE-BACB878C22B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +20,9 @@ Global
 		{E39D2DE0-2DF8-466C-A8E3-9334585E2FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E39D2DE0-2DF8-466C-A8E3-9334585E2FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E39D2DE0-2DF8-466C-A8E3-9334585E2FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32FF53B5-CFF9-447A-9ACE-BACB878C22B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32FF53B5-CFF9-447A-9ACE-BACB878C22B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32FF53B5-CFF9-447A-9ACE-BACB878C22B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32FF53B5-CFF9-447A-9ACE-BACB878C22B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

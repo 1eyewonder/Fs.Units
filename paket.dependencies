@@ -1,0 +1,10 @@
+source "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
+source https://api.nuget.org/v3/index.json
+
+nuget BenchmarkDotNet
+nuget Expecto
+nuget Expecto.FsCheck
+nuget FsCheck
+nuget FSharp.Core
+nuget Microsoft.NET.Test.Sdk
+nuget YoloDev.Expecto.TestSdk

@@ -1,4 +1,4 @@
-﻿# FS.Units
+﻿# Fs.Units
 
 A simple library for working with units of measure in .NET. 
 

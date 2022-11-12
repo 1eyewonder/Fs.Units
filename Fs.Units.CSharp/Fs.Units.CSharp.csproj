@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Compound" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Fs.Units\Fs.Units.fsproj" />
     </ItemGroup>
 

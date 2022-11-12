@@ -1066,33 +1066,33 @@ let currentTests config =
     
     let ampereConversionTests =
         [
-            "From ampere to milliampere and back", (fun x -> Ampere.create x |> Ampere.toMilliampere |> Milliampere.toAmpere)
-            "From ampere to microampere and back", (fun x -> Ampere.create x |> Ampere.toMicroampere |> Microampere.toAmpere)
-            "From ampere to biot and back", (fun x -> Ampere.create x |> Ampere.toBiot |> Biot.toAmpere)
+            "From ampere to milliampere and back", (fun x -> Ampere.create x |> Ampere.toMilliamperes |> Milliampere.toAmperes)
+            "From ampere to microampere and back", (fun x -> Ampere.create x |> Ampere.toMicroamperes |> Microampere.toAmperes)
+            "From ampere to biot and back", (fun x -> Ampere.create x |> Ampere.toBiots |> Biot.toAmperes)
         ]
         |> List.map (fun (x,y) -> testConversionRoundingError config Accuracy.high x y)
         
     let milliampereConversionTests =
         [
-            "From milliampere to ampere and back", (fun x -> Milliampere.create x |> Milliampere.toAmpere |> Ampere.toMilliampere)
-            "From milliampere to microampere and back", (fun x -> Milliampere.create x |> Milliampere.toMicroampere |> Microampere.toMilliampere)
-            "From milliampere to biot and back", (fun x -> Milliampere.create x |> Milliampere.toBiot |> Biot.toMilliampere)
+            "From milliampere to ampere and back", (fun x -> Milliampere.create x |> Milliampere.toAmperes |> Ampere.toMilliamperes)
+            "From milliampere to microampere and back", (fun x -> Milliampere.create x |> Milliampere.toMicroamperes |> Microampere.toMilliamperes)
+            "From milliampere to biot and back", (fun x -> Milliampere.create x |> Milliampere.toBiots |> Biot.toMilliamperes)
         ]
         |> List.map (fun (x,y) -> testConversionRoundingError config Accuracy.high x y)
         
     let microampereConversionTests =
         [
-            "From microampere to ampere and back", (fun x -> Microampere.create x |> Microampere.toAmpere |> Ampere.toMicroampere)
-            "From microampere to milliampere and back", (fun x -> Microampere.create x |> Microampere.toMilliampere |> Milliampere.toMicroampere)
-            "From microampere to biot and back", (fun x -> Microampere.create x |> Microampere.toBiot |> Biot.toMicroampere)
+            "From microampere to ampere and back", (fun x -> Microampere.create x |> Microampere.toAmperes |> Ampere.toMicroamperes)
+            "From microampere to milliampere and back", (fun x -> Microampere.create x |> Microampere.toMilliamperes |> Milliampere.toMicroamperes)
+            "From microampere to biot and back", (fun x -> Microampere.create x |> Microampere.toBiots |> Biot.toMicroamperes)
         ]
         |> List.map (fun (x,y) -> testConversionRoundingError config Accuracy.high x y)
         
     let biotConversionTests =
         [
-            "From biot to ampere and back", (fun x -> Biot.create x |> Biot.toAmpere |> Ampere.toBiot)
-            "From biot to milliampere and back", (fun x -> Biot.create x |> Biot.toMilliampere |> Milliampere.toBiot)
-            "From biot to microampere and back", (fun x -> Biot.create x |> Biot.toMicroampere |> Microampere.toBiot)
+            "From biot to ampere and back", (fun x -> Biot.create x |> Biot.toAmperes |> Ampere.toBiots)
+            "From biot to milliampere and back", (fun x -> Biot.create x |> Biot.toMilliamperes |> Milliampere.toBiots)
+            "From biot to microampere and back", (fun x -> Biot.create x |> Biot.toMicroamperes |> Microampere.toBiots)
         ]
         |> List.map (fun (x,y) -> testConversionRoundingError config Accuracy.high x y)
         

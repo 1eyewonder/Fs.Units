@@ -20,7 +20,7 @@ open Units
 open Fs.Units.Length
 open Fs.Units.Time
 
-module FeetPerSecond =
+module FootPerSecond =
 
     let create (x: float) = x * 1.0<fps>
     let toMetersPerSecond (x: float<fps>) =

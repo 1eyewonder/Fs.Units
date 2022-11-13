@@ -126,15 +126,15 @@ let speedTests config =
     
     let feetPerSecondTests =
         [
-            "From feet per second to meters per second and back", (fun x -> FeetPerSecond.create x |> FeetPerSecond.toMetersPerSecond |> MeterPerSecond.toFeetPerSecond)
-            "From feet per second to kilometers per hour and back", (fun x -> FeetPerSecond.create x |> FeetPerSecond.toKilometersPerHour |> KilometerPerHour.toFeetPerSecond)
-            "From feet per second to miles per hour and back", (fun x -> FeetPerSecond.create x |> FeetPerSecond.toMilesPerHour |> MilePerHour.toFeetPerSecond)
+            "From feet per second to meters per second and back", (fun x -> FootPerSecond.create x |> FootPerSecond.toMetersPerSecond |> MeterPerSecond.toFeetPerSecond)
+            "From feet per second to kilometers per hour and back", (fun x -> FootPerSecond.create x |> FootPerSecond.toKilometersPerHour |> KilometerPerHour.toFeetPerSecond)
+            "From feet per second to miles per hour and back", (fun x -> FootPerSecond.create x |> FootPerSecond.toMilesPerHour |> MilePerHour.toFeetPerSecond)
         ]
         |> List.map (fun (x,y) -> testConversionRoundingError config Accuracy.high x y)
         
     let metersPerSecondTests =
         [
-            "From meter per second to feet per second and back", (fun x -> MeterPerSecond.create x |> MeterPerSecond.toFeetPerSecond |> FeetPerSecond.toMetersPerSecond)
+            "From meter per second to feet per second and back", (fun x -> MeterPerSecond.create x |> MeterPerSecond.toFeetPerSecond |> FootPerSecond.toMetersPerSecond)
             "From meter per second to kilometers per hour and back", (fun x -> MeterPerSecond.create x |> MeterPerSecond.toKilometersPerHour |> KilometerPerHour.toMetersPerSecond)
             "From meter per second to miles per hour and back", (fun x -> MeterPerSecond.create x |> MeterPerSecond.toMilesPerHour |> MilePerHour.toMetersPerSecond)
         ]
@@ -142,7 +142,7 @@ let speedTests config =
         
     let kilometersPerHourTests =
         [
-            "From kilometer per hour to feet per second and back", (fun x -> KilometerPerHour.create x |> KilometerPerHour.toFeetPerSecond |> FeetPerSecond.toKilometersPerHour)
+            "From kilometer per hour to feet per second and back", (fun x -> KilometerPerHour.create x |> KilometerPerHour.toFeetPerSecond |> FootPerSecond.toKilometersPerHour)
             "From kilometer per hour to meters per second and back", (fun x -> KilometerPerHour.create x |> KilometerPerHour.toMetersPerSecond |> MeterPerSecond.toKilometersPerHour)
             "From kilometer per hour to miles per hour and back", (fun x -> KilometerPerHour.create x |> KilometerPerHour.toMilesPerHour |> MilePerHour.toKilometersPerHour)
         ]
@@ -150,7 +150,7 @@ let speedTests config =
         
     let milesPerHourTests =
         [
-            "From mile per hour to feet per second and back", (fun x -> MilePerHour.create x |> MilePerHour.toFeetPerSecond |> FeetPerSecond.toMilesPerHour)
+            "From mile per hour to feet per second and back", (fun x -> MilePerHour.create x |> MilePerHour.toFeetPerSecond |> FootPerSecond.toMilesPerHour)
             "From mile per hour to meters per second and back", (fun x -> MilePerHour.create x |> MilePerHour.toMetersPerSecond |> MeterPerSecond.toMilesPerHour)
             "From mile per hour to kilometers per hour and back", (fun x -> MilePerHour.create x |> MilePerHour.toKilometersPerHour |> KilometerPerHour.toMilesPerHour)
         ]

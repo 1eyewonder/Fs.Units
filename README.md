@@ -42,14 +42,14 @@ let valueInFeet = Inch.create(1.0) |> Inch.toFeet(valueWithUnit) // float<ft>
 <br/>
 
 ### C#
-- **Fs.Units.[UnitType]** namespace
+- **Fs.Units.CSharp.[UnitType]** namespace
   - Contains the extension methods for the given type of unit of measure
 
 #### Example
 ```csharp
 using Fs.Units.CSharp.Length;
 
-let valueInFeet = 1d.InchToFeet(); // double
+var valueInFeet = 1d.InchToFeet(); // double
 ```
 
 <br/>

@@ -5,7 +5,25 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>true</ImplicitUsings>
+        <Title>Fs.Units</Title>
+        <Authors>1eyewonder</Authors>
+        <Description>A simple library for working with units of measure in .NET</Description>
+        <RepositoryUrl>https://github.com/1eyewonder/Fs.Units</RepositoryUrl>
+        <PackageTags>csharp, dotnet, units-of-measure, units-converter</PackageTags>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <IncludeSymbols>False</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Fs.Units\Fs.Units.fsproj" />

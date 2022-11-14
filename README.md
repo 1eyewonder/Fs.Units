@@ -41,7 +41,7 @@ Fs.Units aims to make things as simple as possible. The project is broken down i
 ```fsharp
 open Fs.Units.Length
 
-let valueInFeet = Inch.create(1.0) |> Inch.toFeet(valueWithUnit) // float<ft>
+let valueInFeet = Inch.create 1.0 |> Inch.toFeet // float<ft>
 ```
 
 <br/>

@@ -2,55 +2,70 @@
 
 [<AutoOpen>]
 module Time =
-    
+
     /// Nanosecond
-    [<Measure>] type ns
+    [<Measure>]
+    type ns
 
     /// Microsecond
-    [<Measure>] type us
+    [<Measure>]
+    type us
 
     /// Millisecond
-    [<Measure>] type ms
+    [<Measure>]
+    type ms
 
     /// Second
-    [<Measure>] type s
+    [<Measure>]
+    type s
 
     /// Minute
-    [<Measure>] type min
+    [<Measure>]
+    type min
 
     /// Hour
-    [<Measure>] type hr
+    [<Measure>]
+    type hr
 
     /// Day
-    [<Measure>] type day
+    [<Measure>]
+    type day
 
     /// Week
-    [<Measure>] type week
+    [<Measure>]
+    type week
 
     /// Fortnight
-    [<Measure>] type fortnight
+    [<Measure>]
+    type fortnight
 
     /// Month
-    [<Measure>] type month
+    [<Measure>]
+    type month
 
     /// Year
-    [<Measure>] type year
+    [<Measure>]
+    type year
 
     /// Decade
-    [<Measure>] type decade
+    [<Measure>]
+    type decade
 
     /// Century
-    [<Measure>] type century
+    [<Measure>]
+    type century
 
     /// Millennium
-    [<Measure>] type millennium
+    [<Measure>]
+    type millennium
 
     /// Aeon
-    [<Measure>] type eon
+    [<Measure>]
+    type eon
 
     [<RequireQualifiedAccess>]
     module Nanosecond =
-        
+
         let create (x: float) = x * 1.0<ns>
         let toSeconds (x: float<ns>) = x * 1.0<s> / 1e-9<ns>
         let toMicroSeconds (x: float<ns>) = x * 1e-3<us> / 1.0<ns>
@@ -66,10 +81,10 @@ module Time =
         let toCenturies (x: float<ns>) = x * 1.0<century> / 3.154e+18<ns>
         let toMillennia (x: float<ns>) = x * 1.0<millennium> / 3.154e+19<ns>
         let toEons (x: float<ns>) = x * 1.0<eon> / 3.1536e+25<ns>
-       
+
     [<RequireQualifiedAccess>]
     module Microsecond =
-        
+
         let create (x: float) = x * 1.0<us>
         let toSeconds (x: float<us>) = x * 1.0<s> / 1e-6<us>
         let toNanoSeconds (x: float<us>) = x * 1e+3<ns> / 1.0<us>
@@ -85,10 +100,10 @@ module Time =
         let toCenturies (x: float<us>) = x * 1.0<century> / 3.154e+15<us>
         let toMillennia (x: float<us>) = x * 1.0<millennium> / 3.154e+16<us>
         let toEons (x: float<us>) = x * 1.0<eon> / 3.1536e+22<us>
-      
+
     [<RequireQualifiedAccess>]
     module Millisecond =
-        
+
         let create (x: float) = x * 1.0<ms>
         let toSeconds (x: float<ms>) = x * 1.0<s> / 1e-3<ms>
         let toNanoSeconds (x: float<ms>) = x * 1e+6<ns> / 1.0<ms>
@@ -104,10 +119,10 @@ module Time =
         let toCenturies (x: float<ms>) = x * 1.0<century> / 3.154e+12<ms>
         let toMillennia (x: float<ms>) = x * 1.0<millennium> / 3.154e+13<ms>
         let toEons (x: float<ms>) = x * 1.0<eon> / 3.1536e+19<ms>
-        
+
     [<RequireQualifiedAccess>]
     module Second =
-        
+
         let create (x: float) = x * 1.0<s>
         let toNanoSeconds (x: float<s>) = x * 1e-9<ns> / 1.0<s>
         let toMicroSeconds (x: float<s>) = x * 1e-6<us> / 1.0<s>
@@ -123,10 +138,10 @@ module Time =
         let toCenturies (x: float<s>) = x * 1.0<century> / 3.154e+9<s>
         let toMillennia (x: float<s>) = x * 1.0<millennium> / 3.154e+10<s>
         let toEons (x: float<s>) = x * 1.0<eon> / 3.1536e+16<s>
-        
+
     [<RequireQualifiedAccess>]
     module Minute =
-        
+
         let create (x: float) = x * 1.0<min>
         let toNanoSeconds (x: float<min>) = x * 6e+10<ns> / 1.0<min>
         let toMicroSeconds (x: float<min>) = x * 6e+7<us> / 1.0<min>
@@ -142,10 +157,10 @@ module Time =
         let toCenturies (x: float<min>) = x * 1.0<century> / 5.256e+7<min>
         let toMillennia (x: float<min>) = x * 1.0<millennium> / 5.256e+9<min>
         let toEons (x: float<min>) = x * 1.0<eon> / 5.256e+14<min>
-        
+
     [<RequireQualifiedAccess>]
     module Hour =
-        
+
         let create (x: float) = x * 1.0<hr>
         let toNanoSeconds (x: float<hr>) = x * 3.6e+12<ns> / 1.0<hr>
         let toMicroSeconds (x: float<hr>) = x * 3.6e+9<us> / 1.0<hr>
@@ -161,10 +176,10 @@ module Time =
         let toCenturies (x: float<hr>) = x * 1.0<century> / 876_582.0<hr>
         let toMillennia (x: float<hr>) = x * 1.0<millennium> / 8.76e+7<hr>
         let toEons (x: float<hr>) = x * 1.0<eon> / 8.76e+12<hr>
-        
+
     [<RequireQualifiedAccess>]
     module Day =
-        
+
         let create (x: float) = x * 1.0<day>
         let toNanoSeconds (x: float<day>) = x * 8.64e+13<ns> / 1.0<day>
         let toMicroSeconds (x: float<day>) = x * 8.64e+10<us> / 1.0<day>
@@ -180,10 +195,10 @@ module Time =
         let toCenturies (x: float<day>) = x * 1.0<century> / 36525.0<day>
         let toMillennia (x: float<day>) = x * 1.0<millennium> / 3.6525e+6<day>
         let toEons (x: float<day>) = x * 1.0<eon> / 3.65e+11<day>
-        
+
     [<RequireQualifiedAccess>]
     module Week =
-        
+
         let create (x: float) = x * 1.0<week>
         let toNanoSeconds (x: float<week>) = x * 6.048e+14<ns> / 1.0<week>
         let toMicroSeconds (x: float<week>) = x * 6.048e+11<us> / 1.0<week>
@@ -199,10 +214,10 @@ module Time =
         let toCenturies (x: float<week>) = x * 1.0<century> / 5214.3<week>
         let toMillennia (x: float<week>) = x * 1.0<millennium> / 5.2143e+5<week>
         let toEons (x: float<week>) = x * 1.0<eon> / 52142857142.857<week>
-        
+
     [<RequireQualifiedAccess>]
     module Fortnight =
-        
+
         let create (x: float) = x * 1.0<fortnight>
         let toNanoSeconds (x: float<fortnight>) = x * 1.21e+15<ns> / 1.0<fortnight>
         let toMicroSeconds (x: float<fortnight>) = x * 1.21e+12<us> / 1.0<fortnight>
@@ -216,12 +231,16 @@ module Time =
         let toYears (x: float<fortnight>) = x * 1.0<year> / 26.071<fortnight>
         let toDecades (x: float<fortnight>) = x * 1.0<decade> / 260.71<fortnight>
         let toCenturies (x: float<fortnight>) = x * 1.0<century> / 2607.1<fortnight>
-        let toMillennia (x: float<fortnight>) = x * 1.0<millennium> / 26066.115702479<fortnight>
-        let toEons (x: float<fortnight>) = x * 1.0<eon> /  26062809917.355<fortnight>
-        
+
+        let toMillennia (x: float<fortnight>) =
+            x * 1.0<millennium> / 26066.115702479<fortnight>
+
+        let toEons (x: float<fortnight>) =
+            x * 1.0<eon> / 26062809917.355<fortnight>
+
     [<RequireQualifiedAccess>]
     module Month =
-        
+
         let create (x: float) = x * 1.0<month>
         let toNanoSeconds (x: float<month>) = x * 2.628e+15<ns> / 1.0<month>
         let toMicroSeconds (x: float<month>) = x * 2.628e+12<us> / 1.0<month>
@@ -237,10 +256,10 @@ module Time =
         let toCenturies (x: float<month>) = x * 1.0<century> / 1200.0<month>
         let toMillennia (x: float<month>) = x * 1.0<millennium> / 1.2e+7<month>
         let toEons (x: float<month>) = x * 1.0<eon> / 1.2e+13<month>
-        
+
     [<RequireQualifiedAccess>]
     module Year =
-        
+
         let create (x: float) = x * 1.0<year>
         let toNanoSeconds (x: float<year>) = x * 3.154e+16<ns> / 1.0<year>
         let toMicroSeconds (x: float<year>) = x * 3.154e+13<us> / 1.0<year>
@@ -256,10 +275,10 @@ module Time =
         let toCenturies (x: float<year>) = x * 1.0<century> / 100.0<year>
         let toMillennia (x: float<year>) = x * 1.0<millennium> / 1000.0<year>
         let toEons (x: float<year>) = x * 1.0<eon> / 1e+12<year>
-        
+
     [<RequireQualifiedAccess>]
     module Decade =
-        
+
         let create (x: float) = x * 1.0<decade>
         let toNanoSeconds (x: float<decade>) = x * 3.154e+17<ns> / 1.0<decade>
         let toMicroSeconds (x: float<decade>) = x * 3.154e+14<us> / 1.0<decade>
@@ -275,10 +294,10 @@ module Time =
         let toCenturies (x: float<decade>) = x * 1.0<century> / 10.0<decade>
         let toMillennia (x: float<decade>) = x * 1.0<millennium> / 100.0<decade>
         let toEons (x: float<decade>) = x * 1.0<eon> / 1e+11<decade>
-        
+
     [<RequireQualifiedAccess>]
     module Century =
-        
+
         let create (x: float) = x * 1.0<century>
         let toNanoSeconds (x: float<century>) = x * 3.154e+18<ns> / 1.0<century>
         let toMicroSeconds (x: float<century>) = x * 3.154e+15<us> / 1.0<century>
@@ -294,10 +313,10 @@ module Time =
         let toDecades (x: float<century>) = x * 10.0<decade> / 1.0<century>
         let toMillennia (x: float<century>) = x * 1.0<millennium> / 10.0<century>
         let toEons (x: float<century>) = x * 1.0<eon> / 1e+10<century>
-        
+
     [<RequireQualifiedAccess>]
     module Millennium =
-        
+
         let create (x: float) = x * 1.0<millennium>
         let toNanoSeconds (x: float<millennium>) = x * 3.154e+19<ns> / 1.0<millennium>
         let toMicroSeconds (x: float<millennium>) = x * 3.154e+16<us> / 1.0<millennium>
@@ -307,26 +326,32 @@ module Time =
         let toHours (x: float<millennium>) = x * 8.76e+7<hr> / 1.0<millennium>
         let toDays (x: float<millennium>) = x * 3.6525e+6<day> / 1.0<millennium>
         let toWeeks (x: float<millennium>) = x * 5.2143e+5<week> / 1.0<millennium>
-        let toFortnights (x: float<millennium>) = x * 26066.115702479<fortnight> / 1.0<millennium>
+
+        let toFortnights (x: float<millennium>) =
+            x * 26066.115702479<fortnight> / 1.0<millennium>
+
         let toMonths (x: float<millennium>) = x * 1.2e+7<month> / 1.0<millennium>
         let toYears (x: float<millennium>) = x * 1000.0<year> / 1.0<millennium>
         let toDecades (x: float<millennium>) = x * 100.0<decade> / 1.0<millennium>
         let toCenturies (x: float<millennium>) = x * 10.0<century> / 1.0<millennium>
         let toEons (x: float<millennium>) = x * 1.0<eon> / 1e+9<millennium>
-        
+
     [<RequireQualifiedAccess>]
     module Eon =
-        
+
         let create (x: float) = x * 1.0<eon>
         let toNanoSeconds (x: float<eon>) = x * 3.1536e+25<ns> / 1.0<eon>
         let toMicroSeconds (x: float<eon>) = x * 3.1536e+22<us> / 1.0<eon>
         let toMilliSeconds (x: float<eon>) = x * 3.1536e+19<ms> / 1.0<eon>
         let toSeconds (x: float<eon>) = x * 3.1536e+16<s> / 1.0<eon>
         let toMinutes (x: float<eon>) = x * 5.256e+14<min> / 1.0<eon>
-        let toHours (x: float<eon>) = x * 8.76e+12<hr> / 1.0<eon> 
+        let toHours (x: float<eon>) = x * 8.76e+12<hr> / 1.0<eon>
         let toDays (x: float<eon>) = x * 3.65e+11<day> / 1.0<eon>
         let toWeeks (x: float<eon>) = x * 52142857142.857<week> / 1.0<eon>
-        let toFortnights (x: float<eon>) = x *  26062809917.355<fortnight> / 1.0<eon>
+
+        let toFortnights (x: float<eon>) =
+            x * 26062809917.355<fortnight> / 1.0<eon>
+
         let toMonths (x: float<eon>) = x * 1.2e+13<month> / 1.0<eon>
         let toYears (x: float<eon>) = x * 1e+12<year> / 1.0<eon>
         let toDecades (x: float<eon>) = x * 1e+11<decade> / 1.0<eon>

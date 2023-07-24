@@ -2,52 +2,66 @@
 
 [<AutoOpen>]
 module Length =
-    
+
     /// Inch
-    [<Measure>] type inch 
+    [<Measure>]
+    type inch
 
     /// Foot
-    [<Measure>] type ft
+    [<Measure>]
+    type ft
 
     /// Yard
-    [<Measure>] type yd
+    [<Measure>]
+    type yd
 
     /// Mile
-    [<Measure>] type mi   
+    [<Measure>]
+    type mi
 
     /// Millimeter
-    [<Measure>] type mm
+    [<Measure>]
+    type mm
 
     /// Centimeter
-    [<Measure>] type cm
+    [<Measure>]
+    type cm
 
     /// Meter
-    [<Measure>] type m
+    [<Measure>]
+    type m
 
     /// Kilometer
-    [<Measure>] type km
+    [<Measure>]
+    type km
 
     /// Nautical mile
-    [<Measure>] type nmi
+    [<Measure>]
+    type nmi
 
     /// chain
-    [<Measure>] type chain
+    [<Measure>]
+    type chain
 
     /// furlong
-    [<Measure>] type fur
+    [<Measure>]
+    type fur
 
     /// league
-    [<Measure>] type league
+    [<Measure>]
+    type league
 
     /// hand
-    [<Measure>] type hand
+    [<Measure>]
+    type hand
 
     /// rod
-    [<Measure>] type rd
+    [<Measure>]
+    type rd
 
     [<RequireQualifiedAccess>]
     module Inch =
-        
+
         let create (x: float) = x * 1.0<inch>
         let toFeet (x: float<inch>) = x / 12.0<inch> * 1.0<ft>
         let toYards (x: float<inch>) = x / 36.0<inch> * 1.0<yd>
@@ -62,10 +76,10 @@ module Length =
         let toLeagues (x: float<inch>) = x * 4.5716e-6<league> / 1.0<inch>
         let toHands (x: float<inch>) = x * 0.25<hand> / 1.0<inch>
         let toRods (x: float<inch>) = x * 0.00505051<rd> / 1.0<inch>
-        
+
     [<RequireQualifiedAccess>]
     module Foot =
-        
+
         let create (x: float) = x * 1.0<ft>
         let toInches (x: float<ft>) = x * 12.0<inch> / 1.0<ft>
         let toYards (x: float<ft>) = x / 3.0<ft> * 1.0<yd>
@@ -80,10 +94,10 @@ module Length =
         let toLeagues (x: float<ft>) = x * 5.48596e-5<league> / 1.0<ft>
         let toHands (x: float<ft>) = x * 3.0<hand> / 1.0<ft>
         let toRods (x: float<ft>) = x * 0.0606061<rd> / 1.0<ft>
-        
+
     [<RequireQualifiedAccess>]
     module Yard =
-        
+
         let create (x: float) = x * 1.0<yd>
         let toInches (x: float<yd>) = x * 36.0<inch> / 1.0<yd>
         let toFeet (x: float<yd>) = x * 3.0<ft> / 1.0<yd>
@@ -98,10 +112,10 @@ module Length =
         let toLeagues (x: float<yd>) = x / 5280.0<yd> * 1.0<league>
         let toHands (x: float<yd>) = x * 1.0<hand> / 0.111111<yd>
         let toRods (x: float<yd>) = x / 5.5<yd> * 1.0<rd>
-       
+
     [<RequireQualifiedAccess>]
     module Mile =
-        
+
         let create (x: float) = x * 1.0<mi>
         let toInches (x: float<mi>) = x * 63360.0<inch> / 1.0<mi>
         let toFeet (x: float<mi>) = x * 5280.0<ft> / 1.0<mi>
@@ -116,10 +130,10 @@ module Length =
         let toLeagues (x: float<mi>) = x / 3.0<mi> * 1.0<league>
         let toHands (x: float<mi>) = x * 1.0<hand> / 6.31313e-5<mi>
         let toRods (x: float<mi>) = x * 1.0<rd> / 0.003125<mi>
-        
+
     [<RequireQualifiedAccess>]
     module Millimeter =
-        
+
         let create (x: float) = x * 1.0<mm>
         let toInches (x: float<mm>) = x / 25.4<mm> * 1.0<inch>
         let toFeet (x: float<mm>) = x / 304.8<mm> * 1.0<ft>
@@ -134,10 +148,10 @@ module Length =
         let toLeagues (x: float<mm>) = x / 4.828e+6<mm> * 1.0<league>
         let toHands (x: float<mm>) = x / 101.6<mm> * 1.0<hand>
         let toRods (x: float<mm>) = x / 5029.2<mm> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Centimeter =
-        
+
         let create (x: float) = x * 1.0<cm>
         let toInches (x: float<cm>) = x / 2.54<cm> * 1.0<inch>
         let toFeet (x: float<cm>) = x / 30.48<cm> * 1.0<ft>
@@ -155,7 +169,7 @@ module Length =
 
     [<RequireQualifiedAccess>]
     module Meter =
-        
+
         let create (x: float) = x * 1.0<m>
         let toInches (x: float<m>) = x / 0.0254<m> * 1.0<inch>
         let toCentimeters (x: float<m>) = x * 100.0<cm> / 1.0<m>
@@ -170,10 +184,10 @@ module Length =
         let toLeagues (x: float<m>) = x / 4828.032<m> * 1.0<league>
         let toHands (x: float<m>) = x / 0.1016<m> * 1.0<hand>
         let toRods (x: float<m>) = x / 5.0292<m> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Kilometer =
-        
+
         let create (x: float) = x * 1.0<km>
         let toInches (x: float<km>) = x / 0.0000254<km> * 1.0<inch>
         let toCentimeters (x: float<km>) = x * 100000.0<cm> / 1.0<km>
@@ -188,10 +202,10 @@ module Length =
         let toLeagues (x: float<km>) = x / 4.828032<km> * 1.0<league>
         let toHands (x: float<km>) = x / 0.0001016<km> * 1.0<hand>
         let toRods (x: float<km>) = x / 0.0050292<km> * 1.0<rd>
-      
+
     [<RequireQualifiedAccess>]
     module NauticalMile =
-        
+
         let create (x: float) = x * 1.0<nmi>
         let toInches (x: float<nmi>) = x / 0.0000137<nmi> * 1.0<inch>
         let toCentimeters (x: float<nmi>) = x * 185200.0<cm> / 1.0<nmi>
@@ -206,12 +220,12 @@ module Length =
         let toLeagues (x: float<nmi>) = x / 0.000889984<nmi> * 1.0<league>
         let toHands (x: float<nmi>) = x / 0.0000546807<nmi> * 1.0<hand>
         let toRods (x: float<nmi>) = x * 368.249<rd> / 1.0<nmi>
-        
+
     [<RequireQualifiedAccess>]
     module Chain =
-        
+
         let create (x: float) = x * 1.0<chain>
-        let toInches (x: float<chain>) = x / 0.00126263<chain> * 1.0<inch>    
+        let toInches (x: float<chain>) = x / 0.00126263<chain> * 1.0<inch>
         let toFeet (x: float<chain>) = x / 0.0151515<chain> * 1.0<ft>
         let toYards (x: float<chain>) = x * 22.0<yd> / 1.0<chain>
         let toMiles (x: float<chain>) = x / 80.0<chain> * 1.0<mi>
@@ -224,12 +238,12 @@ module Length =
         let toLeagues (x: float<chain>) = x / 0.00889984<chain> * 1.0<league>
         let toHands (x: float<chain>) = x / 0.000493737<chain> * 1.0<hand>
         let toRods (x: float<chain>) = x / 0.0000905213<chain> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Furlong =
-        
+
         let create (x: float) = x * 1.0<fur>
-        let toInches (x: float<fur>) = x / 0.000126262<fur> * 1.0<inch>    
+        let toInches (x: float<fur>) = x / 0.000126262<fur> * 1.0<inch>
         let toFeet (x: float<fur>) = x / 0.00151515<fur> * 1.0<ft>
         let toYards (x: float<fur>) = x * 220.0<yd> / 1.0<fur>
         let toMiles (x: float<fur>) = x / 8.0<fur> * 1.0<mi>
@@ -242,12 +256,12 @@ module Length =
         let toLeagues (x: float<fur>) = x / 0.000889984<fur> * 1.0<league>
         let toHands (x: float<fur>) = x / 0.0000493737<fur> * 1.0<hand>
         let toRods (x: float<fur>) = x / 0.00000905213<fur> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module League =
-        
+
         let create (x: float) = x * 1.0<league>
-        let toInches (x: float<league>) = x / 4.5716e-6<league> * 1.0<inch>    
+        let toInches (x: float<league>) = x / 4.5716e-6<league> * 1.0<inch>
         let toFeet (x: float<league>) = x / 5.48596e-5<league> * 1.0<ft>
         let toYards (x: float<league>) = x * 5280.0<yd> / 1.0<league>
         let toMiles (x: float<league>) = x * 3.0<mi> / 1.0<league>
@@ -260,12 +274,12 @@ module Length =
         let toFurlongs (x: float<league>) = x * 0.000889984<fur> / 1.0<league>
         let toHands (x: float<league>) = x / 0.00000493737<league> * 1.0<hand>
         let toRods (x: float<league>) = x / 0.000000905213<league> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Hand =
-        
+
         let create (x: float) = x * 1.0<hand>
-        let toInches (x: float<hand>) = x / 0.25<hand> * 1.0<inch>    
+        let toInches (x: float<hand>) = x / 0.25<hand> * 1.0<inch>
         let toFeet (x: float<hand>) = x / 3.0<hand> * 1.0<ft>
         let toYards (x: float<hand>) = x * 0.111111<yd> / 1.0<hand>
         let toMiles (x: float<hand>) = x * 6.31313e-5<mi> / 1.0<hand>
@@ -278,10 +292,10 @@ module Length =
         let toFurlongs (x: float<hand>) = x * 0.0000493737<fur> / 1.0<hand>
         let toLeagues (x: float<hand>) = x * 0.00000493737<league> / 1.0<hand>
         let toRods (x: float<hand>) = x / 0.00000446429<hand> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Rod =
-        
+
         let create (x: float) = x * 1.0<rd>
         let toInches (x: float<rd>) = x / 0.00505051<rd> * 1.0<inch>
         let toFeet (x: float<rd>) = x / 0.0606061<rd> * 1.0<ft>

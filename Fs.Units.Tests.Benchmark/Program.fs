@@ -1,12 +1,6 @@
 ﻿open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
-open Fs.Units.Area
-open Fs.Units.Force
-open Fs.Units.Force.Units
-open Fs.Units.Length
-open Fs.Units.Area.Units
-open Fs.Units.Mass
-open Fs.Units.Time
+open Fs.Units
   
 let myTestData = [1.;2.;3.;4.;5.]
 let ft2Data =

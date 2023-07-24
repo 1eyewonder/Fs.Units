@@ -1,19 +1,7 @@
 module CompoundUnitOfMeasureTests
 
 open Expecto
-open Fs.Units.Area
-open Fs.Units.Volume
-open Fs.Units.Inertia
-open Fs.Units.Speed
-open Fs.Units.Force
-open Fs.Units.DataTransferRate
-open Fs.Units.Density
-open Fs.Units.Pressure
-open Fs.Units.Power
-open Fs.Units.Energy
-open Fs.Units.ElectricCharge
-open Fs.Units.ElectromotiveForce
-open Fs.Units.Inductance
+open Fs.Units
 open Helpers
 
 [<Tests>]

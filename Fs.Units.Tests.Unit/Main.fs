@@ -2,10 +2,8 @@
 
 open Expecto
 
-[<EntryPoint>]
-let main _ =   
-    let config = FsCheckConfig.defaultConfig
-    
+[<Tests>]
+let tests =
     [
         SimpleUnitOfMeasureTests.lengthTests
         SimpleUnitOfMeasureTests.timeTests
@@ -31,6 +29,12 @@ let main _ =
         CompoundUnitOfMeasureTests.electromotiveForceTests
         CompoundUnitOfMeasureTests.inductanceTests   
     ]
+
+[<EntryPoint>]
+let main _ =   
+    let config = FsCheckConfig.defaultConfig
+    
+    tests
     |> List.map (fun x -> x config)
     |> testList "Fs.Unit"
     |> runTestsWithCLIArgs [] [||]

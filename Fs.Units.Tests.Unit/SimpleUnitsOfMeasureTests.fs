@@ -1,16 +1,7 @@
 module SimpleUnitOfMeasureTests
 
 open Expecto
-open Fs.Units.Length
-open Fs.Units.Time
-open Fs.Units.Mass
-open Fs.Units.Temperature
-open Fs.Units.Angle
-open Fs.Units.DataStorage
-open Fs.Units.FuelEconomy
-open Fs.Units.Frequency
-open Fs.Units.Illuminance
-open Fs.Units.Current
+open Fs.Units
 open Helpers
 
 [<Tests>]

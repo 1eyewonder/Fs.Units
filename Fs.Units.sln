@@ -9,6 +9,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{F1E793FB-AD0A-4021-AA39-325C6ADCD027}"
 	ProjectSection(SolutionItems) = preProject
 		.config\dotnet-tools.json = .config\dotnet-tools.json
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{176FA884-3899-42F0-BDFD-B3875FC54579}"
@@ -26,6 +27,8 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units.Tests.Benchmark", "benchmarks\Fs.Units.Tests.Benchmark\Fs.Units.Tests.Benchmark.fsproj", "{91929E4F-920D-48B9-84BE-994DD9685017}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fs.Units.CSharp.Tests.Benchmark", "benchmarks\Fs.Units.CSharp.Tests.Benchmark\Fs.Units.CSharp.Tests.Benchmark.csproj", "{70E86CB4-BB1B-430C-8D5E-B66D94C97CFA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "build", "build\build.fsproj", "{C58EC2C4-D8D1-424A-BB59-73AC2AB8418F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +56,10 @@ Global
 		{70E86CB4-BB1B-430C-8D5E-B66D94C97CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E86CB4-BB1B-430C-8D5E-B66D94C97CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E86CB4-BB1B-430C-8D5E-B66D94C97CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58EC2C4-D8D1-424A-BB59-73AC2AB8418F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58EC2C4-D8D1-424A-BB59-73AC2AB8418F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58EC2C4-D8D1-424A-BB59-73AC2AB8418F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58EC2C4-D8D1-424A-BB59-73AC2AB8418F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C5F26AD4-464D-4664-8BD0-D4AE84B22D50} = {176FA884-3899-42F0-BDFD-B3875FC54579}

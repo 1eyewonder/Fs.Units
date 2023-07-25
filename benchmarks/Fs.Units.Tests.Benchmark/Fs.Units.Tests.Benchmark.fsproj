@@ -7,9 +7,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Program.fs" />
+    <Content Include="paket.references" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fs.Units\Fs.Units.fsproj" />
+    <ProjectReference Include="..\..\src\Fs.Units\Fs.Units.fsproj" />
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

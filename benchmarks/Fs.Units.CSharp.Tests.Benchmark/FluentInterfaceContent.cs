@@ -1,5 +1,7 @@
 ﻿namespace Fs.Units.CSharp.Tests.Benchmark;
 
+using Fs.Units;
+
 public interface IMeasure
 {
     public double Value { get; }

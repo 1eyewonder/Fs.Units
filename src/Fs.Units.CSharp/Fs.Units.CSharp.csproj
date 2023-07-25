@@ -19,15 +19,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Include="..\README.md">
-        <Pack>True</Pack>
-        <PackagePath>\</PackagePath>
-      </None>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Fs.Units\Fs.Units.fsproj" />
     </ItemGroup>
 
-    <Import Project="..\.paket\Paket.Restore.targets" />
+    <ItemGroup>
+        <None Include="..\..\LICENSE.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+    
+    <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

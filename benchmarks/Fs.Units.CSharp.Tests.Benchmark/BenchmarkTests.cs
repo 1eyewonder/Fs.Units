@@ -1,11 +1,10 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Jobs;
-
 namespace Fs.Units.CSharp.Tests.Benchmark;
 
 public static class TestFootExtensions
 {
-    public static double ToInches(this double value) => Length.Foot.toInches(value);
+    public static double ToInches(this double value) => Units.Length.Foot.toInches(value);
 }
 
 [SimpleJob(RuntimeMoniker.Net60)]

@@ -41,16 +41,19 @@
     <Compile Include="Compound\ElectromotiveForce.fs" />
     <Compile Include="Compound\Capacitance.fs" />
     <Compile Include="Compound\Inductance.fs" />
+    <Content Include="paket.references" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="..\LICENSE.md">
+    <None Include="..\..\LICENSE.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="..\README.md">
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
+  
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

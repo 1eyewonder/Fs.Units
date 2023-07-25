@@ -3,9 +3,7 @@ source https://api.nuget.org/v3/index.json
 storage: none
 framework: netstandard2.0, netstandard2.1, net6.0, net7.0
 
-nuget Expecto
 nuget Expecto.FsCheck
-nuget FsCheck
 nuget FSharp.Core >= 7.0.0
 nuget Microsoft.NET.Test.Sdk
 nuget YoloDev.Expecto.TestSdk

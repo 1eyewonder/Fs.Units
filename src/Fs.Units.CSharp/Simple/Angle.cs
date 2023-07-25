@@ -1,5 +1,5 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Fs.Units.CSharp.Angle;
+namespace Fs.Units.CSharp;
 
 public static class DegreeExtensions
 {

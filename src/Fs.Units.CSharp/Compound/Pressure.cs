@@ -1,5 +1,5 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Fs.Units.CSharp.Pressure;
+namespace Fs.Units.CSharp;
 
 public static class PascalExtensions
 {

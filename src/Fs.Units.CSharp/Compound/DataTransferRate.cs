@@ -1,5 +1,5 @@
 ﻿// ReSharper disable once CheckNamespace
-namespace Fs.Units.CSharp.DataTransferRate;
+namespace Fs.Units.CSharp;
 
 public static class BaudExtensions
 {

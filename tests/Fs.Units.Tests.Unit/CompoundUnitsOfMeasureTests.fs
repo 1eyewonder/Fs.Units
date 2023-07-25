@@ -92,6 +92,8 @@ let volumeTests config =
                 |> CubicCentimeter.toCubicInches)
             "From cubic inch to cubic meters and back",
             (fun x -> CubicInch.create x |> CubicInch.toCubicMeters |> CubicMeter.toCubicInches)
+            "From cubic inch to liters and back",
+            (fun x -> CubicInch.create x |> CubicInch.toLiters |> Liter.toCubicInches)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
@@ -106,6 +108,8 @@ let volumeTests config =
                 |> CubicCentimeter.toCubicFeet)
             "From cubic foot to cubic meters and back",
             (fun x -> CubicFoot.create x |> CubicFoot.toCubicMeters |> CubicMeter.toCubicFeet)
+            "From cubic foot to liters and back",
+            (fun x -> CubicFoot.create x |> CubicFoot.toLiters |> Liter.toCubicFeet)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
@@ -126,6 +130,9 @@ let volumeTests config =
                 CubicCentimeter.create x
                 |> CubicCentimeter.toCubicMeters
                 |> CubicMeter.toCubicCentimeters)
+            "From cubic centimeter to liters and back",
+            (fun x ->
+                CubicCentimeter.create x |> CubicCentimeter.toLiters |> Liter.toCubicCentimeters)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
@@ -140,6 +147,24 @@ let volumeTests config =
                 CubicMeter.create x
                 |> CubicMeter.toCubicCentimeters
                 |> CubicCentimeter.toCubicMeters)
+            "From cubic meter to liters and back",
+            (fun x -> CubicMeter.create x |> CubicMeter.toLiters |> Liter.toCubicMeters)
+        ]
+        |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
+        
+    let literConversionTests =
+        [
+            "From liter to cubic inches and back",
+            (fun x -> Liter.create x |> Liter.toCubicInches |> CubicInch.toLiters)
+            "From liter to cubic feet and back",
+            (fun x -> Liter.create x |> Liter.toCubicFeet |> CubicFoot.toLiters)
+            "From liter to cubic centimeters and back",
+            (fun x ->
+                Liter.create x
+                |> Liter.toCubicCentimeters
+                |> CubicCentimeter.toLiters)
+            "From liter to cubic meters and back",
+            (fun x -> Liter.create x |> Liter.toCubicMeters |> CubicMeter.toLiters)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
@@ -150,6 +175,7 @@ let volumeTests config =
             testList "Cubic foot conversion tests -> " cubicFootConversionTests
             testList "Cubic centimeter conversion tests -> " cubicCentimeterConversionTests
             testList "Cubic meter conversion tests -> " cubicMeterConversionTests
+            testList "Liter conversion tests -> " literConversionTests
         ]
 
 let inertiaTests config =

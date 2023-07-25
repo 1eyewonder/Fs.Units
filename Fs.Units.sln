@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{1995D6F3-A6E2-4A80-AC74-65ED82E7D935}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
+		paket.lock = paket.lock
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fs.Units", "Fs.Units\Fs.Units.fsproj", "{0BEF09E5-F0DB-4E5C-A2A7-5A0B4ABCD8E6}"

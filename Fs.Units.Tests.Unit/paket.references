@@ -3,4 +3,8 @@ Expecto.FsCheck
 FsCheck
 YoloDev.Expecto.TestSdk
 Microsoft.NET.Test.Sdk
-FSharp.Core
+
+group NetStandard2
+    FSharp.Core
+group NetStandard2_1
+    FSharp.Core

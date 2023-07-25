@@ -5,11 +5,11 @@ module FuelEconomy =
 
     /// Kilometer per liter
     [<Measure>]
-    type kml
+    type kml = km / L
 
     /// Mile per gallon
     [<Measure>]
-    type mpg
+    type mpg = mi / gal
 
     [<RequireQualifiedAccess>]
     module KilometerPerLiter =

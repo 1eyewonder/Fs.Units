@@ -23,12 +23,12 @@
     <Compile Include="Simple\Temperature.fs" />
     <Compile Include="Simple\Angle.fs" />
     <Compile Include="Simple\DataStorage.fs" />
-    <Compile Include="Simple\FuelEconomy.fs" />
     <Compile Include="Simple\Frequency.fs" />
     <Compile Include="Simple\Illuminance.fs" />
     <Compile Include="Simple\Current.fs" />
     <Compile Include="Compound\Area.fs" />
     <Compile Include="Compound\Volume.fs" />
+    <Compile Include="Compound\FuelEconomy.fs" />
     <Compile Include="Compound\Inertia.fs" />
     <Compile Include="Compound\Speed.fs" />
     <Compile Include="Compound\Force.fs" />

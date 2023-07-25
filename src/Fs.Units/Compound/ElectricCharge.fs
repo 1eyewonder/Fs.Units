@@ -3,7 +3,7 @@
 [<AutoOpen>]
 module ElectricCharge =
 
-    /// Coloumb
+    /// Coulomb
     [<Measure>]
     type C = A * s
 
@@ -16,7 +16,7 @@ module ElectricCharge =
     type As = C
 
     [<RequireQualifiedAccess>]
-    module Coloumb =
+    module Coulomb =
 
         let create (x: float) = x * 1.0<C>
 
@@ -31,7 +31,7 @@ module ElectricCharge =
     module AmpereHour =
         let create (x: float) = x * 1.0<Ah>
 
-        let toColoumbs (x: float<Ah>) =
+        let toCoulombs (x: float<Ah>) =
             let current = Ampere.create 1
             let time = Hour.create 1 |> Hour.toSeconds
             x * current * time / 1.0<Ah>
@@ -45,7 +45,7 @@ module ElectricCharge =
     module AmpereSecond =
 
         let create (x: float) = x * 1.0<As>
-        let toColoumbs (x: float<As>) = x * 1.0<C> / 1.0<As>
+        let toCoulombs (x: float<As>) = x * 1.0<C> / 1.0<As>
 
         let toAmpereHours (x: float<As>) =
             let current = Ampere.create 1

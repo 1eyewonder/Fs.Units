@@ -1424,16 +1424,16 @@ let electricChargeTests config =
     let coloumbConversionTests =
         [
             "From coloumb to ampere hours and back",
-            (fun x -> Coloumb.create x |> Coloumb.toAmpereHours |> AmpereHour.toColoumbs)
+            (fun x -> Coulomb.create x |> Coulomb.toAmpereHours |> AmpereHour.toCoulombs)
             "From coloumb to ampere seconds and back",
-            (fun x -> Coloumb.create x |> Coloumb.toAmpereSeconds |> AmpereSecond.toColoumbs)
+            (fun x -> Coulomb.create x |> Coulomb.toAmpereSeconds |> AmpereSecond.toCoulombs)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let ampereHourConversionTests =
         [
             "From ampere hour to coloumbs and back",
-            (fun x -> AmpereHour.create x |> AmpereHour.toColoumbs |> Coloumb.toAmpereHours)
+            (fun x -> AmpereHour.create x |> AmpereHour.toCoulombs |> Coulomb.toAmpereHours)
             "From ampere hour to ampere seconds and back",
             (fun x ->
                 AmpereHour.create x |> AmpereHour.toAmpereSeconds |> AmpereSecond.toAmpereHours)
@@ -1443,7 +1443,7 @@ let electricChargeTests config =
     let ampereSecondConversionTests =
         [
             "From ampere second to coloumbs and back",
-            (fun x -> AmpereSecond.create x |> AmpereSecond.toColoumbs |> Coloumb.toAmpereSeconds)
+            (fun x -> AmpereSecond.create x |> AmpereSecond.toCoulombs |> Coulomb.toAmpereSeconds)
             "From ampere second to ampere hours and back",
             (fun x ->
                 AmpereSecond.create x

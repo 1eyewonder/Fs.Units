@@ -14,59 +14,35 @@ open Fake.BuildServer
 let configuration = "Release"
 let solutionFile = "Fs.Units.sln"
 
-let rootDir =
-    __SOURCE_DIRECTORY__
-    </> ".."
+let rootDir = __SOURCE_DIRECTORY__ </> ".."
 
-let srcGlob =
-    rootDir
-    </> "src/**/*.??proj"
+let srcGlob = rootDir </> "src/**/*.??proj"
 
-let testsGlob =
-    rootDir
-    </> "tests/**/*.??proj"
+let testsGlob = rootDir </> "tests/**/*.??proj"
 
-let srcAndTest =
-    !!srcGlob
-    ++ testsGlob
+let srcAndTest = !!srcGlob ++ testsGlob
 
 let srcCodeGlob =
-    !!(rootDir
-       </> "src/**/*.fs")
-    ++ (rootDir
-        </> "src/**/*.fsx")
-    -- (rootDir
-        </> "src/**/obj/**/*.fs")
+    !!(rootDir </> "src/**/*.fs") ++ (rootDir </> "src/**/*.fsx")
+    -- (rootDir </> "src/**/obj/**/*.fs")
 
 let testsCodeGlob =
-    !!(rootDir
-       </> "tests/**/*.fs")
-    ++ (rootDir
-        </> "tests/**/*.fsx")
-    -- (rootDir
-        </> "tests/**/obj/**/*.fs")
+    !!(rootDir </> "tests/**/*.fs") ++ (rootDir </> "tests/**/*.fsx")
+    -- (rootDir </> "tests/**/obj/**/*.fs")
 
 let gitOwner = "demystifyfp"
 
-let distDir =
-    rootDir
-    @@ "bin"
+let distDir = rootDir @@ "bin"
 
-let distGlob =
-    distDir
-    @@ "*.nupkg"
+let distGlob = distDir @@ "*.nupkg"
 
 let githubToken = Environment.environVarOrNone "GITHUB_TOKEN"
 
 let nugetToken = Environment.environVarOrNone "NUGET_TOKEN"
 
 let failOnBadExitAndPrint (p: ProcessResult) =
-    if
-        p.ExitCode
-        <> 0
-    then
-        p.Errors
-        |> Seq.iter Trace.traceError
+    if p.ExitCode <> 0 then
+        p.Errors |> Seq.iter Trace.traceError
 
         failwithf "failed with exitcode %d" p.ExitCode
 
@@ -77,8 +53,7 @@ module dotnet =
     let run cmdParam args = DotNet.exec cmdParam "run" args
 
     let tool optionConfig command args =
-        DotNet.exec optionConfig (sprintf "%s" command) args
-        |> failOnBadExitAndPrint
+        DotNet.exec optionConfig (sprintf "%s" command) args |> failOnBadExitAndPrint
 
     let fantomas args = DotNet.exec id "fantomas" args
 
@@ -108,24 +83,19 @@ let clean _ =
     ++ "js-dist"
     |> Shell.cleanDirs
 
-    [ "paket-files/paket.restore.cached" ]
-    |> Seq.iter Shell.rm
+    [ "paket-files/paket.restore.cached" ] |> Seq.iter Shell.rm
 
 let build _ =
-    let setParams (defaults: DotNet.BuildOptions) = {
-        defaults with
+    let setParams (defaults: DotNet.BuildOptions) =
+        { defaults with
             NoRestore = true
             Configuration = DotNet.BuildConfiguration.fromString configuration
-    }
+        }
 
     DotNet.build setParams solutionFile
 
-
 let restore _ =
-    Fake.DotNet.Paket.restore (fun p -> {
-        p with
-            ToolType = ToolType.CreateLocalTool()
-    })
+    Fake.DotNet.Paket.restore (fun p -> { p with ToolType = ToolType.CreateLocalTool() })
 
     DotNet.restore id solutionFile
 
@@ -136,55 +106,41 @@ let dotnetTest ctx =
     DotNet.test
         (fun c ->
 
-            {
-                c with
-                    Configuration = DotNet.BuildConfiguration.Release
-                    Common =
-                        c.Common
-                        |> DotNet.Options.withAdditionalArgs args
+            { c with
+                Configuration = DotNet.BuildConfiguration.Release
+                Common = c.Common |> DotNet.Options.withAdditionalArgs args
             })
         solutionFile
-        
-let fableAwareTests = [
-    "./tests/FsToolkit.ErrorHandling.Tests"
-    "./tests/FsToolkit.ErrorHandling.AsyncSeq.Tests"
-]
 
+let fableAwareTests =
+    [
+        "./tests/FsToolkit.ErrorHandling.Tests"
+        "./tests/FsToolkit.ErrorHandling.AsyncSeq.Tests"
+    ]
 
 let femtoValidate _ =
     for testProject in fableAwareTests do
         let result =
-            CreateProcess.fromRawCommand "dotnet" [
-                "femto"
-                testProject
-                "--validate"
-            ]
+            CreateProcess.fromRawCommand "dotnet" [ "femto"; testProject; "--validate" ]
             |> Proc.run
 
-        if
-            result.ExitCode
-            <> 0
-        then
+        if result.ExitCode <> 0 then
             Fake.Testing.Common.FailedTestsException
                 "Femto failed; perhaps you need to update the package.json?"
             |> raise
 
-
-let release =
-    ReleaseNotes.load (
-        rootDir
-        </> "RELEASE_NOTES.md"
-    )
+let release = ReleaseNotes.load (rootDir </> "RELEASE_NOTES.md")
 
 let generateAssemblyInfo _ =
-    let getAssemblyInfoAttributes projectName = [
-        AssemblyInfo.Title(projectName)
-        AssemblyInfo.Product project
-        AssemblyInfo.Description summary
-        AssemblyInfo.Version release.AssemblyVersion
-        AssemblyInfo.FileVersion release.AssemblyVersion
-        AssemblyInfo.Configuration configuration
-    ]
+    let getAssemblyInfoAttributes projectName =
+        [
+            AssemblyInfo.Title(projectName)
+            AssemblyInfo.Product project
+            AssemblyInfo.Description summary
+            AssemblyInfo.Version release.AssemblyVersion
+            AssemblyInfo.FileVersion release.AssemblyVersion
+            AssemblyInfo.Configuration configuration
+        ]
 
     let getProjectDetails (projectPath: string) =
         let projectName = Path.GetFileNameWithoutExtension(projectPath)
@@ -197,38 +153,33 @@ let generateAssemblyInfo _ =
     srcAndTest
     |> Seq.map getProjectDetails
     |> Seq.iter (fun (_, _, folderName, attributes) ->
-        AssemblyInfoFile.createFSharp
-            (folderName
-             </> "AssemblyInfo.fs")
-            attributes
-    )
-
+        AssemblyInfoFile.createFSharp (folderName </> "AssemblyInfo.fs") attributes)
 
 let releaseNotes = String.toLines release.Notes
 
 let nuget _ =
     [ solutionFile ]
     |> Seq.iter (
-        DotNet.pack (fun p -> {
-            p with
+        DotNet.pack (fun p ->
+            { p with
                 // ./bin from the solution root matching the "PublishNuget" target WorkingDir
                 OutputPath = Some distDir
                 Configuration = DotNet.BuildConfiguration.Release
-                MSBuildParams = {
-                    MSBuild.CliArguments.Create() with
+                MSBuildParams =
+                    { MSBuild.CliArguments.Create() with
                         // "/p" (property) arguments to MSBuild.exe
-                        Properties = [
-                            ("Version", release.NugetVersion)
-                            ("PackageReleaseNotes", releaseNotes)
-                        ]
-                }
-        })
+                        Properties =
+                            [
+                                ("Version", release.NugetVersion)
+                                ("PackageReleaseNotes", releaseNotes)
+                            ]
+                    }
+            })
     )
 
-
 let publishNuget _ =
-    Paket.push (fun p -> {
-        p with
+    Paket.push (fun p ->
+        { p with
             ToolType = ToolType.CreateLocalTool()
             PublishUrl = "https://www.nuget.org"
             WorkingDir = distDir
@@ -236,8 +187,7 @@ let publishNuget _ =
                 match nugetToken with
                 | Some s -> s
                 | _ -> p.ApiKey // assume paket-config was set properly
-    })
-
+        })
 
 let remote = Environment.environVarOrDefault "FSTK_GIT_REMOTE" "origin"
 
@@ -249,7 +199,6 @@ let gitRelease _ =
 
     Git.Branches.tag "" release.NugetVersion
     Git.Branches.pushTag "" remote release.NugetVersion
-
 
 let githubRelease _ =
     let token =
@@ -266,23 +215,18 @@ let githubRelease _ =
         gitOwner
         project
         release.NugetVersion
-        (release.SemVer.PreRelease
-         <> None)
-        (releaseNotes
-         |> Seq.singleton)
+        (release.SemVer.PreRelease <> None)
+        (releaseNotes |> Seq.singleton)
     |> GitHub.uploadFiles files
     |> GitHub.publishDraft
     |> Async.RunSynchronously
 
-
 let initTargets () =
-
 
     BuildServer.install [ GitHubActions.Installer ]
 
     Option.iter (TraceSecrets.register "<GITHUB_TOKEN>") githubToken
     Option.iter (TraceSecrets.register "<NUGET_TOKEN>") nugetToken
-
 
     Target.create "Clean" clean
     Target.create "Build" build
@@ -297,13 +241,10 @@ let initTargets () =
     Target.create "GitHubRelease" githubRelease
     Target.create "Release" ignore
 
-    Target.create
-        "UpdateDocs"
-        (fun _ ->
-            Git.Staging.stageAll ""
-            Git.Commit.exec "" "update docs"
-            Git.Branches.push ""
-        )
+    Target.create "UpdateDocs" (fun _ ->
+        Git.Staging.stageAll ""
+        Git.Commit.exec "" "update docs"
+        Git.Branches.push "")
 
     // *** Define Dependencies ***
     "Clean"
@@ -332,8 +273,7 @@ let main argv =
     |> Context.RuntimeContext.Fake
     |> Context.setExecutionContext
 
-    initTargets ()
-    |> ignore
+    initTargets () |> ignore
 
     Target.runOrDefaultWithArguments "NuGet"
 

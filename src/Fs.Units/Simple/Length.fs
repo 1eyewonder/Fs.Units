@@ -26,6 +26,10 @@ module Length =
     /// Centimeter
     [<Measure>]
     type cm
+    
+    /// Decimeter
+    [<Measure>]
+    type dm
 
     /// Meter
     [<Measure>]
@@ -68,6 +72,7 @@ module Length =
         let toMiles (x: float<inch>) = x / 63360.0<inch> * 1.0<mi>
         let toMillimeters (x: float<inch>) = x * 25.4<mm> / 1.0<inch>
         let toCentimeters (x: float<inch>) = x * 2.54<cm> / 1.0<inch>
+        let toDecimeters (x: float<inch>) = x * 0.254<dm> / 1.0<inch>
         let toMeters (x: float<inch>) = x * 0.0254<m> / 1.0<inch>
         let toKilometers (x: float<inch>) = x * 0.0000254<km> / 1.0<inch>
         let toNauticalMiles (x: float<inch>) = x * 0.0000137<nmi> / 1.0<inch>
@@ -86,6 +91,7 @@ module Length =
         let toMiles (x: float<ft>) = x / 5280.0<ft> * 1.0<mi>
         let toMillimeters (x: float<ft>) = x * 304.8<mm> / 1.0<ft>
         let toCentimeters (x: float<ft>) = x * 30.48<cm> / 1.0<ft>
+        let toDecimeters (x: float<ft>) = x * 3.048<dm> / 1.0<ft>
         let toMeters (x: float<ft>) = x * 0.3048<m> / 1.0<ft>
         let toKilometers (x: float<ft>) = x * 0.0003048<km> / 1.0<ft>
         let toNauticalMiles (x: float<ft>) = x * 0.000164579<nmi> / 1.0<ft>
@@ -104,6 +110,7 @@ module Length =
         let toMiles (x: float<yd>) = x / 1760.0<yd> * 1.0<mi>
         let toMillimeters (x: float<yd>) = x * 914.4<mm> / 1.0<yd>
         let toCentimeters (x: float<yd>) = x * 91.44<cm> / 1.0<yd>
+        let toDecimeters (x: float<yd>) = x * 9.144<dm> / 1.0<yd>
         let toMeters (x: float<yd>) = x * 0.9144<m> / 1.0<yd>
         let toKilometers (x: float<yd>) = x * 0.0009144<km> / 1.0<yd>
         let toNauticalMiles (x: float<yd>) = x / 2025.37<yd> * 1.0<nmi>
@@ -122,6 +129,7 @@ module Length =
         let toYards (x: float<mi>) = x * 1760.0<yd> / 1.0<mi>
         let toMillimeters (x: float<mi>) = x * 1609344.0<mm> / 1.0<mi>
         let toCentimeters (x: float<mi>) = x * 160934.4<cm> / 1.0<mi>
+        let toDecimeters (x: float<mi>) = x * 16093.44<dm> / 1.0<mi>
         let toMeters (x: float<mi>) = x * 1609.344<m> / 1.0<mi>
         let toKilometers (x: float<mi>) = x * 1.609344<km> / 1.0<mi>
         let toNauticalMiles (x: float<mi>) = x / 1.15078<mi> * 1.0<nmi>
@@ -140,6 +148,7 @@ module Length =
         let toYards (x: float<mm>) = x / 914.4<mm> * 1.0<yd>
         let toMiles (x: float<mm>) = x / 1609344.0<mm> * 1.0<mi>
         let toCentimeters (x: float<mm>) = x / 10.0<mm> * 1.0<cm>
+        let toDecimeters (x: float<mm>) = x / 100.0<mm> * 1.0<dm>
         let toMeters (x: float<mm>) = x / 1000.0<mm> * 1.0<m>
         let toKilometers (x: float<mm>) = x / 1000000.0<mm> * 1.0<km>
         let toNauticalMiles (x: float<mm>) = x / 1852000.0<mm> * 1.0<nmi>
@@ -158,6 +167,7 @@ module Length =
         let toYards (x: float<cm>) = x / 91.44<cm> * 1.0<yd>
         let toMiles (x: float<cm>) = x / 160934.4<cm> * 1.0<mi>
         let toMillimeters (x: float<cm>) = x / 0.1<cm> * 1.0<mm>
+        let toDecimeters (x: float<cm>) = x / 10.0<cm> * 1.0<dm>
         let toMeters (x: float<cm>) = x / 100.0<cm> * 1.0<m>
         let toKilometers (x: float<cm>) = x / 100000.0<cm> * 1.0<km>
         let toNauticalMiles (x: float<cm>) = x / 185200.0<cm> * 1.0<nmi>
@@ -166,17 +176,37 @@ module Length =
         let toLeagues (x: float<cm>) = x / 482803.2<cm> * 1.0<league>
         let toHands (x: float<cm>) = x / 10.16<cm> * 1.0<hand>
         let toRods (x: float<cm>) = x / 502.92<cm> * 1.0<rd>
+        
+    [<RequireQualifiedAccess>]
+    module Decimeter =
+        
+        let create (x: float) = x * 1.0<dm>
+        let toInches (x: float<dm>) = x / 0.254<dm> * 1.0<inch>
+        let toFeet (x: float<dm>) = x / 3.048<dm> * 1.0<ft>
+        let toYards (x: float<dm>) = x / 9.144<dm> * 1.0<yd>
+        let toMiles (x: float<dm>) = x / 16093.44<dm> * 1.0<mi>
+        let toMillimeters (x: float<dm>) = x / 0.01<dm> * 1.0<mm>
+        let toCentimeters (x: float<dm>) = x / 0.1<dm> * 1.0<cm>
+        let toMeters (x: float<dm>) = x / 10.0<dm> * 1.0<m>
+        let toKilometers (x: float<dm>) = x / 10000.0<dm> * 1.0<km>
+        let toNauticalMiles (x: float<dm>) = x / 18520.0<dm> * 1.0<nmi>
+        let toChains (x: float<dm>) = x / 20.1168<dm> * 1.0<chain>
+        let toFurlongs (x: float<dm>) = x / 2011.68<dm> * 1.0<fur>
+        let toLeagues (x: float<dm>) = x / 48280.32<dm> * 1.0<league>
+        let toHands (x: float<dm>) = x / 1.016<dm> * 1.0<hand>
+        let toRods (x: float<dm>) = x / 50.292<dm> * 1.0<rd>
 
     [<RequireQualifiedAccess>]
     module Meter =
 
         let create (x: float) = x * 1.0<m>
         let toInches (x: float<m>) = x / 0.0254<m> * 1.0<inch>
-        let toCentimeters (x: float<m>) = x * 100.0<cm> / 1.0<m>
         let toFeet (x: float<m>) = x / 0.3048<m> * 1.0<ft>
         let toYards (x: float<m>) = x / 0.9144<m> * 1.0<yd>
         let toMiles (x: float<m>) = x / 1609.344<m> * 1.0<mi>
         let toMillimeters (x: float<m>) = x * 1000.0<mm> / 1.0<m>
+        let toCentimeters (x: float<m>) = x * 100.0<cm> / 1.0<m>
+        let toDecimeters (x: float<m>) = x * 10.0<dm> / 1.0<m>       
         let toKilometers (x: float<m>) = x / 1000.0<m> * 1.0<km>
         let toNauticalMiles (x: float<m>) = x / 1852.0<m> * 1.0<nmi>
         let toChains (x: float<m>) = x / 20.1168<m> * 1.0<chain>
@@ -191,6 +221,7 @@ module Length =
         let create (x: float) = x * 1.0<km>
         let toInches (x: float<km>) = x / 0.0000254<km> * 1.0<inch>
         let toCentimeters (x: float<km>) = x * 100000.0<cm> / 1.0<km>
+        let toDecimeters (x: float<km>) = x * 10000.0<dm> / 1.0<km>
         let toFeet (x: float<km>) = x / 0.0003048<km> * 1.0<ft>
         let toYards (x: float<km>) = x / 0.0009144<km> * 1.0<yd>
         let toMiles (x: float<km>) = x / 1.609344<km> * 1.0<mi>
@@ -209,6 +240,7 @@ module Length =
         let create (x: float) = x * 1.0<nmi>
         let toInches (x: float<nmi>) = x / 0.0000137<nmi> * 1.0<inch>
         let toCentimeters (x: float<nmi>) = x * 185200.0<cm> / 1.0<nmi>
+        let toDecimeters (x: float<nmi>) = x * 18520.0<dm> / 1.0<nmi>
         let toFeet (x: float<nmi>) = x / 0.000164579<nmi> * 1.0<ft>
         let toYards (x: float<nmi>) = x * 2025.37<yd> / 1.0<nmi>
         let toMiles (x: float<nmi>) = x * 1.15078<mi> / 1.0<nmi>
@@ -231,6 +263,7 @@ module Length =
         let toMiles (x: float<chain>) = x / 80.0<chain> * 1.0<mi>
         let toMillimeters (x: float<chain>) = x * 20116.8<mm> / 1.0<chain>
         let toCentimeters (x: float<chain>) = x * 201.168<cm> / 1.0<chain>
+        let toDecimeters (x: float<chain>) = x * 20.1168<dm> / 1.0<chain>
         let toMeters (x: float<chain>) = x * 20.1168<m> / 1.0<chain>
         let toKilometers (x: float<chain>) = x * 0.0201168<km> / 1.0<chain>
         let toNauticalMiles (x: float<chain>) = x * 0.0000373265<nmi> / 1.0<chain>
@@ -249,6 +282,7 @@ module Length =
         let toMiles (x: float<fur>) = x / 8.0<fur> * 1.0<mi>
         let toMillimeters (x: float<fur>) = x * 201168.0<mm> / 1.0<fur>
         let toCentimeters (x: float<fur>) = x * 20116.8<cm> / 1.0<fur>
+        let toDecimeters (x: float<fur>) = x * 2011.68<dm> / 1.0<fur>
         let toMeters (x: float<fur>) = x * 201.168<m> / 1.0<fur>
         let toKilometers (x: float<fur>) = x * 0.201168<km> / 1.0<fur>
         let toNauticalMiles (x: float<fur>) = x * 0.000373266<nmi> / 1.0<fur>
@@ -267,6 +301,7 @@ module Length =
         let toMiles (x: float<league>) = x * 3.0<mi> / 1.0<league>
         let toMillimeters (x: float<league>) = x * 4.828e+6<mm> / 1.0<league>
         let toCentimeters (x: float<league>) = x * 482803.2<cm> / 1.0<league>
+        let toDecimeters (x: float<league>) = x * 48280.32<dm> / 1.0<league>
         let toMeters (x: float<league>) = x * 4828.032<m> / 1.0<league>
         let toKilometers (x: float<league>) = x * 4.828032<km> / 1.0<league>
         let toNauticalMiles (x: float<league>) = x * 0.000889984<nmi> / 1.0<league>
@@ -285,6 +320,7 @@ module Length =
         let toMiles (x: float<hand>) = x * 6.31313e-5<mi> / 1.0<hand>
         let toMillimeters (x: float<hand>) = x * 101.6<mm> / 1.0<hand>
         let toCentimeters (x: float<hand>) = x * 10.16<cm> / 1.0<hand>
+        let toDecimeters (x: float<hand>) = x * 1.016<dm> / 1.0<hand>
         let toMeters (x: float<hand>) = x * 0.1016<m> / 1.0<hand>
         let toKilometers (x: float<hand>) = x * 0.0001016<km> / 1.0<hand>
         let toNauticalMiles (x: float<hand>) = x * 0.0000546807<nmi> / 1.0<hand>
@@ -303,6 +339,7 @@ module Length =
         let toMiles (x: float<rd>) = x * 0.003125<mi> / 1.0<rd>
         let toMillimeters (x: float<rd>) = x * 5029.2<mm> / 1.0<rd>
         let toCentimeters (x: float<rd>) = x * 502.92<cm> / 1.0<rd>
+        let toDecimeters (x: float<rd>) = x * 50.292<dm> / 1.0<rd>
         let toMeters (x: float<rd>) = x * 5.0292<m> / 1.0<rd>
         let toKilometers (x: float<rd>) = x * 0.0050292<km> / 1.0<rd>
         let toNauticalMiles (x: float<rd>) = x * 1.0<nmi> / 368.249<rd>

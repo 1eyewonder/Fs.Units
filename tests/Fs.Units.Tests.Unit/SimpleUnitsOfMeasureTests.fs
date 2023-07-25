@@ -14,6 +14,8 @@ let lengthTests config =
             (fun x -> Inch.create x |> Inch.toMillimeters |> Millimeter.toInches)
             "From inch to centimeter and back",
             (fun x -> Inch.create x |> Inch.toCentimeters |> Centimeter.toInches)
+            "From inch to decimeter and back",
+            (fun x -> Inch.create x |> Inch.toDecimeters |> Decimeter.toInches)
             "From inch to meter and back",
             (fun x -> Inch.create x |> Inch.toMeters |> Meter.toInches)
             "From inch to kilometer and back",
@@ -40,6 +42,8 @@ let lengthTests config =
             (fun x -> Foot.create x |> Foot.toMillimeters |> Millimeter.toFeet)
             "From foot to centimeter and back",
             (fun x -> Foot.create x |> Foot.toCentimeters |> Centimeter.toFeet)
+            "From foot to decimeter and back",
+            (fun x -> Foot.create x |> Foot.toDecimeters |> Decimeter.toFeet)
             "From foot to meter and back", (fun x -> Foot.create x |> Foot.toMeters |> Meter.toFeet)
             "From foot to kilometer and back",
             (fun x -> Foot.create x |> Foot.toKilometers |> Kilometer.toFeet)
@@ -65,6 +69,8 @@ let lengthTests config =
             (fun x -> Yard.create x |> Yard.toMillimeters |> Millimeter.toYards)
             "From yard to centimeter and back",
             (fun x -> Yard.create x |> Yard.toCentimeters |> Centimeter.toYards)
+            "From yard to decimeter and back",
+            (fun x -> Yard.create x |> Yard.toDecimeters |> Decimeter.toYards)
             "From yard to meter and back",
             (fun x -> Yard.create x |> Yard.toMeters |> Meter.toYards)
             "From yard to kilometer and back",
@@ -92,6 +98,8 @@ let lengthTests config =
             (fun x -> Mile.create x |> Mile.toMillimeters |> Millimeter.toMiles)
             "From mile to centimeter and back",
             (fun x -> Mile.create x |> Mile.toCentimeters |> Centimeter.toMiles)
+            "From mile to decimeter and back",
+            (fun x -> Mile.create x |> Mile.toDecimeters |> Decimeter.toMiles)
             "From mile to meter and back",
             (fun x -> Mile.create x |> Mile.toMeters |> Meter.toMiles)
             "From mile to kilometer and back",
@@ -121,6 +129,8 @@ let lengthTests config =
             (fun x -> Millimeter.create x |> Millimeter.toMiles |> Mile.toMillimeters)
             "From millimeter to centimeter and back",
             (fun x -> Millimeter.create x |> Millimeter.toCentimeters |> Centimeter.toMillimeters)
+            "From millimeter to decimeter and back",
+            (fun x -> Millimeter.create x |> Millimeter.toDecimeters |> Decimeter.toMillimeters)
             "From millimeter to meter and back",
             (fun x -> Millimeter.create x |> Millimeter.toMeters |> Meter.toMillimeters)
             "From millimeter to kilometer and back",
@@ -153,6 +163,8 @@ let lengthTests config =
             (fun x -> Centimeter.create x |> Centimeter.toMiles |> Mile.toCentimeters)
             "From centimeter to millimeter and back",
             (fun x -> Centimeter.create x |> Centimeter.toMillimeters |> Millimeter.toCentimeters)
+            "From centimeter to decimeter and back",
+            (fun x -> Centimeter.create x |> Centimeter.toDecimeters |> Decimeter.toCentimeters)
             "From centimeter to meter and back",
             (fun x -> Centimeter.create x |> Centimeter.toMeters |> Meter.toCentimeters)
             "From centimeter to kilometer and back",
@@ -172,7 +184,41 @@ let lengthTests config =
             (fun x -> Centimeter.create x |> Centimeter.toRods |> Rod.toCentimeters)
         ]
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
-
+        
+    let decimeterConversionTests =
+        [
+            "From decimeter to inches and back",
+            (fun x -> Decimeter.create x |> Decimeter.toInches |> Inch.toDecimeters)
+            "From decimeter to foot and back",
+            (fun x -> Decimeter.create x |> Decimeter.toFeet |> Foot.toDecimeters)
+            "From decimeter to yard and back",
+            (fun x -> Decimeter.create x |> Decimeter.toYards |> Yard.toDecimeters)
+            "From decimeter to mile and back",
+            (fun x -> Decimeter.create x |> Decimeter.toMiles |> Mile.toDecimeters)
+            "From decimeter to millimeter and back",
+            (fun x -> Decimeter.create x |> Decimeter.toMillimeters |> Millimeter.toDecimeters)
+            "From decimeter to centimeter and back",
+            (fun x -> Decimeter.create x |> Decimeter.toCentimeters |> Centimeter.toDecimeters)
+            "From decimeter to meter and back",
+            (fun x -> Decimeter.create x |> Decimeter.toMeters |> Meter.toDecimeters)
+            "From decimeter to kilometer and back",
+            (fun x -> Decimeter.create x |> Decimeter.toKilometers |> Kilometer.toDecimeters)
+            "From decimeter to nautical mile and back",
+            (fun x ->
+                Decimeter.create x |> Decimeter.toNauticalMiles |> NauticalMile.toDecimeters)
+            "From decimeter to chain and back",
+            (fun x -> Decimeter.create x |> Decimeter.toChains |> Chain.toDecimeters)
+            "From decimeter to furlong and back",
+            (fun x -> Decimeter.create x |> Decimeter.toFurlongs |> Furlong.toDecimeters)
+            "From decimeter to league and back",
+            (fun x -> Decimeter.create x |> Decimeter.toLeagues |> League.toDecimeters)
+            "From decimeter to hand and back",
+            (fun x -> Decimeter.create x |> Decimeter.toHands |> Hand.toDecimeters)
+            "From decimeter to rod and back",
+            (fun x -> Decimeter.create x |> Decimeter.toRods |> Rod.toDecimeters)
+        ]
+        |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
+        
     let meterConversionTests =
         [
             "From meter to inches and back",
@@ -423,6 +469,7 @@ let lengthTests config =
             testList "Convert mile to other and back -> " mileConversionTests
             testList "Convert millimeter to other and back -> " millimeterConversionTests
             testList "Convert centimeter to other and back -> " centimeterConversionTests
+            testList "Convert decimeter to other and back -> " decimeterConversionTests
             testList "Convert meter to other and back -> " meterConversionTests
             testList "Convert kilometer to other and back -> " kilometerConversionTests
             testList "Convert nautical mile to other and back -> " nauticalMileConversionTests

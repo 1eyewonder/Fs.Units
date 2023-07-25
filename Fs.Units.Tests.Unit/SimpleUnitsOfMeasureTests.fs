@@ -4,7 +4,6 @@ open Expecto
 open Fs.Units
 open Helpers
 
-[<Tests>]
 let lengthTests config =
     let inchConversionTests =
         [ "From inch to feet and back", (fun x -> Inch.create x |> Inch.toFeet |> Foot.toInches)
@@ -300,7 +299,7 @@ let lengthTests config =
           testList "Convert hand to other and back -> " handConversionTests
           testList "Convert rod to other and back -> " rodConversionTests ]
 
-[<Tests>]
+
 let timeTests config =
 
     let nanoSecondConversionTests =
@@ -647,7 +646,7 @@ let timeTests config =
           testList "Millennium conversion tests -> " millenniumConversionTests
           testList "Eon conversion tests -> " eonConversionTests ]
 
-[<Tests>]
+
 let massTests config =
 
     let milligramConversionTests =
@@ -687,7 +686,7 @@ let massTests config =
           testList "Kilogram conversion tests -> " kilogramConversionTests
           testList "Pound conversion tests -> " poundConversionTests ]
 
-[<Tests>]
+
 let temperatureTests config =
 
     let kelvinConversionTests =
@@ -726,7 +725,7 @@ let temperatureTests config =
           testList "Fahrenheit conversion tests -> " fahrenheitConversionTests
           testList "Rankine conversion tests -> " rankineConversionTests ]
 
-[<Tests>]
+
 let angleTests config =
 
     let degreeConversionTests =
@@ -810,7 +809,7 @@ let angleTests config =
           testList "ArcMinute conversion tests -> " arcMinuteConversionTests
           testList "ArcSecond conversion tests -> " arcSecondConversionTests ]
 
-[<Tests>]
+
 let dataStorageTests config =
 
     let bitConversionTests =
@@ -1041,7 +1040,7 @@ let dataStorageTests config =
           testList "Terabyte conversion tests -> " terabyteConversionTests
           testList "Petabyte conversion tests -> " petabyteConversionTests ]
 
-[<Tests>]
+
 let fuelEconomyTests config =
 
     let kilometerPerLiterConversionTests =
@@ -1065,7 +1064,7 @@ let fuelEconomyTests config =
         [ testList "Kilometer per liter tests -> " kilometerPerLiterConversionTests
           testList "Mile per gallon tests -> " milePerGallonConversionTests ]
 
-[<Tests>]
+
 let frequencyTests config =
 
     let hertzConversionTest =
@@ -1105,7 +1104,7 @@ let frequencyTests config =
           testList "Megahertz conversion tests -> " megahertzConversionTest
           testList "Gigahertz conversion tests -> " gigahertzConversionTest ]
 
-[<Tests>]
+
 let illuminanceTests config =
 
     let footcandleConversionTests =
@@ -1139,7 +1138,7 @@ let illuminanceTests config =
           testList "Phot conversion tests -> " photConversionTests
           testList "Nox conversion tests -> " noxConversionTests ]
 
-[<Tests>]
+
 let currentTests config =
 
     let ampereConversionTests =

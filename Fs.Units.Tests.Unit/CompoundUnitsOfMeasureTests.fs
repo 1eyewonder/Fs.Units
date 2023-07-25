@@ -4,7 +4,6 @@ open Expecto
 open Fs.Units
 open Helpers
 
-[<Tests>]
 let areaTests config =
 
     let squareInchConversionTests =
@@ -68,7 +67,7 @@ let areaTests config =
           testList "Square centimeter conversion tests -> " squareCentimeterConversionTests
           testList "Square meter conversion tests -> " squareMeterConversionTests ]
 
-[<Tests>]
+
 let volumeTests config =
 
     let cubicInchConversionTests =
@@ -132,7 +131,7 @@ let volumeTests config =
           testList "Cubic centimeter conversion tests -> " cubicCentimeterConversionTests
           testList "Cubic meter conversion tests -> " cubicMeterConversionTests ]
 
-[<Tests>]
+
 let inertiaTests config =
 
     let quarticInchConversionTests =
@@ -156,7 +155,7 @@ let inertiaTests config =
         [ testList "Quartic inch conversion tests -> " quarticInchConversionTests
           testList "Quartic centimeter conversion tests -> " quarticCentimeterConversionTests ]
 
-[<Tests>]
+
 
 let speedTests config =
 
@@ -239,7 +238,7 @@ let speedTests config =
           testList "Kilometers per hour tests -> " kilometersPerHourTests
           testList "Miles per hour tests -> " milesPerHourTests ]
 
-[<Tests>]
+
 let forceTests config =
 
     let newtonConversionTests =
@@ -276,7 +275,7 @@ let forceTests config =
           testList "Dyne conversion tests -> " dyneConversionTests
           testList "Kip conversion tests -> " kipConversionTests ]
 
-[<Tests>]
+
 let dataTransferRateTests config =
 
     let baudPerSecondConversionTests =
@@ -970,7 +969,7 @@ let dataTransferRateTests config =
           testList "Terabyte per second conversion tests -> " terabytePerSecondConversionTests
           testList "Petabyte per second conversion tests -> " petabytePerSecondConversionTests ]
 
-[<Tests>]
+
 let densityTests config =
 
     let kilogramPerCubicMeterConversionTests =
@@ -1052,7 +1051,7 @@ let densityTests config =
           testList "Pound mass per cubic foot conversion tests -> " poundMassPerCubicFootConversionTests
           testList "Pound mass per cubic inch conversion tests -> " poundMassPerCubicInchConversionTests ]
 
-[<Tests>]
+
 let pressureTests config =
 
     let pascalConversionTests =
@@ -1073,7 +1072,7 @@ let pressureTests config =
         [ testList "Pascal conversion tests -> " pascalConversionTests
           testList "Pound per square inch conversion tests -> " poundPerSquareInchConversionTests ]
 
-[<Tests>]
+
 let powerTests config =
 
     let wattConversionTests =
@@ -1129,7 +1128,7 @@ let powerTests config =
           testList "Horsepower conversion tests -> " horsepowerConversionTests
           testList "Ton of refrigeration conversion tests -> " tonOfRefrigerationConversionTests ]
 
-[<Tests>]
+
 let energyTests config =
 
     let jouleConversionTests =
@@ -1222,7 +1221,7 @@ let energyTests config =
           testList "Quad conversion tests -> " quadConversionTests
           testList "Q conversion tests -> " qConversionTests ]
 
-[<Tests>]
+
 let electricChargeTests config =
 
     let coloumbConversionTests =
@@ -1255,7 +1254,7 @@ let electricChargeTests config =
           testList "Ampere hour conversion tests -> " ampereHourConversionTests
           testList "Ampere second conversion tests -> " ampereSecondConversionTests ]
 
-[<Tests>]
+
 let electromotiveForceTests config =
 
     let microvoltConversionTests =
@@ -1313,7 +1312,7 @@ let electromotiveForceTests config =
           testList "Kilovolt conversion tests -> " kilovoltConversionTests
           testList "Megavolt conversion tests -> " megavoltConversionTests ]
 
-[<Tests>]
+
 let inductanceTests config =
 
     let microHenryConversionTest =

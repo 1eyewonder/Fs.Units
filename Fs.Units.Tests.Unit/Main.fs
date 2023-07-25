@@ -4,6 +4,8 @@ open Expecto
 
 [<Tests>]
 let tests =
+    let config = FsCheckConfig.defaultConfig
+
     [ SimpleUnitOfMeasureTests.lengthTests
       SimpleUnitOfMeasureTests.timeTests
       SimpleUnitOfMeasureTests.massTests
@@ -27,12 +29,9 @@ let tests =
       CompoundUnitOfMeasureTests.electricChargeTests
       CompoundUnitOfMeasureTests.electromotiveForceTests
       CompoundUnitOfMeasureTests.inductanceTests ]
+    |> List.map (fun x -> x config)
+    |> testList "Fs.Unit"
 
 [<EntryPoint>]
 let main _ =
-    let config = FsCheckConfig.defaultConfig
-
-    tests
-    |> List.map (fun x -> x config)
-    |> testList "Fs.Unit"
-    |> runTestsWithCLIArgs [] [||]
+    runTestsWithCLIArgs [] Array.empty tests

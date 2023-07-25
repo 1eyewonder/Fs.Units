@@ -8,6 +8,7 @@ public static class InchExtensions
     public static double InchToMiles(this double x) => Units.Length.Inch.toMiles(x);
     public static double InchToMillimeters(this double x) => Units.Length.Inch.toMillimeters(x);
     public static double InchToCentimeters(this double x) => Units.Length.Inch.toCentimeters(x);
+    public static double InchToDecimeters(this double x) => Units.Length.Inch.toDecimeters(x);
     public static double InchToMeters(this double x) => Units.Length.Inch.toMeters(x);
     public static double InchToKilometers(this double x) => Units.Length.Inch.toKilometers(x);
     public static double InchToNauticalMiles(this double x) => Units.Length.Inch.toNauticalMiles(x);
@@ -25,6 +26,7 @@ public static class FootExtensions
     public static double FootToMiles(this double x) => Units.Length.Foot.toMiles(x);
     public static double FootToMillimeters(this double x) => Units.Length.Foot.toMillimeters(x);
     public static double FootToCentimeters(this double x) => Units.Length.Foot.toCentimeters(x);
+    public static double FootToDecimeters(this double x) => Units.Length.Foot.toDecimeters(x);
     public static double FootToMeters(this double x) => Units.Length.Foot.toMeters(x);
     public static double FootToKilometers(this double x) => Units.Length.Foot.toKilometers(x);
     public static double FootToNauticalMiles(this double x) => Units.Length.Foot.toNauticalMiles(x);
@@ -42,6 +44,7 @@ public static class YardExtensions
     public static double YardToMiles(this double x) => Units.Length.Yard.toMiles(x);
     public static double YardToMillimeters(this double x) => Units.Length.Yard.toMillimeters(x);
     public static double YardToCentimeters(this double x) => Units.Length.Yard.toCentimeters(x);
+    public static double YardToDecimeters(this double x) => Units.Length.Yard.toDecimeters(x);
     public static double YardToMeters(this double x) => Units.Length.Yard.toMeters(x);
     public static double YardToKilometers(this double x) => Units.Length.Yard.toKilometers(x);
     public static double YardToNauticalMiles(this double x) => Units.Length.Yard.toNauticalMiles(x);
@@ -59,6 +62,7 @@ public static class MileExtensions
     public static double MileToYards(this double x) => Units.Length.Mile.toYards(x);
     public static double MileToMillimeters(this double x) => Units.Length.Mile.toMillimeters(x);
     public static double MileToCentimeters(this double x) => Units.Length.Mile.toCentimeters(x);
+    public static double MileToDecimeters(this double x) => Units.Length.Mile.toDecimeters(x);
     public static double MileToMeters(this double x) => Units.Length.Mile.toMeters(x);
     public static double MileToKilometers(this double x) => Units.Length.Mile.toKilometers(x);
     public static double MileToNauticalMiles(this double x) => Units.Length.Mile.toNauticalMiles(x);
@@ -76,6 +80,7 @@ public static class MillimeterExtensions
     public static double MillimeterToYards(this double x) => Units.Length.Millimeter.toYards(x);
     public static double MillimeterToMiles(this double x) => Units.Length.Millimeter.toMiles(x);
     public static double MillimeterToCentimeters(this double x) => Units.Length.Millimeter.toCentimeters(x);
+    public static double MillimeterToDecimeters(this double x) => Units.Length.Millimeter.toDecimeters(x);
     public static double MillimeterToMeters(this double x) => Units.Length.Millimeter.toMeters(x);
     public static double MillimeterToKilometers(this double x) => Units.Length.Millimeter.toKilometers(x);
     public static double MillimeterToNauticalMiles(this double x) => Units.Length.Millimeter.toNauticalMiles(x);
@@ -93,6 +98,7 @@ public static class CentimeterExtensions
     public static double CentimeterToYards(this double x) => Units.Length.Centimeter.toYards(x);
     public static double CentimeterToMiles(this double x) => Units.Length.Centimeter.toMiles(x);
     public static double CentimeterToMillimeters(this double x) => Units.Length.Centimeter.toMillimeters(x);
+    public static double CentimeterToDecimeters(this double x) => Units.Length.Centimeter.toDecimeters(x);
     public static double CentimeterToMeters(this double x) => Units.Length.Centimeter.toMeters(x);
     public static double CentimeterToKilometers(this double x) => Units.Length.Centimeter.toKilometers(x);
     public static double CentimeterToNauticalMiles(this double x) => Units.Length.Centimeter.toNauticalMiles(x);
@@ -103,6 +109,24 @@ public static class CentimeterExtensions
     public static double CentimeterToRods(this double x) => Units.Length.Centimeter.toRods(x);
 }
 
+public static class DecimeterExtensions
+{
+    public static double DecimeterToInches(this double x) => Units.Length.Decimeter.toInches(x);
+    public static double DecimeterToFeet(this double x) => Units.Length.Decimeter.toFeet(x);
+    public static double DecimeterToYards(this double x) => Units.Length.Decimeter.toYards(x);
+    public static double DecimeterToMiles(this double x) => Units.Length.Decimeter.toMiles(x);
+    public static double DecimeterToMillimeters(this double x) => Units.Length.Decimeter.toMillimeters(x);
+    public static double DecimeterToCentimeters(this double x) => Units.Length.Decimeter.toCentimeters(x);
+    public static double DecimeterToMeters(this double x) => Units.Length.Decimeter.toMeters(x);
+    public static double DecimeterToKilometers(this double x) => Units.Length.Decimeter.toKilometers(x);
+    public static double DecimeterToNauticalMiles(this double x) => Units.Length.Decimeter.toNauticalMiles(x);
+    public static double DecimeterToChains(this double x) => Units.Length.Decimeter.toChains(x);
+    public static double DecimeterToFurlongs(this double x) => Units.Length.Decimeter.toFurlongs(x);
+    public static double DecimeterToLeagues(this double x) => Units.Length.Decimeter.toLeagues(x);
+    public static double DecimeterToHands(this double x) => Units.Length.Decimeter.toHands(x);
+    public static double DecimeterToRods(this double x) => Units.Length.Decimeter.toRods(x);
+}
+
 public static class MeterExtensions
 {
     public static double MeterToInches(this double x) => Units.Length.Meter.toInches(x);
@@ -111,6 +135,7 @@ public static class MeterExtensions
     public static double MeterToMiles(this double x) => Units.Length.Meter.toMiles(x);
     public static double MeterToMillimeters(this double x) => Units.Length.Meter.toMillimeters(x);
     public static double MeterToCentimeters(this double x) => Units.Length.Meter.toCentimeters(x);
+    public static double MeterToDecimeters(this double x) => Units.Length.Meter.toDecimeters(x);
     public static double MeterToKilometers(this double x) => Units.Length.Meter.toKilometers(x);
     public static double MeterToNauticalMiles(this double x) => Units.Length.Meter.toNauticalMiles(x);
     public static double MeterToChains(this double x) => Units.Length.Meter.toChains(x);
@@ -128,6 +153,7 @@ public static class KilometerExtensions
     public static double KilometerToMiles(this double x) => Units.Length.Kilometer.toMiles(x);
     public static double KilometerToMillimeters(this double x) => Units.Length.Kilometer.toMillimeters(x);
     public static double KilometerToCentimeters(this double x) => Units.Length.Kilometer.toCentimeters(x);
+    public static double KilometerToDecimeters(this double x) => Units.Length.Kilometer.toDecimeters(x);
     public static double KilometerToMeters(this double x) => Units.Length.Kilometer.toMeters(x);
     public static double KilometerToNauticalMiles(this double x) => Units.Length.Kilometer.toNauticalMiles(x);
     public static double KilometerToChains(this double x) => Units.Length.Kilometer.toChains(x);
@@ -145,6 +171,7 @@ public static class NauticalMileExtensions
     public static double NauticalMileToMiles(this double x) => Units.Length.NauticalMile.toMiles(x);
     public static double NauticalMileToMillimeters(this double x) => Units.Length.NauticalMile.toMillimeters(x);
     public static double NauticalMileToCentimeters(this double x) => Units.Length.NauticalMile.toCentimeters(x);
+    public static double NauticalMileToDecimeters(this double x) => Units.Length.NauticalMile.toDecimeters(x);
     public static double NauticalMileToMeters(this double x) => Units.Length.NauticalMile.toMeters(x);
     public static double NauticalMileToKilometers(this double x) => Units.Length.NauticalMile.toKilometers(x);
     public static double NauticalMileToChains(this double x) => Units.Length.NauticalMile.toChains(x);
@@ -162,6 +189,7 @@ public static class ChainExtensions
     public static double ChainToMiles(this double x) => Units.Length.Chain.toMiles(x);
     public static double ChainToMillimeters(this double x) => Units.Length.Chain.toMillimeters(x);
     public static double ChainToCentimeters(this double x) => Units.Length.Chain.toCentimeters(x);
+    public static double ChainToDecimeters(this double x) => Units.Length.Chain.toDecimeters(x);
     public static double ChainToMeters(this double x) => Units.Length.Chain.toMeters(x);
     public static double ChainToKilometers(this double x) => Units.Length.Chain.toKilometers(x);
     public static double ChainToNauticalMiles(this double x) => Units.Length.Chain.toNauticalMiles(x);
@@ -179,6 +207,7 @@ public static class FurlongExtensions
     public static double FurlongToMiles(this double x) => Units.Length.Furlong.toMiles(x);
     public static double FurlongToMillimeters(this double x) => Units.Length.Furlong.toMillimeters(x);
     public static double FurlongToCentimeters(this double x) => Units.Length.Furlong.toCentimeters(x);
+    public static double FurlongToDecimeters(this double x) => Units.Length.Furlong.toDecimeters(x);
     public static double FurlongToMeters(this double x) => Units.Length.Furlong.toMeters(x);
     public static double FurlongToKilometers(this double x) => Units.Length.Furlong.toKilometers(x);
     public static double FurlongToNauticalMiles(this double x) => Units.Length.Furlong.toNauticalMiles(x);
@@ -196,6 +225,7 @@ public static class LeagueExtensions
     public static double LeagueToMiles(this double x) => Units.Length.League.toMiles(x);
     public static double LeagueToMillimeters(this double x) => Units.Length.League.toMillimeters(x);
     public static double LeagueToCentimeters(this double x) => Units.Length.League.toCentimeters(x);
+    public static double LeagueToDecimeters(this double x) => Units.Length.League.toDecimeters(x);
     public static double LeagueToMeters(this double x) => Units.Length.League.toMeters(x);
     public static double LeagueToKilometers(this double x) => Units.Length.League.toKilometers(x);
     public static double LeagueToNauticalMiles(this double x) => Units.Length.League.toNauticalMiles(x);
@@ -213,6 +243,7 @@ public static class HandExtensions
     public static double HandToMiles(this double x) => Units.Length.Hand.toMiles(x);
     public static double HandToMillimeters(this double x) => Units.Length.Hand.toMillimeters(x);
     public static double HandToCentimeters(this double x) => Units.Length.Hand.toCentimeters(x);
+    public static double HandToDecimeters(this double x) => Units.Length.Hand.toDecimeters(x);
     public static double HandToMeters(this double x) => Units.Length.Hand.toMeters(x);
     public static double HandToKilometers(this double x) => Units.Length.Hand.toKilometers(x);
     public static double HandToNauticalMiles(this double x) => Units.Length.Hand.toNauticalMiles(x);

@@ -11,6 +11,8 @@ open System
 open System.IO
 open Fake.BuildServer
 
+let project = "Fs.Units"
+let summary = "A simple library for working with units of measure in .NET"
 let configuration = "Release"
 let solutionFile = "Fs.Units.sln"
 
@@ -30,7 +32,7 @@ let testsCodeGlob =
     !!(rootDir </> "tests/**/*.fs") ++ (rootDir </> "tests/**/*.fsx")
     -- (rootDir </> "tests/**/obj/**/*.fs")
 
-let gitOwner = "demystifyfp"
+let gitOwner = "1eyewonder"
 
 let distDir = rootDir @@ "bin"
 
@@ -79,8 +81,6 @@ let clean _ =
     ++ "tests/**/bin"
     ++ "src/**/obj"
     ++ "tests/**/obj"
-    ++ "dist"
-    ++ "js-dist"
     |> Shell.cleanDirs
 
     [ "paket-files/paket.restore.cached" ] |> Seq.iter Shell.rm
@@ -111,23 +111,6 @@ let dotnetTest ctx =
                 Common = c.Common |> DotNet.Options.withAdditionalArgs args
             })
         solutionFile
-
-let fableAwareTests =
-    [
-        "./tests/FsToolkit.ErrorHandling.Tests"
-        "./tests/FsToolkit.ErrorHandling.AsyncSeq.Tests"
-    ]
-
-let femtoValidate _ =
-    for testProject in fableAwareTests do
-        let result =
-            CreateProcess.fromRawCommand "dotnet" [ "femto"; testProject; "--validate" ]
-            |> Proc.run
-
-        if result.ExitCode <> 0 then
-            Fake.Testing.Common.FailedTestsException
-                "Femto failed; perhaps you need to update the package.json?"
-            |> raise
 
 let release = ReleaseNotes.load (rootDir </> "RELEASE_NOTES.md")
 
@@ -253,9 +236,7 @@ let initTargets () =
     ==> "NpmRestore"
     ==> "CheckFormatCode"
     ==> "Build"
-    ==> "FemtoValidate"
     ==> "RunTests"
-    ==> "RunFableTests"
     ==> "NuGet"
     ==> "PublishNuGet"
     ==> "GitRelease"

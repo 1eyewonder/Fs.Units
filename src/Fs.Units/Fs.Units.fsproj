@@ -42,6 +42,7 @@
     <Compile Include="Compound\Capacitance.fs" />
     <Compile Include="Compound\Inductance.fs" />
     <Content Include="paket.references" />
+    <Compile Include="Helpers.fs" />
   </ItemGroup>
 
   <ItemGroup>

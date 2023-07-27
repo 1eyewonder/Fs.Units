@@ -7,1710 +7,1197 @@ open Helpers
 let lengthTests config =
     let inchConversionTests =
         [
-            "From inch to feet and back", (fun x -> Inch.create x |> Inch.toFeet |> Foot.toInches)
-            "From inch to yard and back", (fun x -> Inch.create x |> Inch.toYards |> Yard.toInches)
-            "From inch to mile and back", (fun x -> Inch.create x |> Inch.toMiles |> Mile.toInches)
-            "From inch to millimeter and back",
-            (fun x -> Inch.create x |> Inch.toMillimeters |> Millimeter.toInches)
-            "From inch to centimeter and back",
-            (fun x -> Inch.create x |> Inch.toCentimeters |> Centimeter.toInches)
-            "From inch to decimeter and back",
-            (fun x -> Inch.create x |> Inch.toDecimeters |> Decimeter.toInches)
-            "From inch to meter and back",
-            (fun x -> Inch.create x |> Inch.toMeters |> Meter.toInches)
-            "From inch to kilometer and back",
-            (fun x -> Inch.create x |> Inch.toKilometers |> Kilometer.toInches)
-            "From inch to nautical mile and back",
-            (fun x -> Inch.create x |> Inch.toNauticalMiles |> NauticalMile.toInches)
-            "From inch to chain and back",
-            (fun x -> Inch.create x |> Inch.toChains |> Chain.toInches)
-            "From inch to furlong and back",
-            (fun x -> Inch.create x |> Inch.toFurlongs |> Furlong.toInches)
-            "From inch to league and back",
-            (fun x -> Inch.create x |> Inch.toLeagues |> League.toInches)
-            "From inch to hand and back", (fun x -> Inch.create x |> Inch.toHands |> Hand.toInches)
-            "From inch to rod and back", (fun x -> Inch.create x |> Inch.toRods |> Rod.toInches)
+            "To feet and back", (fun x -> x |> Inch.toFeet |> Foot.toInches)
+            "To yard and back", (fun x -> x |> Inch.toYards |> Yard.toInches)
+            "To mile and back", (fun x -> x |> Inch.toMiles |> Mile.toInches)
+            "To millimeter and back", (fun x -> x |> Inch.toMillimeters |> Millimeter.toInches)
+            "To centimeter and back", (fun x -> x |> Inch.toCentimeters |> Centimeter.toInches)
+            "To decimeter and back", (fun x -> x |> Inch.toDecimeters |> Decimeter.toInches)
+            "To meter and back", (fun x -> x |> Inch.toMeters |> Meter.toInches)
+            "To kilometer and back", (fun x -> x |> Inch.toKilometers |> Kilometer.toInches)
+            "To nautical mile and back", (fun x -> x |> Inch.toNauticalMiles |> NauticalMile.toInches)
+            "To chain and back", (fun x -> x |> Inch.toChains |> Chain.toInches)
+            "To furlong and back", (fun x -> x |> Inch.toFurlongs |> Furlong.toInches)
+            "To league and back", (fun x -> x |> Inch.toLeagues |> League.toInches)
+            "To hand and back", (fun x -> x |> Inch.toHands |> Hand.toInches)
+            "To rod and back", (fun x -> x |> Inch.toRods |> Rod.toInches)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Inch.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let footConversionTests =
         [
-            "From foot to inches and back", (fun x -> Foot.create x |> Foot.toInches |> Inch.toFeet)
-            "From foot to yard and back", (fun x -> Foot.create x |> Foot.toYards |> Yard.toFeet)
-            "From foot to mile and back", (fun x -> Foot.create x |> Foot.toMiles |> Mile.toFeet)
-            "From foot to millimeter and back",
-            (fun x -> Foot.create x |> Foot.toMillimeters |> Millimeter.toFeet)
-            "From foot to centimeter and back",
-            (fun x -> Foot.create x |> Foot.toCentimeters |> Centimeter.toFeet)
-            "From foot to decimeter and back",
-            (fun x -> Foot.create x |> Foot.toDecimeters |> Decimeter.toFeet)
-            "From foot to meter and back", (fun x -> Foot.create x |> Foot.toMeters |> Meter.toFeet)
-            "From foot to kilometer and back",
-            (fun x -> Foot.create x |> Foot.toKilometers |> Kilometer.toFeet)
-            "From foot to nautical mile and back",
-            (fun x -> Foot.create x |> Foot.toNauticalMiles |> NauticalMile.toFeet)
-            "From foot to chain and back", (fun x -> Foot.create x |> Foot.toChains |> Chain.toFeet)
-            "From foot to furlong and back",
-            (fun x -> Foot.create x |> Foot.toFurlongs |> Furlong.toFeet)
-            "From foot to league and back",
-            (fun x -> Foot.create x |> Foot.toLeagues |> League.toFeet)
-            "From foot to hand and back", (fun x -> Foot.create x |> Foot.toHands |> Hand.toFeet)
-            "From foot to rod and back", (fun x -> Foot.create x |> Foot.toRods |> Rod.toFeet)
+            "To inches and back", (fun x -> x |> Foot.toInches |> Inch.toFeet)
+            "To yard and back", (fun x -> x |> Foot.toYards |> Yard.toFeet)
+            "To mile and back", (fun x -> x |> Foot.toMiles |> Mile.toFeet)
+            "To millimeter and back", (fun x -> x |> Foot.toMillimeters |> Millimeter.toFeet)
+            "To centimeter and back", (fun x -> x |> Foot.toCentimeters |> Centimeter.toFeet)
+            "To decimeter and back", (fun x -> x |> Foot.toDecimeters |> Decimeter.toFeet)
+            "To meter and back", (fun x -> x |> Foot.toMeters |> Meter.toFeet)
+            "To kilometer and back", (fun x -> x |> Foot.toKilometers |> Kilometer.toFeet)
+            "To nautical mile and back", (fun x -> x |> Foot.toNauticalMiles |> NauticalMile.toFeet)
+            "To chain and back", (fun x -> x |> Foot.toChains |> Chain.toFeet)
+            "To furlong and back", (fun x -> x |> Foot.toFurlongs |> Furlong.toFeet)
+            "To league and back", (fun x -> x |> Foot.toLeagues |> League.toFeet)
+            "To hand and back", (fun x -> x |> Foot.toHands |> Hand.toFeet)
+            "To rod and back", (fun x -> x |> Foot.toRods |> Rod.toFeet)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Foot.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let yardConversionTests =
         [
-            "From yard to inches and back",
-            (fun x -> Yard.create x |> Yard.toInches |> Inch.toYards)
-            "From yard to foot and back", (fun x -> Yard.create x |> Yard.toFeet |> Foot.toYards)
-            "From yard to mile and back", (fun x -> Yard.create x |> Yard.toMiles |> Mile.toYards)
-            "From yard to millimeter and back",
-            (fun x -> Yard.create x |> Yard.toMillimeters |> Millimeter.toYards)
-            "From yard to centimeter and back",
-            (fun x -> Yard.create x |> Yard.toCentimeters |> Centimeter.toYards)
-            "From yard to decimeter and back",
-            (fun x -> Yard.create x |> Yard.toDecimeters |> Decimeter.toYards)
-            "From yard to meter and back",
-            (fun x -> Yard.create x |> Yard.toMeters |> Meter.toYards)
-            "From yard to kilometer and back",
-            (fun x -> Yard.create x |> Yard.toKilometers |> Kilometer.toYards)
-            "From yard to nautical mile and back",
-            (fun x -> Yard.create x |> Yard.toNauticalMiles |> NauticalMile.toYards)
-            "From yard to chain and back",
-            (fun x -> Yard.create x |> Yard.toChains |> Chain.toYards)
-            "From yard to furlong and back",
-            (fun x -> Yard.create x |> Yard.toFurlongs |> Furlong.toYards)
-            "From yard to league and back",
-            (fun x -> Yard.create x |> Yard.toLeagues |> League.toYards)
-            "From yard to hand and back", (fun x -> Yard.create x |> Yard.toHands |> Hand.toYards)
-            "From yard to rod and back", (fun x -> Yard.create x |> Yard.toRods |> Rod.toYards)
+            "To inches and back", (fun x -> x |> Yard.toInches |> Inch.toYards)
+            "To foot and back", (fun x -> x |> Yard.toFeet |> Foot.toYards)
+            "To mile and back", (fun x -> x |> Yard.toMiles |> Mile.toYards)
+            "To millimeter and back", (fun x -> x |> Yard.toMillimeters |> Millimeter.toYards)
+            "To centimeter and back", (fun x -> x |> Yard.toCentimeters |> Centimeter.toYards)
+            "To decimeter and back", (fun x -> x |> Yard.toDecimeters |> Decimeter.toYards)
+            "To meter and back", (fun x -> x |> Yard.toMeters |> Meter.toYards)
+            "To kilometer and back", (fun x -> x |> Yard.toKilometers |> Kilometer.toYards)
+            "To nautical mile and back", (fun x -> x |> Yard.toNauticalMiles |> NauticalMile.toYards)
+            "To chain and back", (fun x -> x |> Yard.toChains |> Chain.toYards)
+            "To furlong and back", (fun x -> x |> Yard.toFurlongs |> Furlong.toYards)
+            "To league and back", (fun x -> x |> Yard.toLeagues |> League.toYards)
+            "To hand and back", (fun x -> x |> Yard.toHands |> Hand.toYards)
+            "To rod and back", (fun x -> x |> Yard.toRods |> Rod.toYards)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Yard.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let mileConversionTests =
         [
-            "From mile to inches and back",
-            (fun x -> Mile.create x |> Mile.toInches |> Inch.toMiles)
-            "From mile to foot and back", (fun x -> Mile.create x |> Mile.toFeet |> Foot.toMiles)
-            "From mile to yard and back", (fun x -> Mile.create x |> Mile.toYards |> Yard.toMiles)
-            "From mile to millimeter and back",
-            (fun x -> Mile.create x |> Mile.toMillimeters |> Millimeter.toMiles)
-            "From mile to centimeter and back",
-            (fun x -> Mile.create x |> Mile.toCentimeters |> Centimeter.toMiles)
-            "From mile to decimeter and back",
-            (fun x -> Mile.create x |> Mile.toDecimeters |> Decimeter.toMiles)
-            "From mile to meter and back",
-            (fun x -> Mile.create x |> Mile.toMeters |> Meter.toMiles)
-            "From mile to kilometer and back",
-            (fun x -> Mile.create x |> Mile.toKilometers |> Kilometer.toMiles)
-            "From mile to nautical mile and back",
-            (fun x -> Mile.create x |> Mile.toNauticalMiles |> NauticalMile.toMiles)
-            "From mile to chain and back",
-            (fun x -> Mile.create x |> Mile.toChains |> Chain.toMiles)
-            "From mile to furlong and back",
-            (fun x -> Mile.create x |> Mile.toFurlongs |> Furlong.toMiles)
-            "From mile to league and back",
-            (fun x -> Mile.create x |> Mile.toLeagues |> League.toMiles)
-            "From mile to hand and back", (fun x -> Mile.create x |> Mile.toHands |> Hand.toMiles)
-            "From mile to rod and back", (fun x -> Mile.create x |> Mile.toRods |> Rod.toMiles)
+            "To inches and back", (fun x -> x |> Mile.toInches |> Inch.toMiles)
+            "To foot and back", (fun x -> x |> Mile.toFeet |> Foot.toMiles)
+            "To yard and back", (fun x -> x |> Mile.toYards |> Yard.toMiles)
+            "To millimeter and back", (fun x -> x |> Mile.toMillimeters |> Millimeter.toMiles)
+            "To centimeter and back", (fun x -> x |> Mile.toCentimeters |> Centimeter.toMiles)
+            "To decimeter and back", (fun x -> x |> Mile.toDecimeters |> Decimeter.toMiles)
+            "To meter and back", (fun x -> x |> Mile.toMeters |> Meter.toMiles)
+            "To kilometer and back", (fun x -> x |> Mile.toKilometers |> Kilometer.toMiles)
+            "To nautical mile and back", (fun x -> x |> Mile.toNauticalMiles |> NauticalMile.toMiles)
+            "To chain and back", (fun x -> x |> Mile.toChains |> Chain.toMiles)
+            "To furlong and back", (fun x -> x |> Mile.toFurlongs |> Furlong.toMiles)
+            "To league and back", (fun x -> x |> Mile.toLeagues |> League.toMiles)
+            "To hand and back", (fun x -> x |> Mile.toHands |> Hand.toMiles)
+            "To rod and back", (fun x -> x |> Mile.toRods |> Rod.toMiles)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Mile.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let millimeterConversionTests =
         [
-            "From millimeter to inches and back",
-            (fun x -> Millimeter.create x |> Millimeter.toInches |> Inch.toMillimeters)
-            "From millimeter to foot and back",
-            (fun x -> Millimeter.create x |> Millimeter.toFeet |> Foot.toMillimeters)
-            "From millimeter to yard and back",
-            (fun x -> Millimeter.create x |> Millimeter.toYards |> Yard.toMillimeters)
-            "From millimeter to mile and back",
-            (fun x -> Millimeter.create x |> Millimeter.toMiles |> Mile.toMillimeters)
-            "From millimeter to centimeter and back",
-            (fun x -> Millimeter.create x |> Millimeter.toCentimeters |> Centimeter.toMillimeters)
-            "From millimeter to decimeter and back",
-            (fun x -> Millimeter.create x |> Millimeter.toDecimeters |> Decimeter.toMillimeters)
-            "From millimeter to meter and back",
-            (fun x -> Millimeter.create x |> Millimeter.toMeters |> Meter.toMillimeters)
-            "From millimeter to kilometer and back",
-            (fun x -> Millimeter.create x |> Millimeter.toKilometers |> Kilometer.toMillimeters)
-            "From millimeter to nautical mile and back",
-            (fun x ->
-                Millimeter.create x |> Millimeter.toNauticalMiles |> NauticalMile.toMillimeters)
-            "From millimeter to chain and back",
-            (fun x -> Millimeter.create x |> Millimeter.toChains |> Chain.toMillimeters)
-            "From millimeter to furlong and back",
-            (fun x -> Millimeter.create x |> Millimeter.toFurlongs |> Furlong.toMillimeters)
-            "From millimeter to league and back",
-            (fun x -> Millimeter.create x |> Millimeter.toLeagues |> League.toMillimeters)
-            "From millimeter to hand and back",
-            (fun x -> Millimeter.create x |> Millimeter.toHands |> Hand.toMillimeters)
-            "From millimeter to rod and back",
-            (fun x -> Millimeter.create x |> Millimeter.toRods |> Rod.toMillimeters)
+            "To inch and back", (fun x -> x |> Millimeter.toInches |> Inch.toMillimeters)
+            "To foot and back", (fun x -> x |> Millimeter.toFeet |> Foot.toMillimeters)
+            "To yard and back", (fun x -> x |> Millimeter.toYards |> Yard.toMillimeters)
+            "To mile and back", (fun x -> x |> Millimeter.toMiles |> Mile.toMillimeters)
+            "To centimeter and back", (fun x -> x |> Millimeter.toCentimeters |> Centimeter.toMillimeters)
+            "To decimeter and back", (fun x -> x |> Millimeter.toDecimeters |> Decimeter.toMillimeters)
+            "To meter and back", (fun x -> x |> Millimeter.toMeters |> Meter.toMillimeters)
+            "To kilometer and back", (fun x -> x |> Millimeter.toKilometers |> Kilometer.toMillimeters)
+            "To nautical mile and back", (fun x -> x |> Millimeter.toNauticalMiles |> NauticalMile.toMillimeters)
+            "To chain and back", (fun x -> x |> Millimeter.toChains |> Chain.toMillimeters)
+            "To furlong and back", (fun x -> x |> Millimeter.toFurlongs |> Furlong.toMillimeters)
+            "To league and back", (fun x -> x |> Millimeter.toLeagues |> League.toMillimeters)
+            "To hand and back", (fun x -> x |> Millimeter.toHands |> Hand.toMillimeters)
+            "To rod and back", (fun x -> x |> Millimeter.toRods |> Rod.toMillimeters)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Millimeter.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let centimeterConversionTests =
         [
-            "From centimeter to inches and back",
-            (fun x -> Centimeter.create x |> Centimeter.toInches |> Inch.toCentimeters)
-            "From centimeter to foot and back",
-            (fun x -> Centimeter.create x |> Centimeter.toFeet |> Foot.toCentimeters)
-            "From centimeter to yard and back",
-            (fun x -> Centimeter.create x |> Centimeter.toYards |> Yard.toCentimeters)
-            "From centimeter to mile and back",
-            (fun x -> Centimeter.create x |> Centimeter.toMiles |> Mile.toCentimeters)
-            "From centimeter to millimeter and back",
-            (fun x -> Centimeter.create x |> Centimeter.toMillimeters |> Millimeter.toCentimeters)
-            "From centimeter to decimeter and back",
-            (fun x -> Centimeter.create x |> Centimeter.toDecimeters |> Decimeter.toCentimeters)
-            "From centimeter to meter and back",
-            (fun x -> Centimeter.create x |> Centimeter.toMeters |> Meter.toCentimeters)
-            "From centimeter to kilometer and back",
-            (fun x -> Centimeter.create x |> Centimeter.toKilometers |> Kilometer.toCentimeters)
-            "From centimeter to nautical mile and back",
-            (fun x ->
-                Centimeter.create x |> Centimeter.toNauticalMiles |> NauticalMile.toCentimeters)
-            "From centimeter to chain and back",
-            (fun x -> Centimeter.create x |> Centimeter.toChains |> Chain.toCentimeters)
-            "From centimeter to furlong and back",
-            (fun x -> Centimeter.create x |> Centimeter.toFurlongs |> Furlong.toCentimeters)
-            "From centimeter to league and back",
-            (fun x -> Centimeter.create x |> Centimeter.toLeagues |> League.toCentimeters)
-            "From centimeter to hand and back",
-            (fun x -> Centimeter.create x |> Centimeter.toHands |> Hand.toCentimeters)
-            "From centimeter to rod and back",
-            (fun x -> Centimeter.create x |> Centimeter.toRods |> Rod.toCentimeters)
+            "To inch and back", (fun x -> x |> Centimeter.toInches |> Inch.toCentimeters)
+            "To foot and back", (fun x -> x |> Centimeter.toFeet |> Foot.toCentimeters)
+            "To yard and back", (fun x -> x |> Centimeter.toYards |> Yard.toCentimeters)
+            "To mile and back", (fun x -> x |> Centimeter.toMiles |> Mile.toCentimeters)
+            "To millimeter and back", (fun x -> x |> Centimeter.toMillimeters |> Millimeter.toCentimeters)
+            "To decimeter and back", (fun x -> x |> Centimeter.toDecimeters |> Decimeter.toCentimeters)
+            "To meter and back", (fun x -> x |> Centimeter.toMeters |> Meter.toCentimeters)
+            "To kilometer and back", (fun x -> x |> Centimeter.toKilometers |> Kilometer.toCentimeters)
+            "To nautical mile and back", (fun x -> x |> Centimeter.toNauticalMiles |> NauticalMile.toCentimeters)
+            "To chain and back", (fun x -> x |> Centimeter.toChains |> Chain.toCentimeters)
+            "To furlong and back", (fun x -> x |> Centimeter.toFurlongs |> Furlong.toCentimeters)
+            "To league and back", (fun x -> x |> Centimeter.toLeagues |> League.toCentimeters)
+            "To hand and back", (fun x -> x |> Centimeter.toHands |> Hand.toCentimeters)
+            "To rod and back", (fun x -> x |> Centimeter.toRods |> Rod.toCentimeters)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Centimeter.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
-        
+
     let decimeterConversionTests =
         [
-            "From decimeter to inches and back",
-            (fun x -> Decimeter.create x |> Decimeter.toInches |> Inch.toDecimeters)
-            "From decimeter to foot and back",
-            (fun x -> Decimeter.create x |> Decimeter.toFeet |> Foot.toDecimeters)
-            "From decimeter to yard and back",
-            (fun x -> Decimeter.create x |> Decimeter.toYards |> Yard.toDecimeters)
-            "From decimeter to mile and back",
-            (fun x -> Decimeter.create x |> Decimeter.toMiles |> Mile.toDecimeters)
-            "From decimeter to millimeter and back",
-            (fun x -> Decimeter.create x |> Decimeter.toMillimeters |> Millimeter.toDecimeters)
-            "From decimeter to centimeter and back",
-            (fun x -> Decimeter.create x |> Decimeter.toCentimeters |> Centimeter.toDecimeters)
-            "From decimeter to meter and back",
-            (fun x -> Decimeter.create x |> Decimeter.toMeters |> Meter.toDecimeters)
-            "From decimeter to kilometer and back",
-            (fun x -> Decimeter.create x |> Decimeter.toKilometers |> Kilometer.toDecimeters)
-            "From decimeter to nautical mile and back",
-            (fun x ->
-                Decimeter.create x |> Decimeter.toNauticalMiles |> NauticalMile.toDecimeters)
-            "From decimeter to chain and back",
-            (fun x -> Decimeter.create x |> Decimeter.toChains |> Chain.toDecimeters)
-            "From decimeter to furlong and back",
-            (fun x -> Decimeter.create x |> Decimeter.toFurlongs |> Furlong.toDecimeters)
-            "From decimeter to league and back",
-            (fun x -> Decimeter.create x |> Decimeter.toLeagues |> League.toDecimeters)
-            "From decimeter to hand and back",
-            (fun x -> Decimeter.create x |> Decimeter.toHands |> Hand.toDecimeters)
-            "From decimeter to rod and back",
-            (fun x -> Decimeter.create x |> Decimeter.toRods |> Rod.toDecimeters)
+            "To inches and back", (fun x -> x |> Decimeter.toInches |> Inch.toDecimeters)
+            "To foot and back", (fun x -> x |> Decimeter.toFeet |> Foot.toDecimeters)
+            "To yard and back", (fun x -> x |> Decimeter.toYards |> Yard.toDecimeters)
+            "To mile and back", (fun x -> x |> Decimeter.toMiles |> Mile.toDecimeters)
+            "To millimeter and back", (fun x -> x |> Decimeter.toMillimeters |> Millimeter.toDecimeters)
+            "To centimeter and back", (fun x -> x |> Decimeter.toCentimeters |> Centimeter.toDecimeters)
+            "To meter and back", (fun x -> x |> Decimeter.toMeters |> Meter.toDecimeters)
+            "To kilometer and back", (fun x -> x |> Decimeter.toKilometers |> Kilometer.toDecimeters)
+            "To nautical mile and back", (fun x -> x |> Decimeter.toNauticalMiles |> NauticalMile.toDecimeters)
+            "To chain and back", (fun x -> x |> Decimeter.toChains |> Chain.toDecimeters)
+            "To furlong and back", (fun x -> x |> Decimeter.toFurlongs |> Furlong.toDecimeters)
+            "To league and back", (fun x -> x |> Decimeter.toLeagues |> League.toDecimeters)
+            "To hand and back", (fun x -> x |> Decimeter.toHands |> Hand.toDecimeters)
+            "To rod and back", (fun x -> x |> Decimeter.toRods |> Rod.toDecimeters)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Decimeter.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
-        
+
     let meterConversionTests =
         [
-            "From meter to inches and back",
-            (fun x -> Meter.create x |> Meter.toInches |> Inch.toMeters)
-            "From meter to foot and back",
-            (fun x -> Meter.create x |> Meter.toFeet |> Foot.toMeters)
-            "From meter to yard and back",
-            (fun x -> Meter.create x |> Meter.toYards |> Yard.toMeters)
-            "From meter to mile and back",
-            (fun x -> Meter.create x |> Meter.toMiles |> Mile.toMeters)
-            "From meter to millimeter and back",
-            (fun x -> Meter.create x |> Meter.toMillimeters |> Millimeter.toMeters)
-            "From meter to centimeter and back",
-            (fun x -> Meter.create x |> Meter.toCentimeters |> Centimeter.toMeters)
-            "From meter to kilometer and back",
-            (fun x -> Meter.create x |> Meter.toKilometers |> Kilometer.toMeters)
-            "From meter to nautical mile and back",
-            (fun x -> Meter.create x |> Meter.toNauticalMiles |> NauticalMile.toMeters)
-            "From meter to chain and back",
-            (fun x -> Meter.create x |> Meter.toChains |> Chain.toMeters)
-            "From meter to furlong and back",
-            (fun x -> Meter.create x |> Meter.toFurlongs |> Furlong.toMeters)
-            "From meter to league and back",
-            (fun x -> Meter.create x |> Meter.toLeagues |> League.toMeters)
-            "From meter to hand and back",
-            (fun x -> Meter.create x |> Meter.toHands |> Hand.toMeters)
-            "From meter to rod and back", (fun x -> Meter.create x |> Meter.toRods |> Rod.toMeters)
+            "To inches and back", (fun x -> x |> Meter.toInches |> Inch.toMeters)
+            "To foot and back", (fun x -> x |> Meter.toFeet |> Foot.toMeters)
+            "To yard and back", (fun x -> x |> Meter.toYards |> Yard.toMeters)
+            "To mile and back", (fun x -> x |> Meter.toMiles |> Mile.toMeters)
+            "To millimeter and back", (fun x -> x |> Meter.toMillimeters |> Millimeter.toMeters)
+            "To centimeter and back", (fun x -> x |> Meter.toCentimeters |> Centimeter.toMeters)
+            "To kilometer and back", (fun x -> x |> Meter.toKilometers |> Kilometer.toMeters)
+            "To nautical mile and back", (fun x -> x |> Meter.toNauticalMiles |> NauticalMile.toMeters)
+            "To chain and back", (fun x -> x |> Meter.toChains |> Chain.toMeters)
+            "To furlong and back", (fun x -> x |> Meter.toFurlongs |> Furlong.toMeters)
+            "To league and back", (fun x -> x |> Meter.toLeagues |> League.toMeters)
+            "To hand and back", (fun x -> x |> Meter.toHands |> Hand.toMeters)
+            "To rod and back", (fun x -> x |> Meter.toRods |> Rod.toMeters)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Meter.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let kilometerConversionTests =
         [
-            "From kilometer to inches and back",
-            (fun x -> Kilometer.create x |> Kilometer.toInches |> Inch.toKilometers)
-            "From kilometer to foot and back",
-            (fun x -> Kilometer.create x |> Kilometer.toFeet |> Foot.toKilometers)
-            "From kilometer to yard and back",
-            (fun x -> Kilometer.create x |> Kilometer.toYards |> Yard.toKilometers)
-            "From kilometer to mile and back",
-            (fun x -> Kilometer.create x |> Kilometer.toMiles |> Mile.toKilometers)
-            "From kilometer to millimeter and back",
-            (fun x -> Kilometer.create x |> Kilometer.toMillimeters |> Millimeter.toKilometers)
-            "From kilometer to centimeter and back",
-            (fun x -> Kilometer.create x |> Kilometer.toCentimeters |> Centimeter.toKilometers)
-            "From kilometer to meter and back",
-            (fun x -> Kilometer.create x |> Kilometer.toMeters |> Meter.toKilometers)
-            "From kilometer to nautical mile and back",
-            (fun x -> Kilometer.create x |> Kilometer.toNauticalMiles |> NauticalMile.toKilometers)
-            "From kilometer to chain and back",
-            (fun x -> Kilometer.create x |> Kilometer.toChains |> Chain.toKilometers)
-            "From kilometer to furlong and back",
-            (fun x -> Kilometer.create x |> Kilometer.toFurlongs |> Furlong.toKilometers)
-            "From kilometer to league and back",
-            (fun x -> Kilometer.create x |> Kilometer.toLeagues |> League.toKilometers)
-            "From kilometer to hand and back",
-            (fun x -> Kilometer.create x |> Kilometer.toHands |> Hand.toKilometers)
-            "From kilometer to rod and back",
-            (fun x -> Kilometer.create x |> Kilometer.toRods |> Rod.toKilometers)
+            "To inches and back", (fun x -> x |> Kilometer.toInches |> Inch.toKilometers)
+            "To foot and back", (fun x -> x |> Kilometer.toFeet |> Foot.toKilometers)
+            "To yard and back", (fun x -> x |> Kilometer.toYards |> Yard.toKilometers)
+            "To mile and back", (fun x -> x |> Kilometer.toMiles |> Mile.toKilometers)
+            "To millimeter and back", (fun x -> x |> Kilometer.toMillimeters |> Millimeter.toKilometers)
+            "To centimeter and back", (fun x -> x |> Kilometer.toCentimeters |> Centimeter.toKilometers)
+            "To meter and back", (fun x -> x |> Kilometer.toMeters |> Meter.toKilometers)
+            "To nautical mile and back", (fun x -> x |> Kilometer.toNauticalMiles |> NauticalMile.toKilometers)
+            "To chain and back", (fun x -> x |> Kilometer.toChains |> Chain.toKilometers)
+            "To furlong and back", (fun x -> x |> Kilometer.toFurlongs |> Furlong.toKilometers)
+            "To league and back", (fun x -> x |> Kilometer.toLeagues |> League.toKilometers)
+            "To hand and back", (fun x -> x |> Kilometer.toHands |> Hand.toKilometers)
+            "To rod and back", (fun x -> x |> Kilometer.toRods |> Rod.toKilometers)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kilometer.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let nauticalMileConversionTests =
         [
-            "From nautical mile to inches and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toInches |> Inch.toNauticalMiles)
-            "From nautical mile to foot and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toFeet |> Foot.toNauticalMiles)
-            "From nautical mile to yard and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toYards |> Yard.toNauticalMiles)
-            "From nautical mile to mile and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toMiles |> Mile.toNauticalMiles)
+            "From nautical mile to inches and back", (fun x -> x |> NauticalMile.toInches |> Inch.toNauticalMiles)
+            "From nautical mile to foot and back", (fun x -> x |> NauticalMile.toFeet |> Foot.toNauticalMiles)
+            "From nautical mile to yard and back", (fun x -> x |> NauticalMile.toYards |> Yard.toNauticalMiles)
+            "From nautical mile to mile and back", (fun x -> x |> NauticalMile.toMiles |> Mile.toNauticalMiles)
             "From nautical mile to millimeter and back",
-            (fun x ->
-                NauticalMile.create x
-                |> NauticalMile.toMillimeters
-                |> Millimeter.toNauticalMiles)
+            (fun x -> x |> NauticalMile.toMillimeters |> Millimeter.toNauticalMiles)
             "From nautical mile to centimeter and back",
-            (fun x ->
-                NauticalMile.create x
-                |> NauticalMile.toCentimeters
-                |> Centimeter.toNauticalMiles)
-            "From nautical mile to meter and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toMeters |> Meter.toNauticalMiles)
+            (fun x -> x |> NauticalMile.toCentimeters |> Centimeter.toNauticalMiles)
+            "From nautical mile to meter and back", (fun x -> x |> NauticalMile.toMeters |> Meter.toNauticalMiles)
             "From nautical mile to kilometer and back",
-            (fun x ->
-                NauticalMile.create x |> NauticalMile.toKilometers |> Kilometer.toNauticalMiles)
-            "From nautical mile to chain and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toChains |> Chain.toNauticalMiles)
-            "From nautical mile to furlong and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toFurlongs |> Furlong.toNauticalMiles)
-            "From nautical mile to league and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toLeagues |> League.toNauticalMiles)
-            "From nautical mile to hand and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toHands |> Hand.toNauticalMiles)
-            "From nautical mile to rod and back",
-            (fun x -> NauticalMile.create x |> NauticalMile.toRods |> Rod.toNauticalMiles)
+            (fun x -> x |> NauticalMile.toKilometers |> Kilometer.toNauticalMiles)
+            "From nautical mile to chain and back", (fun x -> x |> NauticalMile.toChains |> Chain.toNauticalMiles)
+            "From nautical mile to furlong and back", (fun x -> x |> NauticalMile.toFurlongs |> Furlong.toNauticalMiles)
+            "From nautical mile to league and back", (fun x -> x |> NauticalMile.toLeagues |> League.toNauticalMiles)
+            "From nautical mile to hand and back", (fun x -> x |> NauticalMile.toHands |> Hand.toNauticalMiles)
+            "From nautical mile to rod and back", (fun x -> x |> NauticalMile.toRods |> Rod.toNauticalMiles)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> NauticalMile.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let chainConversionTests =
         [
-            "From chain to inches and back",
-            (fun x -> Chain.create x |> Chain.toInches |> Inch.toChains)
-            "From chain to foot and back",
-            (fun x -> Chain.create x |> Chain.toFeet |> Foot.toChains)
-            "From chain to yard and back",
-            (fun x -> Chain.create x |> Chain.toYards |> Yard.toChains)
-            "From chain to mile and back",
-            (fun x -> Chain.create x |> Chain.toMiles |> Mile.toChains)
-            "From chain to millimeter and back",
-            (fun x -> Chain.create x |> Chain.toMillimeters |> Millimeter.toChains)
-            "From chain to centimeter and back",
-            (fun x -> Chain.create x |> Chain.toCentimeters |> Centimeter.toChains)
-            "From chain to meter and back",
-            (fun x -> Chain.create x |> Chain.toMeters |> Meter.toChains)
-            "From chain to kilometer and back",
-            (fun x -> Chain.create x |> Chain.toKilometers |> Kilometer.toChains)
-            "From chain to nautical mile and back",
-            (fun x -> Chain.create x |> Chain.toNauticalMiles |> NauticalMile.toChains)
-            "From chain to furlong and back",
-            (fun x -> Chain.create x |> Chain.toFurlongs |> Furlong.toChains)
-            "From chain to league and back",
-            (fun x -> Chain.create x |> Chain.toLeagues |> League.toChains)
-            "From chain to hand and back",
-            (fun x -> Chain.create x |> Chain.toHands |> Hand.toChains)
-            "From chain to rod and back", (fun x -> Chain.create x |> Chain.toRods |> Rod.toChains)
+            "To inches and back", (fun x -> x |> Chain.toInches |> Inch.toChains)
+            "To foot and back", (fun x -> x |> Chain.toFeet |> Foot.toChains)
+            "To yard and back", (fun x -> x |> Chain.toYards |> Yard.toChains)
+            "To mile and back", (fun x -> x |> Chain.toMiles |> Mile.toChains)
+            "To millimeter and back", (fun x -> x |> Chain.toMillimeters |> Millimeter.toChains)
+            "To centimeter and back", (fun x -> x |> Chain.toCentimeters |> Centimeter.toChains)
+            "To meter and back", (fun x -> x |> Chain.toMeters |> Meter.toChains)
+            "To kilometer and back", (fun x -> x |> Chain.toKilometers |> Kilometer.toChains)
+            "To nautical mile and back", (fun x -> x |> Chain.toNauticalMiles |> NauticalMile.toChains)
+            "To furlong and back", (fun x -> x |> Chain.toFurlongs |> Furlong.toChains)
+            "To league and back", (fun x -> x |> Chain.toLeagues |> League.toChains)
+            "To hand and back", (fun x -> x |> Chain.toHands |> Hand.toChains)
+            "To rod and back", (fun x -> x |> Chain.toRods |> Rod.toChains)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Chain.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let furlongConversionTests =
         [
-            "From furlong to inches and back",
-            (fun x -> Furlong.create x |> Furlong.toInches |> Inch.toFurlongs)
-            "From furlong to foot and back",
-            (fun x -> Furlong.create x |> Furlong.toFeet |> Foot.toFurlongs)
-            "From furlong to yard and back",
-            (fun x -> Furlong.create x |> Furlong.toYards |> Yard.toFurlongs)
-            "From furlong to mile and back",
-            (fun x -> Furlong.create x |> Furlong.toMiles |> Mile.toFurlongs)
-            "From furlong to millimeter and back",
-            (fun x -> Furlong.create x |> Furlong.toMillimeters |> Millimeter.toFurlongs)
-            "From furlong to centimeter and back",
-            (fun x -> Furlong.create x |> Furlong.toCentimeters |> Centimeter.toFurlongs)
-            "From furlong to meter and back",
-            (fun x -> Furlong.create x |> Furlong.toMeters |> Meter.toFurlongs)
-            "From furlong to kilometer and back",
-            (fun x -> Furlong.create x |> Furlong.toKilometers |> Kilometer.toFurlongs)
-            "From furlong to nautical mile and back",
-            (fun x -> Furlong.create x |> Furlong.toNauticalMiles |> NauticalMile.toFurlongs)
-            "From furlong to chain and back",
-            (fun x -> Furlong.create x |> Furlong.toChains |> Chain.toFurlongs)
-            "From furlong to league and back",
-            (fun x -> Furlong.create x |> Furlong.toLeagues |> League.toFurlongs)
-            "From furlong to hand and back",
-            (fun x -> Furlong.create x |> Furlong.toHands |> Hand.toFurlongs)
-            "From furlong to rod and back",
-            (fun x -> Furlong.create x |> Furlong.toRods |> Rod.toFurlongs)
+            "To inches and back", (fun x -> x |> Furlong.toInches |> Inch.toFurlongs)
+            "To foot and back", (fun x -> x |> Furlong.toFeet |> Foot.toFurlongs)
+            "To yard and back", (fun x -> x |> Furlong.toYards |> Yard.toFurlongs)
+            "To mile and back", (fun x -> x |> Furlong.toMiles |> Mile.toFurlongs)
+            "To millimeter and back", (fun x -> x |> Furlong.toMillimeters |> Millimeter.toFurlongs)
+            "To centimeter and back", (fun x -> x |> Furlong.toCentimeters |> Centimeter.toFurlongs)
+            "To meter and back", (fun x -> x |> Furlong.toMeters |> Meter.toFurlongs)
+            "To kilometer and back", (fun x -> x |> Furlong.toKilometers |> Kilometer.toFurlongs)
+            "To nautical mile and back", (fun x -> x |> Furlong.toNauticalMiles |> NauticalMile.toFurlongs)
+            "To chain and back", (fun x -> x |> Furlong.toChains |> Chain.toFurlongs)
+            "To league and back", (fun x -> x |> Furlong.toLeagues |> League.toFurlongs)
+            "To hand and back", (fun x -> x |> Furlong.toHands |> Hand.toFurlongs)
+            "To rod and back", (fun x -> x |> Furlong.toRods |> Rod.toFurlongs)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Furlong.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let leagueConversionTests =
         [
-            "From league to inches and back",
-            (fun x -> League.create x |> League.toInches |> Inch.toLeagues)
-            "From league to foot and back",
-            (fun x -> League.create x |> League.toFeet |> Foot.toLeagues)
-            "From league to yard and back",
-            (fun x -> League.create x |> League.toYards |> Yard.toLeagues)
-            "From league to mile and back",
-            (fun x -> League.create x |> League.toMiles |> Mile.toLeagues)
-            "From league to millimeter and back",
-            (fun x -> League.create x |> League.toMillimeters |> Millimeter.toLeagues)
-            "From league to centimeter and back",
-            (fun x -> League.create x |> League.toCentimeters |> Centimeter.toLeagues)
-            "From league to meter and back",
-            (fun x -> League.create x |> League.toMeters |> Meter.toLeagues)
-            "From league to kilometer and back",
-            (fun x -> League.create x |> League.toKilometers |> Kilometer.toLeagues)
-            "From league to nautical mile and back",
-            (fun x -> League.create x |> League.toNauticalMiles |> NauticalMile.toLeagues)
-            "From league to chain and back",
-            (fun x -> League.create x |> League.toChains |> Chain.toLeagues)
-            "From league to furlong and back",
-            (fun x -> League.create x |> League.toFurlongs |> Furlong.toLeagues)
-            "From league to hand and back",
-            (fun x -> League.create x |> League.toHands |> Hand.toLeagues)
-            "From league to rod and back",
-            (fun x -> League.create x |> League.toRods |> Rod.toLeagues)
+            "To inches and back", (fun x -> x |> League.toInches |> Inch.toLeagues)
+            "To foot and back", (fun x -> x |> League.toFeet |> Foot.toLeagues)
+            "To yard and back", (fun x -> x |> League.toYards |> Yard.toLeagues)
+            "To mile and back", (fun x -> x |> League.toMiles |> Mile.toLeagues)
+            "To millimeter and back", (fun x -> x |> League.toMillimeters |> Millimeter.toLeagues)
+            "To centimeter and back", (fun x -> x |> League.toCentimeters |> Centimeter.toLeagues)
+            "To meter and back", (fun x -> x |> League.toMeters |> Meter.toLeagues)
+            "To kilometer and back", (fun x -> x |> League.toKilometers |> Kilometer.toLeagues)
+            "To nautical mile and back", (fun x -> x |> League.toNauticalMiles |> NauticalMile.toLeagues)
+            "To chain and back", (fun x -> x |> League.toChains |> Chain.toLeagues)
+            "To furlong and back", (fun x -> x |> League.toFurlongs |> Furlong.toLeagues)
+            "To hand and back", (fun x -> x |> League.toHands |> Hand.toLeagues)
+            "To rod and back", (fun x -> x |> League.toRods |> Rod.toLeagues)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> League.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let handConversionTests =
         [
-            "From hand to inches and back",
-            (fun x -> Hand.create x |> Hand.toInches |> Inch.toHands)
-            "From hand to foot and back", (fun x -> Hand.create x |> Hand.toFeet |> Foot.toHands)
-            "From hand to yard and back", (fun x -> Hand.create x |> Hand.toYards |> Yard.toHands)
-            "From hand to mile and back", (fun x -> Hand.create x |> Hand.toMiles |> Mile.toHands)
-            "From hand to millimeter and back",
-            (fun x -> Hand.create x |> Hand.toMillimeters |> Millimeter.toHands)
-            "From hand to centimeter and back",
-            (fun x -> Hand.create x |> Hand.toCentimeters |> Centimeter.toHands)
-            "From hand to meter and back",
-            (fun x -> Hand.create x |> Hand.toMeters |> Meter.toHands)
-            "From hand to kilometer and back",
-            (fun x -> Hand.create x |> Hand.toKilometers |> Kilometer.toHands)
-            "From hand to nautical mile and back",
-            (fun x -> Hand.create x |> Hand.toNauticalMiles |> NauticalMile.toHands)
-            "From hand to chain and back",
-            (fun x -> Hand.create x |> Hand.toChains |> Chain.toHands)
-            "From hand to furlong and back",
-            (fun x -> Hand.create x |> Hand.toFurlongs |> Furlong.toHands)
-            "From hand to league and back",
-            (fun x -> Hand.create x |> Hand.toLeagues |> League.toHands)
-            "From hand to rod and back", (fun x -> Hand.create x |> Hand.toRods |> Rod.toHands)
+            "To inches and back", (fun x -> x |> Hand.toInches |> Inch.toHands)
+            "To foot and back", (fun x -> x |> Hand.toFeet |> Foot.toHands)
+            "To yard and back", (fun x -> x |> Hand.toYards |> Yard.toHands)
+            "To mile and back", (fun x -> x |> Hand.toMiles |> Mile.toHands)
+            "To millimeter and back", (fun x -> x |> Hand.toMillimeters |> Millimeter.toHands)
+            "To centimeter and back", (fun x -> x |> Hand.toCentimeters |> Centimeter.toHands)
+            "To meter and back", (fun x -> x |> Hand.toMeters |> Meter.toHands)
+            "To kilometer and back", (fun x -> x |> Hand.toKilometers |> Kilometer.toHands)
+            "To nautical mile and back", (fun x -> x |> Hand.toNauticalMiles |> NauticalMile.toHands)
+            "To chain and back", (fun x -> x |> Hand.toChains |> Chain.toHands)
+            "To furlong and back", (fun x -> x |> Hand.toFurlongs |> Furlong.toHands)
+            "To league and back", (fun x -> x |> Hand.toLeagues |> League.toHands)
+            "To rod and back", (fun x -> x |> Hand.toRods |> Rod.toHands)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Hand.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let rodConversionTests =
         [
-            "From rod to inches and back", (fun x -> Rod.create x |> Rod.toInches |> Inch.toRods)
-            "From rod to foot and back", (fun x -> Rod.create x |> Rod.toFeet |> Foot.toRods)
-            "From rod to yard and back", (fun x -> Rod.create x |> Rod.toYards |> Yard.toRods)
-            "From rod to mile and back", (fun x -> Rod.create x |> Rod.toMiles |> Mile.toRods)
-            "From rod to millimeter and back",
-            (fun x -> Rod.create x |> Rod.toMillimeters |> Millimeter.toRods)
-            "From rod to centimeter and back",
-            (fun x -> Rod.create x |> Rod.toCentimeters |> Centimeter.toRods)
-            "From rod to meter and back", (fun x -> Rod.create x |> Rod.toMeters |> Meter.toRods)
-            "From rod to kilometer and back",
-            (fun x -> Rod.create x |> Rod.toKilometers |> Kilometer.toRods)
-            "From rod to nautical mile and back",
-            (fun x -> Rod.create x |> Rod.toNauticalMiles |> NauticalMile.toRods)
-            "From rod to chain and back", (fun x -> Rod.create x |> Rod.toChains |> Chain.toRods)
-            "From rod to furlong and back",
-            (fun x -> Rod.create x |> Rod.toFurlongs |> Furlong.toRods)
-            "From rod to league and back", (fun x -> Rod.create x |> Rod.toLeagues |> League.toRods)
-            "From rod to hand and back", (fun x -> Rod.create x |> Rod.toHands |> Hand.toRods)
+            "To inches and back", (fun x -> x |> Rod.toInches |> Inch.toRods)
+            "To foot and back", (fun x -> x |> Rod.toFeet |> Foot.toRods)
+            "To yard and back", (fun x -> x |> Rod.toYards |> Yard.toRods)
+            "To mile and back", (fun x -> x |> Rod.toMiles |> Mile.toRods)
+            "To millimeter and back", (fun x -> x |> Rod.toMillimeters |> Millimeter.toRods)
+            "To centimeter and back", (fun x -> x |> Rod.toCentimeters |> Centimeter.toRods)
+            "To meter and back", (fun x -> x |> Rod.toMeters |> Meter.toRods)
+            "To kilometer and back", (fun x -> x |> Rod.toKilometers |> Kilometer.toRods)
+            "To nautical mile and back", (fun x -> x |> Rod.toNauticalMiles |> NauticalMile.toRods)
+            "To chain and back", (fun x -> x |> Rod.toChains |> Chain.toRods)
+            "To furlong and back", (fun x -> x |> Rod.toFurlongs |> Furlong.toRods)
+            "To league and back", (fun x -> x |> Rod.toLeagues |> League.toRods)
+            "To hand and back", (fun x -> x |> Rod.toHands |> Hand.toRods)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Rod.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Length Tests -> "
+        "Length Tests"
         [
-            testList "Convert inch to other and back -> " inchConversionTests
-            testList "Convert foot to other and back -> " footConversionTests
-            testList "Convert yard to other and back -> " yardConversionTests
-            testList "Convert mile to other and back -> " mileConversionTests
-            testList "Convert millimeter to other and back -> " millimeterConversionTests
-            testList "Convert centimeter to other and back -> " centimeterConversionTests
-            testList "Convert decimeter to other and back -> " decimeterConversionTests
-            testList "Convert meter to other and back -> " meterConversionTests
-            testList "Convert kilometer to other and back -> " kilometerConversionTests
-            testList "Convert nautical mile to other and back -> " nauticalMileConversionTests
-            testList "Convert chain to other and back -> " chainConversionTests
-            testList "Convert furlong to other and back -> " furlongConversionTests
-            testList "Convert league to other and back -> " leagueConversionTests
-            testList "Convert hand to other and back -> " handConversionTests
-            testList "Convert rod to other and back -> " rodConversionTests
+            testList "Convert inch to other and back" inchConversionTests
+            testList "Convert foot to other and back" footConversionTests
+            testList "Convert yard to other and back" yardConversionTests
+            testList "Convert mile to other and back" mileConversionTests
+            testList "Convert millimeter to other and back" millimeterConversionTests
+            testList "Convert centimeter to other and back" centimeterConversionTests
+            testList "Convert decimeter to other and back" decimeterConversionTests
+            testList "Convert meter to other and back" meterConversionTests
+            testList "Convert kilometer to other and back" kilometerConversionTests
+            testList "Convert nautical mile to other and back" nauticalMileConversionTests
+            testList "Convert chain to other and back" chainConversionTests
+            testList "Convert furlong to other and back" furlongConversionTests
+            testList "Convert league to other and back" leagueConversionTests
+            testList "Convert hand to other and back" handConversionTests
+            testList "Convert rod to other and back" rodConversionTests
         ]
 
 let timeTests config =
 
     let nanoSecondConversionTests =
         [
-            "From nanosecond to microsecond and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toMicroSeconds |> Microsecond.toNanoSeconds)
-            "From nanosecond to millisecond and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toMilliSeconds |> Millisecond.toNanoSeconds)
-            "From nanosecond to second and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toSeconds |> Second.toNanoSeconds)
-            "From nanosecond to minute and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toMinutes |> Minute.toNanoSeconds)
-            "From nanosecond to hour and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toHours |> Hour.toNanoSeconds)
-            "From nanosecond to day and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toDays |> Day.toNanoSeconds)
-            "From nanosecond to week and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toWeeks |> Week.toNanoSeconds)
-            "From nanosecond to fortnight and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toFortnights |> Fortnight.toNanoSeconds)
-            "From nanosecond to month and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toMonths |> Month.toNanoSeconds)
-            "From nanosecond to year and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toYears |> Year.toNanoSeconds)
-            "From nanosecond to decade and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toDecades |> Decade.toNanoSeconds)
-            "From nanosecond to century and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toCenturies |> Century.toNanoSeconds)
-            "From nanosecond to millennium and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toMillennia |> Millennium.toNanoSeconds)
-            "From nanosecond to eon and back",
-            (fun x -> Nanosecond.create x |> Nanosecond.toEons |> Eon.toNanoSeconds)
+            "To microsecond and back", (fun x -> x |> Nanosecond.toMicroSeconds |> Microsecond.toNanoSeconds)
+            "To millisecond and back", (fun x -> x |> Nanosecond.toMilliSeconds |> Millisecond.toNanoSeconds)
+            "To second and back", (fun x -> x |> Nanosecond.toSeconds |> Second.toNanoSeconds)
+            "To minute and back", (fun x -> x |> Nanosecond.toMinutes |> Minute.toNanoSeconds)
+            "To hour and back", (fun x -> x |> Nanosecond.toHours |> Hour.toNanoSeconds)
+            "To day and back", (fun x -> x |> Nanosecond.toDays |> Day.toNanoSeconds)
+            "To week and back", (fun x -> x |> Nanosecond.toWeeks |> Week.toNanoSeconds)
+            "To fortnight and back", (fun x -> x |> Nanosecond.toFortnights |> Fortnight.toNanoSeconds)
+            "To month and back", (fun x -> x |> Nanosecond.toMonths |> Month.toNanoSeconds)
+            "To year and back", (fun x -> x |> Nanosecond.toYears |> Year.toNanoSeconds)
+            "To decade and back", (fun x -> x |> Nanosecond.toDecades |> Decade.toNanoSeconds)
+            "To century and back", (fun x -> x |> Nanosecond.toCenturies |> Century.toNanoSeconds)
+            "To millennium and back", (fun x -> x |> Nanosecond.toMillennia |> Millennium.toNanoSeconds)
+            "To eon and back", (fun x -> x |> Nanosecond.toEons |> Eon.toNanoSeconds)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Nanosecond.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let microSecondConversionTests =
         [
-            "From microsecond to nanosecond and back",
-            (fun x ->
-                Microsecond.create x |> Microsecond.toNanoSeconds |> Nanosecond.toMicroSeconds)
-            "From microsecond to millisecond and back",
-            (fun x ->
-                Microsecond.create x |> Microsecond.toMilliSeconds |> Millisecond.toMicroSeconds)
-            "From microsecond to second and back",
-            (fun x -> Microsecond.create x |> Microsecond.toSeconds |> Second.toMicroSeconds)
-            "From microsecond to minute and back",
-            (fun x -> Microsecond.create x |> Microsecond.toMinutes |> Minute.toMicroSeconds)
-            "From microsecond to hour and back",
-            (fun x -> Microsecond.create x |> Microsecond.toHours |> Hour.toMicroSeconds)
-            "From microsecond to day and back",
-            (fun x -> Microsecond.create x |> Microsecond.toDays |> Day.toMicroSeconds)
-            "From microsecond to week and back",
-            (fun x -> Microsecond.create x |> Microsecond.toWeeks |> Week.toMicroSeconds)
-            "From microsecond to fortnight and back",
-            (fun x -> Microsecond.create x |> Microsecond.toFortnights |> Fortnight.toMicroSeconds)
-            "From microsecond to month and back",
-            (fun x -> Microsecond.create x |> Microsecond.toMonths |> Month.toMicroSeconds)
-            "From microsecond to year and back",
-            (fun x -> Microsecond.create x |> Microsecond.toYears |> Year.toMicroSeconds)
-            "From microsecond to decade and back",
-            (fun x -> Microsecond.create x |> Microsecond.toDecades |> Decade.toMicroSeconds)
-            "From microsecond to century and back",
-            (fun x -> Microsecond.create x |> Microsecond.toCenturies |> Century.toMicroSeconds)
-            "From microsecond to millennium and back",
-            (fun x -> Microsecond.create x |> Microsecond.toMillennia |> Millennium.toMicroSeconds)
-            "From microsecond to eon and back",
-            (fun x -> Microsecond.create x |> Microsecond.toEons |> Eon.toMicroSeconds)
+            "To nanosecond and back", (fun x -> x |> Microsecond.toNanoSeconds |> Nanosecond.toMicroSeconds)
+            "To millisecond and back", (fun x -> x |> Microsecond.toMilliSeconds |> Millisecond.toMicroSeconds)
+            "To second and back", (fun x -> x |> Microsecond.toSeconds |> Second.toMicroSeconds)
+            "To minute and back", (fun x -> x |> Microsecond.toMinutes |> Minute.toMicroSeconds)
+            "To hour and back", (fun x -> x |> Microsecond.toHours |> Hour.toMicroSeconds)
+            "To day and back", (fun x -> x |> Microsecond.toDays |> Day.toMicroSeconds)
+            "To week and back", (fun x -> x |> Microsecond.toWeeks |> Week.toMicroSeconds)
+            "To fortnight and back", (fun x -> x |> Microsecond.toFortnights |> Fortnight.toMicroSeconds)
+            "To month and back", (fun x -> x |> Microsecond.toMonths |> Month.toMicroSeconds)
+            "To year and back", (fun x -> x |> Microsecond.toYears |> Year.toMicroSeconds)
+            "To decade and back", (fun x -> x |> Microsecond.toDecades |> Decade.toMicroSeconds)
+            "To century and back", (fun x -> x |> Microsecond.toCenturies |> Century.toMicroSeconds)
+            "To millennium and back", (fun x -> x |> Microsecond.toMillennia |> Millennium.toMicroSeconds)
+            "To eon and back", (fun x -> x |> Microsecond.toEons |> Eon.toMicroSeconds)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Microsecond.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let milliSecondConversionTests =
         [
-            "From millisecond to nanosecond and back",
-            (fun x ->
-                Millisecond.create x |> Millisecond.toNanoSeconds |> Nanosecond.toMilliSeconds)
-            "From millisecond to microsecond and back",
-            (fun x ->
-                Millisecond.create x |> Millisecond.toMicroSeconds |> Microsecond.toMilliSeconds)
-            "From millisecond to second and back",
-            (fun x -> Millisecond.create x |> Millisecond.toSeconds |> Second.toMilliSeconds)
-            "From millisecond to minute and back",
-            (fun x -> Millisecond.create x |> Millisecond.toMinutes |> Minute.toMilliSeconds)
-            "From millisecond to hour and back",
-            (fun x -> Millisecond.create x |> Millisecond.toHours |> Hour.toMilliSeconds)
-            "From millisecond to day and back",
-            (fun x -> Millisecond.create x |> Millisecond.toDays |> Day.toMilliSeconds)
-            "From millisecond to week and back",
-            (fun x -> Millisecond.create x |> Millisecond.toWeeks |> Week.toMilliSeconds)
-            "From millisecond to fortnight and back",
-            (fun x -> Millisecond.create x |> Millisecond.toFortnights |> Fortnight.toMilliSeconds)
-            "From millisecond to month and back",
-            (fun x -> Millisecond.create x |> Millisecond.toMonths |> Month.toMilliSeconds)
-            "From millisecond to year and back",
-            (fun x -> Millisecond.create x |> Millisecond.toYears |> Year.toMilliSeconds)
-            "From millisecond to decade and back",
-            (fun x -> Millisecond.create x |> Millisecond.toDecades |> Decade.toMilliSeconds)
-            "From millisecond to century and back",
-            (fun x -> Millisecond.create x |> Millisecond.toCenturies |> Century.toMilliSeconds)
-            "From millisecond to millennium and back",
-            (fun x -> Millisecond.create x |> Millisecond.toMillennia |> Millennium.toMilliSeconds)
-            "From millisecond to eon and back",
-            (fun x -> Millisecond.create x |> Millisecond.toEons |> Eon.toMilliSeconds)
+            "To nanosecond and back", (fun x -> x |> Millisecond.toNanoSeconds |> Nanosecond.toMilliSeconds)
+            "To microsecond and back", (fun x -> x |> Millisecond.toMicroSeconds |> Microsecond.toMilliSeconds)
+            "To second and back", (fun x -> x |> Millisecond.toSeconds |> Second.toMilliSeconds)
+            "To minute and back", (fun x -> x |> Millisecond.toMinutes |> Minute.toMilliSeconds)
+            "To hour and back", (fun x -> x |> Millisecond.toHours |> Hour.toMilliSeconds)
+            "To day and back", (fun x -> x |> Millisecond.toDays |> Day.toMilliSeconds)
+            "To week and back", (fun x -> x |> Millisecond.toWeeks |> Week.toMilliSeconds)
+            "To fortnight and back", (fun x -> x |> Millisecond.toFortnights |> Fortnight.toMilliSeconds)
+            "To month and back", (fun x -> x |> Millisecond.toMonths |> Month.toMilliSeconds)
+            "To year and back", (fun x -> x |> Millisecond.toYears |> Year.toMilliSeconds)
+            "To decade and back", (fun x -> x |> Millisecond.toDecades |> Decade.toMilliSeconds)
+            "To century and back", (fun x -> x |> Millisecond.toCenturies |> Century.toMilliSeconds)
+            "To millennium and back", (fun x -> x |> Millisecond.toMillennia |> Millennium.toMilliSeconds)
+            "To eon and back", (fun x -> x |> Millisecond.toEons |> Eon.toMilliSeconds)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Millisecond.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let secondConversionTests =
         [
-            "From second to nanosecond and back",
-            (fun x -> Second.create x |> Second.toNanoSeconds |> Nanosecond.toSeconds)
-            "From second to microsecond and back",
-            (fun x -> Second.create x |> Second.toMicroSeconds |> Microsecond.toSeconds)
-            "From second to millisecond and back",
-            (fun x -> Second.create x |> Second.toMilliSeconds |> Millisecond.toSeconds)
-            "From second to minute and back",
-            (fun x -> Second.create x |> Second.toMinutes |> Minute.toSeconds)
-            "From second to hour and back",
-            (fun x -> Second.create x |> Second.toHours |> Hour.toSeconds)
-            "From second to day and back",
-            (fun x -> Second.create x |> Second.toDays |> Day.toSeconds)
-            "From second to week and back",
-            (fun x -> Second.create x |> Second.toWeeks |> Week.toSeconds)
-            "From second to fortnight and back",
-            (fun x -> Second.create x |> Second.toFortnights |> Fortnight.toSeconds)
-            "From second to month and back",
-            (fun x -> Second.create x |> Second.toMonths |> Month.toSeconds)
-            "From second to year and back",
-            (fun x -> Second.create x |> Second.toYears |> Year.toSeconds)
-            "From second to decade and back",
-            (fun x -> Second.create x |> Second.toDecades |> Decade.toSeconds)
-            "From second to century and back",
-            (fun x -> Second.create x |> Second.toCenturies |> Century.toSeconds)
-            "From second to millennium and back",
-            (fun x -> Second.create x |> Second.toMillennia |> Millennium.toSeconds)
-            "From second to eon and back",
-            (fun x -> Second.create x |> Second.toEons |> Eon.toSeconds)
+            "To nanosecond and back", (fun x -> x |> Second.toNanoSeconds |> Nanosecond.toSeconds)
+            "To microsecond and back", (fun x -> x |> Second.toMicroSeconds |> Microsecond.toSeconds)
+            "To millisecond and back", (fun x -> x |> Second.toMilliSeconds |> Millisecond.toSeconds)
+            "To minute and back", (fun x -> x |> Second.toMinutes |> Minute.toSeconds)
+            "To hour and back", (fun x -> x |> Second.toHours |> Hour.toSeconds)
+            "To day and back", (fun x -> x |> Second.toDays |> Day.toSeconds)
+            "To week and back", (fun x -> x |> Second.toWeeks |> Week.toSeconds)
+            "To fortnight and back", (fun x -> x |> Second.toFortnights |> Fortnight.toSeconds)
+            "To month and back", (fun x -> x |> Second.toMonths |> Month.toSeconds)
+            "To year and back", (fun x -> x |> Second.toYears |> Year.toSeconds)
+            "To decade and back", (fun x -> x |> Second.toDecades |> Decade.toSeconds)
+            "To century and back", (fun x -> x |> Second.toCenturies |> Century.toSeconds)
+            "To millennium and back", (fun x -> x |> Second.toMillennia |> Millennium.toSeconds)
+            "To eon and back", (fun x -> x |> Second.toEons |> Eon.toSeconds)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Second.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let minuteConversionTests =
         [
-            "From minute to nanosecond and back",
-            (fun x -> Minute.create x |> Minute.toNanoSeconds |> Nanosecond.toMinutes)
-            "From minute to microsecond and back",
-            (fun x -> Minute.create x |> Minute.toMicroSeconds |> Microsecond.toMinutes)
-            "From minute to millisecond and back",
-            (fun x -> Minute.create x |> Minute.toMilliSeconds |> Millisecond.toMinutes)
-            "From minute to second and back",
-            (fun x -> Minute.create x |> Minute.toSeconds |> Second.toMinutes)
-            "From minute to hour and back",
-            (fun x -> Minute.create x |> Minute.toHours |> Hour.toMinutes)
-            "From minute to day and back",
-            (fun x -> Minute.create x |> Minute.toDays |> Day.toMinutes)
-            "From minute to week and back",
-            (fun x -> Minute.create x |> Minute.toWeeks |> Week.toMinutes)
-            "From minute to fortnight and back",
-            (fun x -> Minute.create x |> Minute.toFortnights |> Fortnight.toMinutes)
-            "From minute to month and back",
-            (fun x -> Minute.create x |> Minute.toMonths |> Month.toMinutes)
-            "From minute to year and back",
-            (fun x -> Minute.create x |> Minute.toYears |> Year.toMinutes)
-            "From minute to decade and back",
-            (fun x -> Minute.create x |> Minute.toDecades |> Decade.toMinutes)
-            "From minute to century and back",
-            (fun x -> Minute.create x |> Minute.toCenturies |> Century.toMinutes)
-            "From minute to millennium and back",
-            (fun x -> Minute.create x |> Minute.toMillennia |> Millennium.toMinutes)
-            "From minute to eon and back",
-            (fun x -> Minute.create x |> Minute.toEons |> Eon.toMinutes)
+            "To nanosecond and back", (fun x -> x |> Minute.toNanoSeconds |> Nanosecond.toMinutes)
+            "To microsecond and back", (fun x -> x |> Minute.toMicroSeconds |> Microsecond.toMinutes)
+            "To millisecond and back", (fun x -> x |> Minute.toMilliSeconds |> Millisecond.toMinutes)
+            "To second and back", (fun x -> x |> Minute.toSeconds |> Second.toMinutes)
+            "To hour and back", (fun x -> x |> Minute.toHours |> Hour.toMinutes)
+            "To day and back", (fun x -> x |> Minute.toDays |> Day.toMinutes)
+            "To week and back", (fun x -> x |> Minute.toWeeks |> Week.toMinutes)
+            "To fortnight and back", (fun x -> x |> Minute.toFortnights |> Fortnight.toMinutes)
+            "To month and back", (fun x -> x |> Minute.toMonths |> Month.toMinutes)
+            "To year and back", (fun x -> x |> Minute.toYears |> Year.toMinutes)
+            "To decade and back", (fun x -> x |> Minute.toDecades |> Decade.toMinutes)
+            "To century and back", (fun x -> x |> Minute.toCenturies |> Century.toMinutes)
+            "To millennium and back", (fun x -> x |> Minute.toMillennia |> Millennium.toMinutes)
+            "To eon and back", (fun x -> x |> Minute.toEons |> Eon.toMinutes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Minute.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let hourConversionTests =
         [
-            "From hour to nanosecond and back",
-            (fun x -> Hour.create x |> Hour.toNanoSeconds |> Nanosecond.toHours)
-            "From hour to microsecond and back",
-            (fun x -> Hour.create x |> Hour.toMicroSeconds |> Microsecond.toHours)
-            "From hour to millisecond and back",
-            (fun x -> Hour.create x |> Hour.toMilliSeconds |> Millisecond.toHours)
-            "From hour to second and back",
-            (fun x -> Hour.create x |> Hour.toSeconds |> Second.toHours)
-            "From hour to minute and back",
-            (fun x -> Hour.create x |> Hour.toMinutes |> Minute.toHours)
-            "From hour to day and back", (fun x -> Hour.create x |> Hour.toDays |> Day.toHours)
-            "From hour to week and back", (fun x -> Hour.create x |> Hour.toWeeks |> Week.toHours)
-            "From hour to fortnight and back",
-            (fun x -> Hour.create x |> Hour.toFortnights |> Fortnight.toHours)
-            "From hour to month and back",
-            (fun x -> Hour.create x |> Hour.toMonths |> Month.toHours)
-            "From hour to year and back", (fun x -> Hour.create x |> Hour.toYears |> Year.toHours)
-            "From hour to decade and back",
-            (fun x -> Hour.create x |> Hour.toDecades |> Decade.toHours)
-            "From hour to century and back",
-            (fun x -> Hour.create x |> Hour.toCenturies |> Century.toHours)
-            "From hour to millennium and back",
-            (fun x -> Hour.create x |> Hour.toMillennia |> Millennium.toHours)
-            "From hour to eon and back", (fun x -> Hour.create x |> Hour.toEons |> Eon.toHours)
+            "To nanosecond and back", (fun x -> x |> Hour.toNanoSeconds |> Nanosecond.toHours)
+            "To microsecond and back", (fun x -> x |> Hour.toMicroSeconds |> Microsecond.toHours)
+            "To millisecond and back", (fun x -> x |> Hour.toMilliSeconds |> Millisecond.toHours)
+            "To second and back", (fun x -> x |> Hour.toSeconds |> Second.toHours)
+            "To minute and back", (fun x -> x |> Hour.toMinutes |> Minute.toHours)
+            "To day and back", (fun x -> x |> Hour.toDays |> Day.toHours)
+            "To week and back", (fun x -> x |> Hour.toWeeks |> Week.toHours)
+            "To fortnight and back", (fun x -> x |> Hour.toFortnights |> Fortnight.toHours)
+            "To month and back", (fun x -> x |> Hour.toMonths |> Month.toHours)
+            "To year and back", (fun x -> x |> Hour.toYears |> Year.toHours)
+            "To decade and back", (fun x -> x |> Hour.toDecades |> Decade.toHours)
+            "To century and back", (fun x -> x |> Hour.toCenturies |> Century.toHours)
+            "To millennium and back", (fun x -> x |> Hour.toMillennia |> Millennium.toHours)
+            "To eon and back", (fun x -> x |> Hour.toEons |> Eon.toHours)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Hour.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let dayConversionTests =
         [
-            "From day to nanosecond and back",
-            (fun x -> Day.create x |> Day.toNanoSeconds |> Nanosecond.toDays)
-            "From day to microsecond and back",
-            (fun x -> Day.create x |> Day.toMicroSeconds |> Microsecond.toDays)
-            "From day to millisecond and back",
-            (fun x -> Day.create x |> Day.toMilliSeconds |> Millisecond.toDays)
-            "From day to second and back", (fun x -> Day.create x |> Day.toSeconds |> Second.toDays)
-            "From day to minute and back", (fun x -> Day.create x |> Day.toMinutes |> Minute.toDays)
-            "From day to hour and back", (fun x -> Day.create x |> Day.toHours |> Hour.toDays)
-            "From day to week and back", (fun x -> Day.create x |> Day.toWeeks |> Week.toDays)
-            "From day to fortnight and back",
-            (fun x -> Day.create x |> Day.toFortnights |> Fortnight.toDays)
-            "From day to month and back", (fun x -> Day.create x |> Day.toMonths |> Month.toDays)
-            "From day to year and back", (fun x -> Day.create x |> Day.toYears |> Year.toDays)
-            "From day to decade and back", (fun x -> Day.create x |> Day.toDecades |> Decade.toDays)
-            "From day to century and back",
-            (fun x -> Day.create x |> Day.toCenturies |> Century.toDays)
-            "From day to millennium and back",
-            (fun x -> Day.create x |> Day.toMillennia |> Millennium.toDays)
-            "From day to eon and back", (fun x -> Day.create x |> Day.toEons |> Eon.toDays)
+            "To nanosecond and back", (fun x -> x |> Day.toNanoSeconds |> Nanosecond.toDays)
+            "To microsecond and back", (fun x -> x |> Day.toMicroSeconds |> Microsecond.toDays)
+            "To millisecond and back", (fun x -> x |> Day.toMilliSeconds |> Millisecond.toDays)
+            "To second and back", (fun x -> x |> Day.toSeconds |> Second.toDays)
+            "To minute and back", (fun x -> x |> Day.toMinutes |> Minute.toDays)
+            "To hour and back", (fun x -> x |> Day.toHours |> Hour.toDays)
+            "To week and back", (fun x -> x |> Day.toWeeks |> Week.toDays)
+            "To fortnight and back", (fun x -> x |> Day.toFortnights |> Fortnight.toDays)
+            "To month and back", (fun x -> x |> Day.toMonths |> Month.toDays)
+            "To year and back", (fun x -> x |> Day.toYears |> Year.toDays)
+            "To decade and back", (fun x -> x |> Day.toDecades |> Decade.toDays)
+            "To century and back", (fun x -> x |> Day.toCenturies |> Century.toDays)
+            "To millennium and back", (fun x -> x |> Day.toMillennia |> Millennium.toDays)
+            "To eon and back", (fun x -> x |> Day.toEons |> Eon.toDays)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Day.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let weekConversionTests =
         [
-            "From week to nanosecond and back",
-            (fun x -> Week.create x |> Week.toNanoSeconds |> Nanosecond.toWeeks)
-            "From week to microsecond and back",
-            (fun x -> Week.create x |> Week.toMicroSeconds |> Microsecond.toWeeks)
-            "From week to millisecond and back",
-            (fun x -> Week.create x |> Week.toMilliSeconds |> Millisecond.toWeeks)
-            "From week to second and back",
-            (fun x -> Week.create x |> Week.toSeconds |> Second.toWeeks)
-            "From week to minute and back",
-            (fun x -> Week.create x |> Week.toMinutes |> Minute.toWeeks)
-            "From week to hour and back", (fun x -> Week.create x |> Week.toHours |> Hour.toWeeks)
-            "From week to day and back", (fun x -> Week.create x |> Week.toDays |> Day.toWeeks)
-            "From week to fortnight and back",
-            (fun x -> Week.create x |> Week.toFortnights |> Fortnight.toWeeks)
-            "From week to month and back",
-            (fun x -> Week.create x |> Week.toMonths |> Month.toWeeks)
-            "From week to year and back", (fun x -> Week.create x |> Week.toYears |> Year.toWeeks)
-            "From week to decade and back",
-            (fun x -> Week.create x |> Week.toDecades |> Decade.toWeeks)
-            "From week to century and back",
-            (fun x -> Week.create x |> Week.toCenturies |> Century.toWeeks)
-            "From week to millennium and back",
-            (fun x -> Week.create x |> Week.toMillennia |> Millennium.toWeeks)
-            "From week to eon and back", (fun x -> Week.create x |> Week.toEons |> Eon.toWeeks)
+            "To nanosecond and back", (fun x -> x |> Week.toNanoSeconds |> Nanosecond.toWeeks)
+            "To microsecond and back", (fun x -> x |> Week.toMicroSeconds |> Microsecond.toWeeks)
+            "To millisecond and back", (fun x -> x |> Week.toMilliSeconds |> Millisecond.toWeeks)
+            "To second and back", (fun x -> x |> Week.toSeconds |> Second.toWeeks)
+            "To minute and back", (fun x -> x |> Week.toMinutes |> Minute.toWeeks)
+            "To hour and back", (fun x -> x |> Week.toHours |> Hour.toWeeks)
+            "To day and back", (fun x -> x |> Week.toDays |> Day.toWeeks)
+            "To fortnight and back", (fun x -> x |> Week.toFortnights |> Fortnight.toWeeks)
+            "To month and back", (fun x -> x |> Week.toMonths |> Month.toWeeks)
+            "To year and back", (fun x -> x |> Week.toYears |> Year.toWeeks)
+            "To decade and back", (fun x -> x |> Week.toDecades |> Decade.toWeeks)
+            "To century and back", (fun x -> x |> Week.toCenturies |> Century.toWeeks)
+            "To millennium and back", (fun x -> x |> Week.toMillennia |> Millennium.toWeeks)
+            "To eon and back", (fun x -> x |> Week.toEons |> Eon.toWeeks)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Week.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let fortnightConversionTests =
         [
-            "From fortnight to nanosecond and back",
-            (fun x -> Fortnight.create x |> Fortnight.toNanoSeconds |> Nanosecond.toFortnights)
-            "From fortnight to microsecond and back",
-            (fun x -> Fortnight.create x |> Fortnight.toMicroSeconds |> Microsecond.toFortnights)
-            "From fortnight to millisecond and back",
-            (fun x -> Fortnight.create x |> Fortnight.toMilliSeconds |> Millisecond.toFortnights)
-            "From fortnight to second and back",
-            (fun x -> Fortnight.create x |> Fortnight.toSeconds |> Second.toFortnights)
-            "From fortnight to minute and back",
-            (fun x -> Fortnight.create x |> Fortnight.toMinutes |> Minute.toFortnights)
-            "From fortnight to hour and back",
-            (fun x -> Fortnight.create x |> Fortnight.toHours |> Hour.toFortnights)
-            "From fortnight to day and back",
-            (fun x -> Fortnight.create x |> Fortnight.toDays |> Day.toFortnights)
-            "From fortnight to week and back",
-            (fun x -> Fortnight.create x |> Fortnight.toWeeks |> Week.toFortnights)
-            "From fortnight to month and back",
-            (fun x -> Fortnight.create x |> Fortnight.toMonths |> Month.toFortnights)
-            "From fortnight to year and back",
-            (fun x -> Fortnight.create x |> Fortnight.toYears |> Year.toFortnights)
-            "From fortnight to decade and back",
-            (fun x -> Fortnight.create x |> Fortnight.toDecades |> Decade.toFortnights)
-            "From fortnight to century and back",
-            (fun x -> Fortnight.create x |> Fortnight.toCenturies |> Century.toFortnights)
-            "From fortnight to millennium and back",
-            (fun x -> Fortnight.create x |> Fortnight.toMillennia |> Millennium.toFortnights)
-            "From fortnight to eon and back",
-            (fun x -> Fortnight.create x |> Fortnight.toEons |> Eon.toFortnights)
+            "To nanosecond and back", (fun x -> x |> Fortnight.toNanoSeconds |> Nanosecond.toFortnights)
+            "To microsecond and back", (fun x -> x |> Fortnight.toMicroSeconds |> Microsecond.toFortnights)
+            "To millisecond and back", (fun x -> x |> Fortnight.toMilliSeconds |> Millisecond.toFortnights)
+            "To second and back", (fun x -> x |> Fortnight.toSeconds |> Second.toFortnights)
+            "To minute and back", (fun x -> x |> Fortnight.toMinutes |> Minute.toFortnights)
+            "To hour and back", (fun x -> x |> Fortnight.toHours |> Hour.toFortnights)
+            "To day and back", (fun x -> x |> Fortnight.toDays |> Day.toFortnights)
+            "To week and back", (fun x -> x |> Fortnight.toWeeks |> Week.toFortnights)
+            "To month and back", (fun x -> x |> Fortnight.toMonths |> Month.toFortnights)
+            "To year and back", (fun x -> x |> Fortnight.toYears |> Year.toFortnights)
+            "To decade and back", (fun x -> x |> Fortnight.toDecades |> Decade.toFortnights)
+            "To century and back", (fun x -> x |> Fortnight.toCenturies |> Century.toFortnights)
+            "To millennium and back", (fun x -> x |> Fortnight.toMillennia |> Millennium.toFortnights)
+            "To eon and back", (fun x -> x |> Fortnight.toEons |> Eon.toFortnights)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Fortnight.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let monthConversionTests =
         [
-            "From month to nanosecond and back",
-            (fun x -> Month.create x |> Month.toNanoSeconds |> Nanosecond.toMonths)
-            "From month to microsecond and back",
-            (fun x -> Month.create x |> Month.toMicroSeconds |> Microsecond.toMonths)
-            "From month to millisecond and back",
-            (fun x -> Month.create x |> Month.toMilliSeconds |> Millisecond.toMonths)
-            "From month to second and back",
-            (fun x -> Month.create x |> Month.toSeconds |> Second.toMonths)
-            "From month to minute and back",
-            (fun x -> Month.create x |> Month.toMinutes |> Minute.toMonths)
-            "From month to hour and back",
-            (fun x -> Month.create x |> Month.toHours |> Hour.toMonths)
-            "From month to day and back", (fun x -> Month.create x |> Month.toDays |> Day.toMonths)
-            "From month to week and back",
-            (fun x -> Month.create x |> Month.toWeeks |> Week.toMonths)
-            "From month to fortnight and back",
-            (fun x -> Month.create x |> Month.toFortnights |> Fortnight.toMonths)
-            "From month to year and back",
-            (fun x -> Month.create x |> Month.toYears |> Year.toMonths)
-            "From month to decade and back",
-            (fun x -> Month.create x |> Month.toDecades |> Decade.toMonths)
-            "From month to century and back",
-            (fun x -> Month.create x |> Month.toCenturies |> Century.toMonths)
-            "From month to millennium and back",
-            (fun x -> Month.create x |> Month.toMillennia |> Millennium.toMonths)
-            "From month to eon and back", (fun x -> Month.create x |> Month.toEons |> Eon.toMonths)
+            "To nanosecond and back", (fun x -> x |> Month.toNanoSeconds |> Nanosecond.toMonths)
+            "To microsecond and back", (fun x -> x |> Month.toMicroSeconds |> Microsecond.toMonths)
+            "To millisecond and back", (fun x -> x |> Month.toMilliSeconds |> Millisecond.toMonths)
+            "To second and back", (fun x -> x |> Month.toSeconds |> Second.toMonths)
+            "To minute and back", (fun x -> x |> Month.toMinutes |> Minute.toMonths)
+            "To hour and back", (fun x -> x |> Month.toHours |> Hour.toMonths)
+            "To day and back", (fun x -> x |> Month.toDays |> Day.toMonths)
+            "To week and back", (fun x -> x |> Month.toWeeks |> Week.toMonths)
+            "To fortnight and back", (fun x -> x |> Month.toFortnights |> Fortnight.toMonths)
+            "To year and back", (fun x -> x |> Month.toYears |> Year.toMonths)
+            "To decade and back", (fun x -> x |> Month.toDecades |> Decade.toMonths)
+            "To century and back", (fun x -> x |> Month.toCenturies |> Century.toMonths)
+            "To millennium and back", (fun x -> x |> Month.toMillennia |> Millennium.toMonths)
+            "To eon and back", (fun x -> x |> Month.toEons |> Eon.toMonths)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Month.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let yearConversionTests =
         [
-            "From year to nanosecond and back",
-            (fun x -> Year.create x |> Year.toNanoSeconds |> Nanosecond.toYears)
-            "From year to microsecond and back",
-            (fun x -> Year.create x |> Year.toMicroSeconds |> Microsecond.toYears)
-            "From year to millisecond and back",
-            (fun x -> Year.create x |> Year.toMilliSeconds |> Millisecond.toYears)
-            "From year to second and back",
-            (fun x -> Year.create x |> Year.toSeconds |> Second.toYears)
-            "From year to minute and back",
-            (fun x -> Year.create x |> Year.toMinutes |> Minute.toYears)
-            "From year to hour and back", (fun x -> Year.create x |> Year.toHours |> Hour.toYears)
-            "From year to day and back", (fun x -> Year.create x |> Year.toDays |> Day.toYears)
-            "From year to week and back", (fun x -> Year.create x |> Year.toWeeks |> Week.toYears)
-            "From year to fortnight and back",
-            (fun x -> Year.create x |> Year.toFortnights |> Fortnight.toYears)
-            "From year to month and back",
-            (fun x -> Year.create x |> Year.toMonths |> Month.toYears)
-            "From year to decade and back",
-            (fun x -> Year.create x |> Year.toDecades |> Decade.toYears)
-            "From year to century and back",
-            (fun x -> Year.create x |> Year.toCenturies |> Century.toYears)
-            "From year to millennium and back",
-            (fun x -> Year.create x |> Year.toMillennia |> Millennium.toYears)
-            "From year to eon and back", (fun x -> Year.create x |> Year.toEons |> Eon.toYears)
+            "To nanosecond and back", (fun x -> x |> Year.toNanoSeconds |> Nanosecond.toYears)
+            "To microsecond and back", (fun x -> x |> Year.toMicroSeconds |> Microsecond.toYears)
+            "To millisecond and back", (fun x -> x |> Year.toMilliSeconds |> Millisecond.toYears)
+            "To second and back", (fun x -> x |> Year.toSeconds |> Second.toYears)
+            "To minute and back", (fun x -> x |> Year.toMinutes |> Minute.toYears)
+            "To hour and back", (fun x -> x |> Year.toHours |> Hour.toYears)
+            "To day and back", (fun x -> x |> Year.toDays |> Day.toYears)
+            "To week and back", (fun x -> x |> Year.toWeeks |> Week.toYears)
+            "To fortnight and back", (fun x -> x |> Year.toFortnights |> Fortnight.toYears)
+            "To month and back", (fun x -> x |> Year.toMonths |> Month.toYears)
+            "To decade and back", (fun x -> x |> Year.toDecades |> Decade.toYears)
+            "To century and back", (fun x -> x |> Year.toCenturies |> Century.toYears)
+            "To millennium and back", (fun x -> x |> Year.toMillennia |> Millennium.toYears)
+            "To eon and back", (fun x -> x |> Year.toEons |> Eon.toYears)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Year.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let decadeConversionTests =
         [
-            "From decade to nanosecond and back",
-            (fun x -> Decade.create x |> Decade.toNanoSeconds |> Nanosecond.toDecades)
-            "From decade to microsecond and back",
-            (fun x -> Decade.create x |> Decade.toMicroSeconds |> Microsecond.toDecades)
-            "From decade to millisecond and back",
-            (fun x -> Decade.create x |> Decade.toMilliSeconds |> Millisecond.toDecades)
-            "From decade to second and back",
-            (fun x -> Decade.create x |> Decade.toSeconds |> Second.toDecades)
-            "From decade to minute and back",
-            (fun x -> Decade.create x |> Decade.toMinutes |> Minute.toDecades)
-            "From decade to hour and back",
-            (fun x -> Decade.create x |> Decade.toHours |> Hour.toDecades)
-            "From decade to day and back",
-            (fun x -> Decade.create x |> Decade.toDays |> Day.toDecades)
-            "From decade to week and back",
-            (fun x -> Decade.create x |> Decade.toWeeks |> Week.toDecades)
-            "From decade to fortnight and back",
-            (fun x -> Decade.create x |> Decade.toFortnights |> Fortnight.toDecades)
-            "From decade to month and back",
-            (fun x -> Decade.create x |> Decade.toMonths |> Month.toDecades)
-            "From decade to year and back",
-            (fun x -> Decade.create x |> Decade.toYears |> Year.toDecades)
-            "From decade to century and back",
-            (fun x -> Decade.create x |> Decade.toCenturies |> Century.toDecades)
-            "From decade to millennium and back",
-            (fun x -> Decade.create x |> Decade.toMillennia |> Millennium.toDecades)
-            "From decade to eon and back",
-            (fun x -> Decade.create x |> Decade.toEons |> Eon.toDecades)
+            "To nanosecond and back", (fun x -> x |> Decade.toNanoSeconds |> Nanosecond.toDecades)
+            "To microsecond and back", (fun x -> x |> Decade.toMicroSeconds |> Microsecond.toDecades)
+            "To millisecond and back", (fun x -> x |> Decade.toMilliSeconds |> Millisecond.toDecades)
+            "To second and back", (fun x -> x |> Decade.toSeconds |> Second.toDecades)
+            "To minute and back", (fun x -> x |> Decade.toMinutes |> Minute.toDecades)
+            "To hour and back", (fun x -> x |> Decade.toHours |> Hour.toDecades)
+            "To day and back", (fun x -> x |> Decade.toDays |> Day.toDecades)
+            "To week and back", (fun x -> x |> Decade.toWeeks |> Week.toDecades)
+            "To fortnight and back", (fun x -> x |> Decade.toFortnights |> Fortnight.toDecades)
+            "To month and back", (fun x -> x |> Decade.toMonths |> Month.toDecades)
+            "To year and back", (fun x -> x |> Decade.toYears |> Year.toDecades)
+            "To century and back", (fun x -> x |> Decade.toCenturies |> Century.toDecades)
+            "To millennium and back", (fun x -> x |> Decade.toMillennia |> Millennium.toDecades)
+            "To eon and back", (fun x -> x |> Decade.toEons |> Eon.toDecades)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Decade.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let centuryConversionTests =
         [
-            "From century to nanosecond and back",
-            (fun x -> Century.create x |> Century.toNanoSeconds |> Nanosecond.toCenturies)
-            "From century to microsecond and back",
-            (fun x -> Century.create x |> Century.toMicroSeconds |> Microsecond.toCenturies)
-            "From century to millisecond and back",
-            (fun x -> Century.create x |> Century.toMilliSeconds |> Millisecond.toCenturies)
-            "From century to second and back",
-            (fun x -> Century.create x |> Century.toSeconds |> Second.toCenturies)
-            "From century to minute and back",
-            (fun x -> Century.create x |> Century.toMinutes |> Minute.toCenturies)
-            "From century to hour and back",
-            (fun x -> Century.create x |> Century.toHours |> Hour.toCenturies)
-            "From century to day and back",
-            (fun x -> Century.create x |> Century.toDays |> Day.toCenturies)
-            "From century to week and back",
-            (fun x -> Century.create x |> Century.toWeeks |> Week.toCenturies)
-            "From century to fortnight and back",
-            (fun x -> Century.create x |> Century.toFortnights |> Fortnight.toCenturies)
-            "From century to month and back",
-            (fun x -> Century.create x |> Century.toMonths |> Month.toCenturies)
-            "From century to year and back",
-            (fun x -> Century.create x |> Century.toYears |> Year.toCenturies)
-            "From century to decade and back",
-            (fun x -> Century.create x |> Century.toDecades |> Decade.toCenturies)
-            "From century to millennium and back",
-            (fun x -> Century.create x |> Century.toMillennia |> Millennium.toCenturies)
-            "From century to eon and back",
-            (fun x -> Century.create x |> Century.toEons |> Eon.toCenturies)
+            "To nanosecond and back", (fun x -> x |> Century.toNanoSeconds |> Nanosecond.toCenturies)
+            "To microsecond and back", (fun x -> x |> Century.toMicroSeconds |> Microsecond.toCenturies)
+            "To millisecond and back", (fun x -> x |> Century.toMilliSeconds |> Millisecond.toCenturies)
+            "To second and back", (fun x -> x |> Century.toSeconds |> Second.toCenturies)
+            "To minute and back", (fun x -> x |> Century.toMinutes |> Minute.toCenturies)
+            "To hour and back", (fun x -> x |> Century.toHours |> Hour.toCenturies)
+            "To day and back", (fun x -> x |> Century.toDays |> Day.toCenturies)
+            "To week and back", (fun x -> x |> Century.toWeeks |> Week.toCenturies)
+            "To fortnight and back", (fun x -> x |> Century.toFortnights |> Fortnight.toCenturies)
+            "To month and back", (fun x -> x |> Century.toMonths |> Month.toCenturies)
+            "To year and back", (fun x -> x |> Century.toYears |> Year.toCenturies)
+            "To decade and back", (fun x -> x |> Century.toDecades |> Decade.toCenturies)
+            "To millennium and back", (fun x -> x |> Century.toMillennia |> Millennium.toCenturies)
+            "To eon and back", (fun x -> x |> Century.toEons |> Eon.toCenturies)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Century.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let millenniumConversionTests =
         [
-            "From millennium to nanosecond and back",
-            (fun x -> Millennium.create x |> Millennium.toNanoSeconds |> Nanosecond.toMillennia)
-            "From millennium to microsecond and back",
-            (fun x -> Millennium.create x |> Millennium.toMicroSeconds |> Microsecond.toMillennia)
-            "From millennium to millisecond and back",
-            (fun x -> Millennium.create x |> Millennium.toMilliSeconds |> Millisecond.toMillennia)
-            "From millennium to second and back",
-            (fun x -> Millennium.create x |> Millennium.toSeconds |> Second.toMillennia)
-            "From millennium to minute and back",
-            (fun x -> Millennium.create x |> Millennium.toMinutes |> Minute.toMillennia)
-            "From millennium to hour and back",
-            (fun x -> Millennium.create x |> Millennium.toHours |> Hour.toMillennia)
-            "From millennium to day and back",
-            (fun x -> Millennium.create x |> Millennium.toDays |> Day.toMillennia)
-            "From millennium to week and back",
-            (fun x -> Millennium.create x |> Millennium.toWeeks |> Week.toMillennia)
-            "From millennium to fortnight and back",
-            (fun x -> Millennium.create x |> Millennium.toFortnights |> Fortnight.toMillennia)
-            "From millennium to month and back",
-            (fun x -> Millennium.create x |> Millennium.toMonths |> Month.toMillennia)
-            "From millennium to year and back",
-            (fun x -> Millennium.create x |> Millennium.toYears |> Year.toMillennia)
-            "From millennium to decade and back",
-            (fun x -> Millennium.create x |> Millennium.toDecades |> Decade.toMillennia)
-            "From millennium to century and back",
-            (fun x -> Millennium.create x |> Millennium.toCenturies |> Century.toMillennia)
-            "From millennium to eon and back",
-            (fun x -> Millennium.create x |> Millennium.toEons |> Eon.toMillennia)
+            "To nanosecond and back", (fun x -> x |> Millennium.toNanoSeconds |> Nanosecond.toMillennia)
+            "To microsecond and back", (fun x -> x |> Millennium.toMicroSeconds |> Microsecond.toMillennia)
+            "To millisecond and back", (fun x -> x |> Millennium.toMilliSeconds |> Millisecond.toMillennia)
+            "To second and back", (fun x -> x |> Millennium.toSeconds |> Second.toMillennia)
+            "To minute and back", (fun x -> x |> Millennium.toMinutes |> Minute.toMillennia)
+            "To hour and back", (fun x -> x |> Millennium.toHours |> Hour.toMillennia)
+            "To day and back", (fun x -> x |> Millennium.toDays |> Day.toMillennia)
+            "To week and back", (fun x -> x |> Millennium.toWeeks |> Week.toMillennia)
+            "To fortnight and back", (fun x -> x |> Millennium.toFortnights |> Fortnight.toMillennia)
+            "To month and back", (fun x -> x |> Millennium.toMonths |> Month.toMillennia)
+            "To year and back", (fun x -> x |> Millennium.toYears |> Year.toMillennia)
+            "To decade and back", (fun x -> x |> Millennium.toDecades |> Decade.toMillennia)
+            "To century and back", (fun x -> x |> Millennium.toCenturies |> Century.toMillennia)
+            "To eon and back", (fun x -> x |> Millennium.toEons |> Eon.toMillennia)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Millennium.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let eonConversionTests =
         [
-            "From eon to nanosecond and back",
-            (fun x -> Eon.create x |> Eon.toNanoSeconds |> Nanosecond.toEons)
-            "From eon to microsecond and back",
-            (fun x -> Eon.create x |> Eon.toMicroSeconds |> Microsecond.toEons)
-            "From eon to millisecond and back",
-            (fun x -> Eon.create x |> Eon.toMilliSeconds |> Millisecond.toEons)
-            "From eon to second and back", (fun x -> Eon.create x |> Eon.toSeconds |> Second.toEons)
-            "From eon to minute and back", (fun x -> Eon.create x |> Eon.toMinutes |> Minute.toEons)
-            "From eon to hour and back", (fun x -> Eon.create x |> Eon.toHours |> Hour.toEons)
-            "From eon to day and back", (fun x -> Eon.create x |> Eon.toDays |> Day.toEons)
-            "From eon to week and back", (fun x -> Eon.create x |> Eon.toWeeks |> Week.toEons)
-            "From eon to fortnight and back",
-            (fun x -> Eon.create x |> Eon.toFortnights |> Fortnight.toEons)
-            "From eon to month and back", (fun x -> Eon.create x |> Eon.toMonths |> Month.toEons)
-            "From eon to year and back", (fun x -> Eon.create x |> Eon.toYears |> Year.toEons)
-            "From eon to decade and back", (fun x -> Eon.create x |> Eon.toDecades |> Decade.toEons)
-            "From eon to century and back",
-            (fun x -> Eon.create x |> Eon.toCenturies |> Century.toEons)
-            "From eon to millennium and back",
-            (fun x -> Eon.create x |> Eon.toMillennia |> Millennium.toEons)
+            "To nanosecond and back", (fun x -> x |> Eon.toNanoSeconds |> Nanosecond.toEons)
+            "To microsecond and back", (fun x -> x |> Eon.toMicroSeconds |> Microsecond.toEons)
+            "To millisecond and back", (fun x -> x |> Eon.toMilliSeconds |> Millisecond.toEons)
+            "To second and back", (fun x -> x |> Eon.toSeconds |> Second.toEons)
+            "To minute and back", (fun x -> x |> Eon.toMinutes |> Minute.toEons)
+            "To hour and back", (fun x -> x |> Eon.toHours |> Hour.toEons)
+            "To day and back", (fun x -> x |> Eon.toDays |> Day.toEons)
+            "To week and back", (fun x -> x |> Eon.toWeeks |> Week.toEons)
+            "To fortnight and back", (fun x -> x |> Eon.toFortnights |> Fortnight.toEons)
+            "To month and back", (fun x -> x |> Eon.toMonths |> Month.toEons)
+            "To year and back", (fun x -> x |> Eon.toYears |> Year.toEons)
+            "To decade and back", (fun x -> x |> Eon.toDecades |> Decade.toEons)
+            "To century and back", (fun x -> x |> Eon.toCenturies |> Century.toEons)
+            "To millennium and back", (fun x -> x |> Eon.toMillennia |> Millennium.toEons)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Eon.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Time Tests -> "
+        "Time Tests"
         [
-            testList "Nanosecond conversion tests -> " nanoSecondConversionTests
-            testList "Microsecond conversion tests -> " microSecondConversionTests
-            testList "Millisecond conversion tests -> " milliSecondConversionTests
-            testList "Second conversion tests -> " secondConversionTests
-            testList "Minute conversion tests -> " minuteConversionTests
-            testList "Hour conversion tests -> " hourConversionTests
-            testList "Day conversion tests -> " dayConversionTests
-            testList "Week conversion tests -> " weekConversionTests
-            testList "Fortnight conversion tests -> " fortnightConversionTests
-            testList "Month conversion tests -> " monthConversionTests
-            testList "Year conversion tests -> " yearConversionTests
-            testList "Decade conversion tests -> " decadeConversionTests
-            testList "Century conversion tests -> " centuryConversionTests
-            testList "Millennium conversion tests -> " millenniumConversionTests
-            testList "Eon conversion tests -> " eonConversionTests
+            testList "Nanosecond conversions" nanoSecondConversionTests
+            testList "Microsecond conversions" microSecondConversionTests
+            testList "Millisecond conversions" milliSecondConversionTests
+            testList "Second conversions" secondConversionTests
+            testList "Minute conversions" minuteConversionTests
+            testList "Hour conversions" hourConversionTests
+            testList "Day conversions" dayConversionTests
+            testList "Week conversions" weekConversionTests
+            testList "Fortnight conversions" fortnightConversionTests
+            testList "Month conversions" monthConversionTests
+            testList "Year conversions" yearConversionTests
+            testList "Decade conversions" decadeConversionTests
+            testList "Century conversions" centuryConversionTests
+            testList "Millennium conversions" millenniumConversionTests
+            testList "Eon conversions" eonConversionTests
         ]
 
 let massTests config =
 
     let milligramConversionTests =
         [
-            "From milligram to gram and back",
-            (fun x -> Milligram.create x |> Milligram.toGrams |> Gram.toMilligrams)
-            "From milligram to kilogram and back",
-            (fun x -> Milligram.create x |> Milligram.toKilograms |> Kilogram.toMilligrams)
-            "From milligram to pound and back",
-            (fun x -> Milligram.create x |> Milligram.toPoundMass |> PoundMass.toMilligrams)
+            "To gram and back", (fun x -> x |> Milligram.toGrams |> Gram.toMilligrams)
+            "To kilogram and back", (fun x -> x |> Milligram.toKilograms |> Kilogram.toMilligrams)
+            "To pound and back", (fun x -> x |> Milligram.toPoundMass |> PoundMass.toMilligrams)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Milligram.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let gramConversionTests =
         [
-            "From gram to milligram and back",
-            (fun x -> Gram.create x |> Gram.toMilligrams |> Milligram.toGrams)
-            "From gram to kilogram and back",
-            (fun x -> Gram.create x |> Gram.toKilograms |> Kilogram.toGrams)
-            "From gram to pound and back",
-            (fun x -> Gram.create x |> Gram.toPoundMass |> PoundMass.toGrams)
+            "To milligram and back", (fun x -> x |> Gram.toMilligrams |> Milligram.toGrams)
+            "To kilogram and back", (fun x -> x |> Gram.toKilograms |> Kilogram.toGrams)
+            "To pound and back", (fun x -> x |> Gram.toPoundMass |> PoundMass.toGrams)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Gram.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let kilogramConversionTests =
         [
-            "From kilogram to milligram and back",
-            (fun x -> Kilogram.create x |> Kilogram.toMilligrams |> Milligram.toKilograms)
-            "From kilogram to gram and back",
-            (fun x -> Kilogram.create x |> Kilogram.toGrams |> Gram.toKilograms)
-            "From kilogram to pound and back",
-            (fun x -> Kilogram.create x |> Kilogram.toPoundMass |> PoundMass.toKilograms)
+            "To milligram and back", (fun x -> x |> Kilogram.toMilligrams |> Milligram.toKilograms)
+            "To gram and back", (fun x -> x |> Kilogram.toGrams |> Gram.toKilograms)
+            "To pound and back", (fun x -> x |> Kilogram.toPoundMass |> PoundMass.toKilograms)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kilogram.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let poundConversionTests =
         [
-            "From pound to milligram and back",
-            (fun x -> PoundMass.create x |> PoundMass.toMilligrams |> Milligram.toPoundMass)
-            "From pound to gram and back",
-            (fun x -> PoundMass.create x |> PoundMass.toGrams |> Gram.toPoundMass)
-            "From pound to kilogram and back",
-            (fun x -> PoundMass.create x |> PoundMass.toKilograms |> Kilogram.toPoundMass)
+            "To milligram and back", (fun x -> x |> PoundMass.toMilligrams |> Milligram.toPoundMass)
+            "To gram and back", (fun x -> x |> PoundMass.toGrams |> Gram.toPoundMass)
+            "To kilogram and back", (fun x -> x |> PoundMass.toKilograms |> Kilogram.toPoundMass)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> PoundMass.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Mass tests -> "
+        "Mass tests"
         [
-            testList "Milligram conversion tests -> " milligramConversionTests
-            testList "Gram conversion tests -> " gramConversionTests
-            testList "Kilogram conversion tests -> " kilogramConversionTests
-            testList "Pound conversion tests -> " poundConversionTests
+            testList "Milligram conversions" milligramConversionTests
+            testList "Gram conversions" gramConversionTests
+            testList "Kilogram conversions" kilogramConversionTests
+            testList "Pound conversions" poundConversionTests
         ]
 
 let temperatureTests config =
 
     let kelvinConversionTests =
         [
-            "From kelvin to celsius and back",
-            (fun x -> Kelvin.create x |> Kelvin.toCelsius |> Celsius.toKelvin)
-            "From kelvin to fahrenheit and back",
-            (fun x -> Kelvin.create x |> Kelvin.toFahrenheit |> Fahrenheit.toKelvin)
-            "From kelvin to rankine and back",
-            (fun x -> Kelvin.create x |> Kelvin.toRankine |> Rankine.toKelvin)
+            "To celsius and back", (fun x -> x |> Kelvin.toCelsius |> Celsius.toKelvin)
+            "To fahrenheit and back", (fun x -> x |> Kelvin.toFahrenheit |> Fahrenheit.toKelvin)
+            "To rankine and back", (fun x -> x |> Kelvin.toRankine |> Rankine.toKelvin)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kelvin.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let celsiusConversionTests =
         [
-            "From celsius to kelvin and back",
-            (fun x -> Celsius.create x |> Celsius.toKelvin |> Kelvin.toCelsius)
-            "From celsius to fahrenheit and back",
-            (fun x -> Celsius.create x |> Celsius.toFahrenheit |> Fahrenheit.toCelsius)
-            "From celsius to rankine and back",
-            (fun x -> Celsius.create x |> Celsius.toRankine |> Rankine.toCelsius)
+            "To kelvin and back", (fun x -> x |> Celsius.toKelvin |> Kelvin.toCelsius)
+            "To fahrenheit and back", (fun x -> x |> Celsius.toFahrenheit |> Fahrenheit.toCelsius)
+            "To rankine and back", (fun x -> x |> Celsius.toRankine |> Rankine.toCelsius)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Celsius.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let fahrenheitConversionTests =
         [
-            "From fahrenheit to kelvin and back",
-            (fun x -> Fahrenheit.create x |> Fahrenheit.toKelvin |> Kelvin.toFahrenheit)
-            "From fahrenheit to celsius and back",
-            (fun x -> Fahrenheit.create x |> Fahrenheit.toCelsius |> Celsius.toFahrenheit)
-            "From fahrenheit to rankine and back",
-            (fun x -> Fahrenheit.create x |> Fahrenheit.toRankine |> Rankine.toFahrenheit)
+            "To kelvin and back", (fun x -> x |> Fahrenheit.toKelvin |> Kelvin.toFahrenheit)
+            "To celsius and back", (fun x -> x |> Fahrenheit.toCelsius |> Celsius.toFahrenheit)
+            "To rankine and back", (fun x -> x |> Fahrenheit.toRankine |> Rankine.toFahrenheit)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Fahrenheit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let rankineConversionTests =
         [
-            "From rankine to kelvin and back",
-            (fun x -> Rankine.create x |> Rankine.toKelvin |> Kelvin.toRankine)
-            "From rankine to celsius and back",
-            (fun x -> Rankine.create x |> Rankine.toCelsius |> Celsius.toRankine)
-            "From rankine to fahrenheit and back",
-            (fun x -> Rankine.create x |> Rankine.toFahrenheit |> Fahrenheit.toRankine)
+            "To kelvin and back", (fun x -> x |> Rankine.toKelvin |> Kelvin.toRankine)
+            "To celsius and back", (fun x -> x |> Rankine.toCelsius |> Celsius.toRankine)
+            "To fahrenheit and back", (fun x -> x |> Rankine.toFahrenheit |> Fahrenheit.toRankine)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Rankine.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Temperature Tests -> "
+        "Temperature Tests"
         [
-            testList "Kelvin conversion tests -> " kelvinConversionTests
-            testList "Celsius conversion tests -> " celsiusConversionTests
-            testList "Fahrenheit conversion tests -> " fahrenheitConversionTests
-            testList "Rankine conversion tests -> " rankineConversionTests
+            testList "Kelvin conversions" kelvinConversionTests
+            testList "Celsius conversions" celsiusConversionTests
+            testList "Fahrenheit conversions" fahrenheitConversionTests
+            testList "Rankine conversions" rankineConversionTests
         ]
 
 let angleTests config =
 
     let degreeConversionTests =
         [
-            "From degrees to radians and back",
-            (fun x -> Degree.create x |> Degree.toRadians |> Radian.toDegrees)
-            "From degrees to gradians and back",
-            (fun x -> Degree.create x |> Degree.toGradians |> Gradian.toDegrees)
-            "From degrees to revolutions and back",
-            (fun x -> Degree.create x |> Degree.toRevolutions |> Revolution.toDegrees)
-            "From degrees to arcminutes and back",
-            (fun x -> Degree.create x |> Degree.toArcMinutes |> ArcMinute.toDegrees)
-            "From degrees to arcseconds and back",
-            (fun x -> Degree.create x |> Degree.toArcSeconds |> ArcSecond.toDegrees)
+            "To radians and back", (fun x -> x |> Degree.toRadians |> Radian.toDegrees)
+            "To gradians and back", (fun x -> x |> Degree.toGradians |> Gradian.toDegrees)
+            "To revolutions and back", (fun x -> x |> Degree.toRevolutions |> Revolution.toDegrees)
+            "To arcminutes and back", (fun x -> x |> Degree.toArcMinutes |> ArcMinute.toDegrees)
+            "To arcseconds and back", (fun x -> x |> Degree.toArcSeconds |> ArcSecond.toDegrees)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Degree.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let radianConversionTests =
         [
-            "From radians to degrees and back",
-            (fun x -> Radian.create x |> Radian.toDegrees |> Degree.toRadians)
-            "From radians to gradians and back",
-            (fun x -> Radian.create x |> Radian.toGradians |> Gradian.toRadians)
-            "From radians to revolutions and back",
-            (fun x -> Radian.create x |> Radian.toRevolutions |> Revolution.toRadians)
-            "From radians to arcminutes and back",
-            (fun x -> Radian.create x |> Radian.toArcMinutes |> ArcMinute.toRadians)
-            "From radians to arcseconds and back",
-            (fun x -> Radian.create x |> Radian.toArcSeconds |> ArcSecond.toRadians)
+            "To degrees and back", (fun x -> x |> Radian.toDegrees |> Degree.toRadians)
+            "To gradians and back", (fun x -> x |> Radian.toGradians |> Gradian.toRadians)
+            "To revolutions and back", (fun x -> x |> Radian.toRevolutions |> Revolution.toRadians)
+            "To arcminutes and back", (fun x -> x |> Radian.toArcMinutes |> ArcMinute.toRadians)
+            "To arcseconds and back", (fun x -> x |> Radian.toArcSeconds |> ArcSecond.toRadians)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Radian.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let gradianConversionTests =
         [
-            "From gradians to degrees and back",
-            (fun x -> Gradian.create x |> Gradian.toDegrees |> Degree.toGradians)
-            "From gradians to radians and back",
-            (fun x -> Gradian.create x |> Gradian.toRadians |> Radian.toGradians)
-            "From gradians to revolutions and back",
-            (fun x -> Gradian.create x |> Gradian.toRevolutions |> Revolution.toGradians)
-            "From gradians to arcminutes and back",
-            (fun x -> Gradian.create x |> Gradian.toArcMinutes |> ArcMinute.toGradians)
-            "From gradians to arcseconds and back",
-            (fun x -> Gradian.create x |> Gradian.toArcSeconds |> ArcSecond.toGradians)
+            "To degrees and back", (fun x -> x |> Gradian.toDegrees |> Degree.toGradians)
+            "To radians and back", (fun x -> x |> Gradian.toRadians |> Radian.toGradians)
+            "To revolutions and back", (fun x -> x |> Gradian.toRevolutions |> Revolution.toGradians)
+            "To arcminutes and back", (fun x -> x |> Gradian.toArcMinutes |> ArcMinute.toGradians)
+            "To arcseconds and back", (fun x -> x |> Gradian.toArcSeconds |> ArcSecond.toGradians)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Gradian.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let revolutionConversionTests =
         [
-            "From revolutions to degrees and back",
-            (fun x -> Revolution.create x |> Revolution.toDegrees |> Degree.toRevolutions)
-            "From revolutions to radians and back",
-            (fun x -> Revolution.create x |> Revolution.toRadians |> Radian.toRevolutions)
-            "From revolutions to gradians and back",
-            (fun x -> Revolution.create x |> Revolution.toGradians |> Gradian.toRevolutions)
-            "From revolutions to arcminutes and back",
-            (fun x -> Revolution.create x |> Revolution.toArcMinutes |> ArcMinute.toRevolutions)
-            "From revolutions to arcseconds and back",
-            (fun x -> Revolution.create x |> Revolution.toArcSeconds |> ArcSecond.toRevolutions)
+            "To degrees and back", (fun x -> x |> Revolution.toDegrees |> Degree.toRevolutions)
+            "To radians and back", (fun x -> x |> Revolution.toRadians |> Radian.toRevolutions)
+            "To gradians and back", (fun x -> x |> Revolution.toGradians |> Gradian.toRevolutions)
+            "To arcminutes and back", (fun x -> x |> Revolution.toArcMinutes |> ArcMinute.toRevolutions)
+            "To arcseconds and back", (fun x -> x |> Revolution.toArcSeconds |> ArcSecond.toRevolutions)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Revolution.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let arcMinuteConversionTests =
         [
-            "From arcminutes to degrees and back",
-            (fun x -> ArcMinute.create x |> ArcMinute.toDegrees |> Degree.toArcMinutes)
-            "From arcminutes to radians and back",
-            (fun x -> ArcMinute.create x |> ArcMinute.toRadians |> Radian.toArcMinutes)
-            "From arcminutes to gradians and back",
-            (fun x -> ArcMinute.create x |> ArcMinute.toGradians |> Gradian.toArcMinutes)
-            "From arcminutes to revolutions and back",
-            (fun x -> ArcMinute.create x |> ArcMinute.toRevolutions |> Revolution.toArcMinutes)
-            "From arcminutes to arcseconds and back",
-            (fun x -> ArcMinute.create x |> ArcMinute.toArcSeconds |> ArcSecond.toArcMinutes)
+            "To degrees and back", (fun x -> x |> ArcMinute.toDegrees |> Degree.toArcMinutes)
+            "To radians and back", (fun x -> x |> ArcMinute.toRadians |> Radian.toArcMinutes)
+            "To gradians and back", (fun x -> x |> ArcMinute.toGradians |> Gradian.toArcMinutes)
+            "To revolutions and back", (fun x -> x |> ArcMinute.toRevolutions |> Revolution.toArcMinutes)
+            "To arcseconds and back", (fun x -> x |> ArcMinute.toArcSeconds |> ArcSecond.toArcMinutes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> ArcMinute.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let arcSecondConversionTests =
         [
-            "From arcseconds to degrees and back",
-            (fun x -> ArcSecond.create x |> ArcSecond.toDegrees |> Degree.toArcSeconds)
-            "From arcseconds to radians and back",
-            (fun x -> ArcSecond.create x |> ArcSecond.toRadians |> Radian.toArcSeconds)
-            "From arcseconds to gradians and back",
-            (fun x -> ArcSecond.create x |> ArcSecond.toGradians |> Gradian.toArcSeconds)
-            "From arcseconds to revolutions and back",
-            (fun x -> ArcSecond.create x |> ArcSecond.toRevolutions |> Revolution.toArcSeconds)
-            "From arcseconds to arcminutes and back",
-            (fun x -> ArcSecond.create x |> ArcSecond.toArcMinutes |> ArcMinute.toArcSeconds)
+            "To degrees and back", (fun x -> x |> ArcSecond.toDegrees |> Degree.toArcSeconds)
+            "To radians and back", (fun x -> x |> ArcSecond.toRadians |> Radian.toArcSeconds)
+            "To gradians and back", (fun x -> x |> ArcSecond.toGradians |> Gradian.toArcSeconds)
+            "To revolutions and back", (fun x -> x |> ArcSecond.toRevolutions |> Revolution.toArcSeconds)
+            "To arcminutes and back", (fun x -> x |> ArcSecond.toArcMinutes |> ArcMinute.toArcSeconds)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> ArcSecond.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Angle Tests -> "
+        "Angle Tests"
         [
-            testList "Degree conversion tests -> " degreeConversionTests
-            testList "Radian conversion tests -> " radianConversionTests
-            testList "Gradian conversion tests -> " gradianConversionTests
-            testList "Revolution conversion tests -> " revolutionConversionTests
-            testList "ArcMinute conversion tests -> " arcMinuteConversionTests
-            testList "ArcSecond conversion tests -> " arcSecondConversionTests
+            testList "Degree conversions" degreeConversionTests
+            testList "Radian conversions" radianConversionTests
+            testList "Gradian conversions" gradianConversionTests
+            testList "Revolution conversions" revolutionConversionTests
+            testList "ArcMinute conversions" arcMinuteConversionTests
+            testList "ArcSecond conversions" arcSecondConversionTests
         ]
 
 let dataStorageTests config =
 
     let bitConversionTests =
         [
-            "From bit to kilobit and back",
-            (fun x -> Bit.create x |> Bit.toKilobits |> Kilobit.toBits)
-            "From bit to megabit and back",
-            (fun x -> Bit.create x |> Bit.toMegabits |> Megabit.toBits)
-            "From bit to gigabit and back",
-            (fun x -> Bit.create x |> Bit.toGigabits |> Gigabit.toBits)
-            "From bit to terabit and back",
-            (fun x -> Bit.create x |> Bit.toTerabits |> Terabit.toBits)
-            "From bit to petabit and back",
-            (fun x -> Bit.create x |> Bit.toPetabits |> Petabit.toBits)
-            "From bit to byte and back", (fun x -> Bit.create x |> Bit.toBytes |> Byte.toBits)
-            "From bit to kilobyte and back",
-            (fun x -> Bit.create x |> Bit.toKilobytes |> Kilobyte.toBits)
-            "From bit to megabyte and back",
-            (fun x -> Bit.create x |> Bit.toMegabytes |> Megabyte.toBits)
-            "From bit to gigabyte and back",
-            (fun x -> Bit.create x |> Bit.toGigabytes |> Gigabyte.toBits)
-            "From bit to terabyte and back",
-            (fun x -> Bit.create x |> Bit.toTerabytes |> Terabyte.toBits)
-            "From bit to petabyte and back",
-            (fun x -> Bit.create x |> Bit.toPetabytes |> Petabyte.toBits)
+            "To kilobit and back", (fun x -> x |> Bit.toKilobits |> Kilobit.toBits)
+            "To megabit and back", (fun x -> x |> Bit.toMegabits |> Megabit.toBits)
+            "To gigabit and back", (fun x -> x |> Bit.toGigabits |> Gigabit.toBits)
+            "To terabit and back", (fun x -> x |> Bit.toTerabits |> Terabit.toBits)
+            "To petabit and back", (fun x -> x |> Bit.toPetabits |> Petabit.toBits)
+            "To byte and back", (fun x -> x |> Bit.toBytes |> Byte.toBits)
+            "To kilobyte and back", (fun x -> x |> Bit.toKilobytes |> Kilobyte.toBits)
+            "To megabyte and back", (fun x -> x |> Bit.toMegabytes |> Megabyte.toBits)
+            "To gigabyte and back", (fun x -> x |> Bit.toGigabytes |> Gigabyte.toBits)
+            "To terabyte and back", (fun x -> x |> Bit.toTerabytes |> Terabyte.toBits)
+            "To petabyte and back", (fun x -> x |> Bit.toPetabytes |> Petabyte.toBits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Bit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let kilobitConversionTests =
         [
-            "From kilobit to bit and back",
-            (fun x -> Kilobit.create x |> Kilobit.toBits |> Bit.toKilobits)
-            "From kilobit to megabit and back",
-            (fun x -> Kilobit.create x |> Kilobit.toMegabits |> Megabit.toKilobits)
-            "From kilobit to gigabit and back",
-            (fun x -> Kilobit.create x |> Kilobit.toGigabits |> Gigabit.toKilobits)
-            "From kilobit to terabit and back",
-            (fun x -> Kilobit.create x |> Kilobit.toTerabits |> Terabit.toKilobits)
-            "From kilobit to petabit and back",
-            (fun x -> Kilobit.create x |> Kilobit.toPetabits |> Petabit.toKilobits)
-            "From kilobit to byte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toBytes |> Byte.toKilobits)
-            "From kilobit to kilobyte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toKilobytes |> Kilobyte.toKilobits)
-            "From kilobit to megabyte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toMegabytes |> Megabyte.toKilobits)
-            "From kilobit to gigabyte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toGigabytes |> Gigabyte.toKilobits)
-            "From kilobit to terabyte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toTerabytes |> Terabyte.toKilobits)
-            "From kilobit to petabyte and back",
-            (fun x -> Kilobit.create x |> Kilobit.toPetabytes |> Petabyte.toKilobits)
+            "To bit and back", (fun x -> x |> Kilobit.toBits |> Bit.toKilobits)
+            "To megabit and back", (fun x -> x |> Kilobit.toMegabits |> Megabit.toKilobits)
+            "To gigabit and back", (fun x -> x |> Kilobit.toGigabits |> Gigabit.toKilobits)
+            "To terabit and back", (fun x -> x |> Kilobit.toTerabits |> Terabit.toKilobits)
+            "To petabit and back", (fun x -> x |> Kilobit.toPetabits |> Petabit.toKilobits)
+            "To byte and back", (fun x -> x |> Kilobit.toBytes |> Byte.toKilobits)
+            "To kilobyte and back", (fun x -> x |> Kilobit.toKilobytes |> Kilobyte.toKilobits)
+            "To megabyte and back", (fun x -> x |> Kilobit.toMegabytes |> Megabyte.toKilobits)
+            "To gigabyte and back", (fun x -> x |> Kilobit.toGigabytes |> Gigabyte.toKilobits)
+            "To terabyte and back", (fun x -> x |> Kilobit.toTerabytes |> Terabyte.toKilobits)
+            "To petabyte and back", (fun x -> x |> Kilobit.toPetabytes |> Petabyte.toKilobits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kilobit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let megabitConversionTests =
         [
-            "From megabit to bit and back",
-            (fun x -> Megabit.create x |> Megabit.toBits |> Bit.toMegabits)
-            "From megabit to kilobit and back",
-            (fun x -> Megabit.create x |> Megabit.toKilobits |> Kilobit.toMegabits)
-            "From megabit to gigabit and back",
-            (fun x -> Megabit.create x |> Megabit.toGigabits |> Gigabit.toMegabits)
-            "From megabit to terabit and back",
-            (fun x -> Megabit.create x |> Megabit.toTerabits |> Terabit.toMegabits)
-            "From megabit to petabit and back",
-            (fun x -> Megabit.create x |> Megabit.toPetabits |> Petabit.toMegabits)
-            "From megabit to byte and back",
-            (fun x -> Megabit.create x |> Megabit.toBytes |> Byte.toMegabits)
-            "From megabit to kilobyte and back",
-            (fun x -> Megabit.create x |> Megabit.toKilobytes |> Kilobyte.toMegabits)
-            "From megabit to megabyte and back",
-            (fun x -> Megabit.create x |> Megabit.toMegabytes |> Megabyte.toMegabits)
-            "From megabit to gigabyte and back",
-            (fun x -> Megabit.create x |> Megabit.toGigabytes |> Gigabyte.toMegabits)
-            "From megabit to terabyte and back",
-            (fun x -> Megabit.create x |> Megabit.toTerabytes |> Terabyte.toMegabits)
-            "From megabit to petabyte and back",
-            (fun x -> Megabit.create x |> Megabit.toPetabytes |> Petabyte.toMegabits)
+            "To bit and back", (fun x -> x |> Megabit.toBits |> Bit.toMegabits)
+            "To kilobit and back", (fun x -> x |> Megabit.toKilobits |> Kilobit.toMegabits)
+            "To gigabit and back", (fun x -> x |> Megabit.toGigabits |> Gigabit.toMegabits)
+            "To terabit and back", (fun x -> x |> Megabit.toTerabits |> Terabit.toMegabits)
+            "To petabit and back", (fun x -> x |> Megabit.toPetabits |> Petabit.toMegabits)
+            "To byte and back", (fun x -> x |> Megabit.toBytes |> Byte.toMegabits)
+            "To kilobyte and back", (fun x -> x |> Megabit.toKilobytes |> Kilobyte.toMegabits)
+            "To megabyte and back", (fun x -> x |> Megabit.toMegabytes |> Megabyte.toMegabits)
+            "To gigabyte and back", (fun x -> x |> Megabit.toGigabytes |> Gigabyte.toMegabits)
+            "To terabyte and back", (fun x -> x |> Megabit.toTerabytes |> Terabyte.toMegabits)
+            "To petabyte and back", (fun x -> x |> Megabit.toPetabytes |> Petabyte.toMegabits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Megabit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let gigabitConversionTests =
         [
-            "From gigabit to bit and back",
-            (fun x -> Gigabit.create x |> Gigabit.toBits |> Bit.toGigabits)
-            "From gigabit to kilobit and back",
-            (fun x -> Gigabit.create x |> Gigabit.toKilobits |> Kilobit.toGigabits)
-            "From gigabit to megabit and back",
-            (fun x -> Gigabit.create x |> Gigabit.toMegabits |> Megabit.toGigabits)
-            "From gigabit to terabit and back",
-            (fun x -> Gigabit.create x |> Gigabit.toTerabits |> Terabit.toGigabits)
-            "From gigabit to petabit and back",
-            (fun x -> Gigabit.create x |> Gigabit.toPetabits |> Petabit.toGigabits)
-            "From gigabit to byte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toBytes |> Byte.toGigabits)
-            "From gigabit to kilobyte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toKilobytes |> Kilobyte.toGigabits)
-            "From gigabit to megabyte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toMegabytes |> Megabyte.toGigabits)
-            "From gigabit to gigabyte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toGigabytes |> Gigabyte.toGigabits)
-            "From gigabit to terabyte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toTerabytes |> Terabyte.toGigabits)
-            "From gigabit to petabyte and back",
-            (fun x -> Gigabit.create x |> Gigabit.toPetabytes |> Petabyte.toGigabits)
+            "To bit and back", (fun x -> x |> Gigabit.toBits |> Bit.toGigabits)
+            "To kilobit and back", (fun x -> x |> Gigabit.toKilobits |> Kilobit.toGigabits)
+            "To megabit and back", (fun x -> x |> Gigabit.toMegabits |> Megabit.toGigabits)
+            "To terabit and back", (fun x -> x |> Gigabit.toTerabits |> Terabit.toGigabits)
+            "To petabit and back", (fun x -> x |> Gigabit.toPetabits |> Petabit.toGigabits)
+            "To byte and back", (fun x -> x |> Gigabit.toBytes |> Byte.toGigabits)
+            "To kilobyte and back", (fun x -> x |> Gigabit.toKilobytes |> Kilobyte.toGigabits)
+            "To megabyte and back", (fun x -> x |> Gigabit.toMegabytes |> Megabyte.toGigabits)
+            "To gigabyte and back", (fun x -> x |> Gigabit.toGigabytes |> Gigabyte.toGigabits)
+            "To terabyte and back", (fun x -> x |> Gigabit.toTerabytes |> Terabyte.toGigabits)
+            "To petabyte and back", (fun x -> x |> Gigabit.toPetabytes |> Petabyte.toGigabits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Gigabit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let terabitConversionTests =
         [
-            "From terabit to bit and back",
-            (fun x -> Terabit.create x |> Terabit.toBits |> Bit.toTerabits)
-            "From terabit to kilobit and back",
-            (fun x -> Terabit.create x |> Terabit.toKilobits |> Kilobit.toTerabits)
-            "From terabit to megabit and back",
-            (fun x -> Terabit.create x |> Terabit.toMegabits |> Megabit.toTerabits)
-            "From terabit to gigabit and back",
-            (fun x -> Terabit.create x |> Terabit.toGigabits |> Gigabit.toTerabits)
-            "From terabit to petabit and back",
-            (fun x -> Terabit.create x |> Terabit.toPetabits |> Petabit.toTerabits)
-            "From terabit to byte and back",
-            (fun x -> Terabit.create x |> Terabit.toBytes |> Byte.toTerabits)
-            "From terabit to kilobyte and back",
-            (fun x -> Terabit.create x |> Terabit.toKilobytes |> Kilobyte.toTerabits)
-            "From terabit to megabyte and back",
-            (fun x -> Terabit.create x |> Terabit.toMegabytes |> Megabyte.toTerabits)
-            "From terabit to gigabyte and back",
-            (fun x -> Terabit.create x |> Terabit.toGigabytes |> Gigabyte.toTerabits)
-            "From terabit to terabyte and back",
-            (fun x -> Terabit.create x |> Terabit.toTerabytes |> Terabyte.toTerabits)
-            "From terabit to petabyte and back",
-            (fun x -> Terabit.create x |> Terabit.toPetabytes |> Petabyte.toTerabits)
+            "To bit and back", (fun x -> x |> Terabit.toBits |> Bit.toTerabits)
+            "To kilobit and back", (fun x -> x |> Terabit.toKilobits |> Kilobit.toTerabits)
+            "To megabit and back", (fun x -> x |> Terabit.toMegabits |> Megabit.toTerabits)
+            "To gigabit and back", (fun x -> x |> Terabit.toGigabits |> Gigabit.toTerabits)
+            "To petabit and back", (fun x -> x |> Terabit.toPetabits |> Petabit.toTerabits)
+            "To byte and back", (fun x -> x |> Terabit.toBytes |> Byte.toTerabits)
+            "To kilobyte and back", (fun x -> x |> Terabit.toKilobytes |> Kilobyte.toTerabits)
+            "To megabyte and back", (fun x -> x |> Terabit.toMegabytes |> Megabyte.toTerabits)
+            "To gigabyte and back", (fun x -> x |> Terabit.toGigabytes |> Gigabyte.toTerabits)
+            "To terabyte and back", (fun x -> x |> Terabit.toTerabytes |> Terabyte.toTerabits)
+            "To petabyte and back", (fun x -> x |> Terabit.toPetabytes |> Petabyte.toTerabits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Terabit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let petabitConversionTests =
         [
-            "From petabit to bit and back",
-            (fun x -> Petabit.create x |> Petabit.toBits |> Bit.toPetabits)
-            "From petabit to kilobit and back",
-            (fun x -> Petabit.create x |> Petabit.toKilobits |> Kilobit.toPetabits)
-            "From petabit to megabit and back",
-            (fun x -> Petabit.create x |> Petabit.toMegabits |> Megabit.toPetabits)
-            "From petabit to gigabit and back",
-            (fun x -> Petabit.create x |> Petabit.toGigabits |> Gigabit.toPetabits)
-            "From petabit to terabit and back",
-            (fun x -> Petabit.create x |> Petabit.toTerabits |> Terabit.toPetabits)
-            "From petabit to byte and back",
-            (fun x -> Petabit.create x |> Petabit.toBytes |> Byte.toPetabits)
-            "From petabit to kilobyte and back",
-            (fun x -> Petabit.create x |> Petabit.toKilobytes |> Kilobyte.toPetabits)
-            "From petabit to megabyte and back",
-            (fun x -> Petabit.create x |> Petabit.toMegabytes |> Megabyte.toPetabits)
-            "From petabit to gigabyte and back",
-            (fun x -> Petabit.create x |> Petabit.toGigabytes |> Gigabyte.toPetabits)
-            "From petabit to terabyte and back",
-            (fun x -> Petabit.create x |> Petabit.toTerabytes |> Terabyte.toPetabits)
-            "From petabit to petabyte and back",
-            (fun x -> Petabit.create x |> Petabit.toPetabytes |> Petabyte.toPetabits)
+            "To bit and back", (fun x -> x |> Petabit.toBits |> Bit.toPetabits)
+            "To kilobit and back", (fun x -> x |> Petabit.toKilobits |> Kilobit.toPetabits)
+            "To megabit and back", (fun x -> x |> Petabit.toMegabits |> Megabit.toPetabits)
+            "To gigabit and back", (fun x -> x |> Petabit.toGigabits |> Gigabit.toPetabits)
+            "To terabit and back", (fun x -> x |> Petabit.toTerabits |> Terabit.toPetabits)
+            "To byte and back", (fun x -> x |> Petabit.toBytes |> Byte.toPetabits)
+            "To kilobyte and back", (fun x -> x |> Petabit.toKilobytes |> Kilobyte.toPetabits)
+            "To megabyte and back", (fun x -> x |> Petabit.toMegabytes |> Megabyte.toPetabits)
+            "To gigabyte and back", (fun x -> x |> Petabit.toGigabytes |> Gigabyte.toPetabits)
+            "To terabyte and back", (fun x -> x |> Petabit.toTerabytes |> Terabyte.toPetabits)
+            "To petabyte and back", (fun x -> x |> Petabit.toPetabytes |> Petabyte.toPetabits)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Petabit.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let byteConversionTests =
         [
-            "From byte to bit and back", (fun x -> Byte.create x |> Byte.toBits |> Bit.toBytes)
-            "From byte to kilobit and back",
-            (fun x -> Byte.create x |> Byte.toKilobits |> Kilobit.toBytes)
-            "From byte to megabit and back",
-            (fun x -> Byte.create x |> Byte.toMegabits |> Megabit.toBytes)
-            "From byte to gigabit and back",
-            (fun x -> Byte.create x |> Byte.toGigabits |> Gigabit.toBytes)
-            "From byte to terabit and back",
-            (fun x -> Byte.create x |> Byte.toTerabits |> Terabit.toBytes)
-            "From byte to petabit and back",
-            (fun x -> Byte.create x |> Byte.toPetabits |> Petabit.toBytes)
-            "From byte to kilobyte and back",
-            (fun x -> Byte.create x |> Byte.toKilobytes |> Kilobyte.toBytes)
-            "From byte to megabyte and back",
-            (fun x -> Byte.create x |> Byte.toMegabytes |> Megabyte.toBytes)
-            "From byte to gigabyte and back",
-            (fun x -> Byte.create x |> Byte.toGigabytes |> Gigabyte.toBytes)
-            "From byte to terabyte and back",
-            (fun x -> Byte.create x |> Byte.toTerabytes |> Terabyte.toBytes)
-            "From byte to petabyte and back",
-            (fun x -> Byte.create x |> Byte.toPetabytes |> Petabyte.toBytes)
+            "To bit and back", (fun x -> x |> Byte.toBits |> Bit.toBytes)
+            "To kilobit and back", (fun x -> x |> Byte.toKilobits |> Kilobit.toBytes)
+            "To megabit and back", (fun x -> x |> Byte.toMegabits |> Megabit.toBytes)
+            "To gigabit and back", (fun x -> x |> Byte.toGigabits |> Gigabit.toBytes)
+            "To terabit and back", (fun x -> x |> Byte.toTerabits |> Terabit.toBytes)
+            "To petabit and back", (fun x -> x |> Byte.toPetabits |> Petabit.toBytes)
+            "To kilobyte and back", (fun x -> x |> Byte.toKilobytes |> Kilobyte.toBytes)
+            "To megabyte and back", (fun x -> x |> Byte.toMegabytes |> Megabyte.toBytes)
+            "To gigabyte and back", (fun x -> x |> Byte.toGigabytes |> Gigabyte.toBytes)
+            "To terabyte and back", (fun x -> x |> Byte.toTerabytes |> Terabyte.toBytes)
+            "To petabyte and back", (fun x -> x |> Byte.toPetabytes |> Petabyte.toBytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Byte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let kilobyteConversionTests =
         [
-            "From kilobyte to bit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toBits |> Bit.toKilobytes)
-            "From kilobyte to kilobit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toKilobits |> Kilobit.toKilobytes)
-            "From kilobyte to megabit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toMegabits |> Megabit.toKilobytes)
-            "From kilobyte to gigabit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toGigabits |> Gigabit.toKilobytes)
-            "From kilobyte to terabit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toTerabits |> Terabit.toKilobytes)
-            "From kilobyte to petabit and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toPetabits |> Petabit.toKilobytes)
-            "From kilobyte to byte and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toBytes |> Byte.toKilobytes)
-            "From kilobyte to megabyte and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toMegabytes |> Megabyte.toKilobytes)
-            "From kilobyte to gigabyte and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toGigabytes |> Gigabyte.toKilobytes)
-            "From kilobyte to terabyte and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toTerabytes |> Terabyte.toKilobytes)
-            "From kilobyte to petabyte and back",
-            (fun x -> Kilobyte.create x |> Kilobyte.toPetabytes |> Petabyte.toKilobytes)
+            "To bit and back", (fun x -> x |> Kilobyte.toBits |> Bit.toKilobytes)
+            "To kilobit and back", (fun x -> x |> Kilobyte.toKilobits |> Kilobit.toKilobytes)
+            "To megabit and back", (fun x -> x |> Kilobyte.toMegabits |> Megabit.toKilobytes)
+            "To gigabit and back", (fun x -> x |> Kilobyte.toGigabits |> Gigabit.toKilobytes)
+            "To terabit and back", (fun x -> x |> Kilobyte.toTerabits |> Terabit.toKilobytes)
+            "To petabit and back", (fun x -> x |> Kilobyte.toPetabits |> Petabit.toKilobytes)
+            "To byte and back", (fun x -> x |> Kilobyte.toBytes |> Byte.toKilobytes)
+            "To megabyte and back", (fun x -> x |> Kilobyte.toMegabytes |> Megabyte.toKilobytes)
+            "To gigabyte and back", (fun x -> x |> Kilobyte.toGigabytes |> Gigabyte.toKilobytes)
+            "To terabyte and back", (fun x -> x |> Kilobyte.toTerabytes |> Terabyte.toKilobytes)
+            "To petabyte and back", (fun x -> x |> Kilobyte.toPetabytes |> Petabyte.toKilobytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kilobyte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let megabyteConversionTests =
         [
-            "From megabyte to bit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toBits |> Bit.toMegabytes)
-            "From megabyte to kilobit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toKilobits |> Kilobit.toMegabytes)
-            "From megabyte to megabit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toMegabits |> Megabit.toMegabytes)
-            "From megabyte to gigabit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toGigabits |> Gigabit.toMegabytes)
-            "From megabyte to terabit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toTerabits |> Terabit.toMegabytes)
-            "From megabyte to petabit and back",
-            (fun x -> Megabyte.create x |> Megabyte.toPetabits |> Petabit.toMegabytes)
-            "From megabyte to byte and back",
-            (fun x -> Megabyte.create x |> Megabyte.toBytes |> Byte.toMegabytes)
-            "From megabyte to kilobyte and back",
-            (fun x -> Megabyte.create x |> Megabyte.toKilobytes |> Kilobyte.toMegabytes)
-            "From megabyte to gigabyte and back",
-            (fun x -> Megabyte.create x |> Megabyte.toGigabytes |> Gigabyte.toMegabytes)
-            "From megabyte to terabyte and back",
-            (fun x -> Megabyte.create x |> Megabyte.toTerabytes |> Terabyte.toMegabytes)
-            "From megabyte to petabyte and back",
-            (fun x -> Megabyte.create x |> Megabyte.toPetabytes |> Petabyte.toMegabytes)
+            "To bit and back", (fun x -> x |> Megabyte.toBits |> Bit.toMegabytes)
+            "To kilobit and back", (fun x -> x |> Megabyte.toKilobits |> Kilobit.toMegabytes)
+            "To megabit and back", (fun x -> x |> Megabyte.toMegabits |> Megabit.toMegabytes)
+            "To gigabit and back", (fun x -> x |> Megabyte.toGigabits |> Gigabit.toMegabytes)
+            "To terabit and back", (fun x -> x |> Megabyte.toTerabits |> Terabit.toMegabytes)
+            "To petabit and back", (fun x -> x |> Megabyte.toPetabits |> Petabit.toMegabytes)
+            "To byte and back", (fun x -> x |> Megabyte.toBytes |> Byte.toMegabytes)
+            "To kilobyte and back", (fun x -> x |> Megabyte.toKilobytes |> Kilobyte.toMegabytes)
+            "To gigabyte and back", (fun x -> x |> Megabyte.toGigabytes |> Gigabyte.toMegabytes)
+            "To terabyte and back", (fun x -> x |> Megabyte.toTerabytes |> Terabyte.toMegabytes)
+            "To petabyte and back", (fun x -> x |> Megabyte.toPetabytes |> Petabyte.toMegabytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Megabyte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let gigabyteConversionTests =
         [
-            "From gigabyte to bit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toBits |> Bit.toGigabytes)
-            "From gigabyte to kilobit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toKilobits |> Kilobit.toGigabytes)
-            "From gigabyte to megabit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toMegabits |> Megabit.toGigabytes)
-            "From gigabyte to gigabit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toGigabits |> Gigabit.toGigabytes)
-            "From gigabyte to terabit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toTerabits |> Terabit.toGigabytes)
-            "From gigabyte to petabit and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toPetabits |> Petabit.toGigabytes)
-            "From gigabyte to byte and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toBytes |> Byte.toGigabytes)
-            "From gigabyte to kilobyte and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toKilobytes |> Kilobyte.toGigabytes)
-            "From gigabyte to megabyte and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toMegabytes |> Megabyte.toGigabytes)
-            "From gigabyte to terabyte and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toTerabytes |> Terabyte.toGigabytes)
-            "From gigabyte to petabyte and back",
-            (fun x -> Gigabyte.create x |> Gigabyte.toPetabytes |> Petabyte.toGigabytes)
+            "To bit and back", (fun x -> x |> Gigabyte.toBits |> Bit.toGigabytes)
+            "To kilobit and back", (fun x -> x |> Gigabyte.toKilobits |> Kilobit.toGigabytes)
+            "To megabit and back", (fun x -> x |> Gigabyte.toMegabits |> Megabit.toGigabytes)
+            "To gigabit and back", (fun x -> x |> Gigabyte.toGigabits |> Gigabit.toGigabytes)
+            "To terabit and back", (fun x -> x |> Gigabyte.toTerabits |> Terabit.toGigabytes)
+            "To petabit and back", (fun x -> x |> Gigabyte.toPetabits |> Petabit.toGigabytes)
+            "To byte and back", (fun x -> x |> Gigabyte.toBytes |> Byte.toGigabytes)
+            "To kilobyte and back", (fun x -> x |> Gigabyte.toKilobytes |> Kilobyte.toGigabytes)
+            "To megabyte and back", (fun x -> x |> Gigabyte.toMegabytes |> Megabyte.toGigabytes)
+            "To terabyte and back", (fun x -> x |> Gigabyte.toTerabytes |> Terabyte.toGigabytes)
+            "To petabyte and back", (fun x -> x |> Gigabyte.toPetabytes |> Petabyte.toGigabytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Gigabyte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let terabyteConversionTests =
         [
-            "From terabyte to bit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toBits |> Bit.toTerabytes)
-            "From terabyte to kilobit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toKilobits |> Kilobit.toTerabytes)
-            "From terabyte to megabit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toMegabits |> Megabit.toTerabytes)
-            "From terabyte to gigabit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toGigabits |> Gigabit.toTerabytes)
-            "From terabyte to terabit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toTerabits |> Terabit.toTerabytes)
-            "From terabyte to petabit and back",
-            (fun x -> Terabyte.create x |> Terabyte.toPetabits |> Petabit.toTerabytes)
-            "From terabyte to byte and back",
-            (fun x -> Terabyte.create x |> Terabyte.toBytes |> Byte.toTerabytes)
-            "From terabyte to kilobyte and back",
-            (fun x -> Terabyte.create x |> Terabyte.toKilobytes |> Kilobyte.toTerabytes)
-            "From terabyte to megabyte and back",
-            (fun x -> Terabyte.create x |> Terabyte.toMegabytes |> Megabyte.toTerabytes)
-            "From terabyte to gigabyte and back",
-            (fun x -> Terabyte.create x |> Terabyte.toGigabytes |> Gigabyte.toTerabytes)
-            "From terabyte to petabyte and back",
-            (fun x -> Terabyte.create x |> Terabyte.toPetabytes |> Petabyte.toTerabytes)
+            "To bit and back", (fun x -> x |> Terabyte.toBits |> Bit.toTerabytes)
+            "To kilobit and back", (fun x -> x |> Terabyte.toKilobits |> Kilobit.toTerabytes)
+            "To megabit and back", (fun x -> x |> Terabyte.toMegabits |> Megabit.toTerabytes)
+            "To gigabit and back", (fun x -> x |> Terabyte.toGigabits |> Gigabit.toTerabytes)
+            "To terabit and back", (fun x -> x |> Terabyte.toTerabits |> Terabit.toTerabytes)
+            "To petabit and back", (fun x -> x |> Terabyte.toPetabits |> Petabit.toTerabytes)
+            "To byte and back", (fun x -> x |> Terabyte.toBytes |> Byte.toTerabytes)
+            "To kilobyte and back", (fun x -> x |> Terabyte.toKilobytes |> Kilobyte.toTerabytes)
+            "To megabyte and back", (fun x -> x |> Terabyte.toMegabytes |> Megabyte.toTerabytes)
+            "To gigabyte and back", (fun x -> x |> Terabyte.toGigabytes |> Gigabyte.toTerabytes)
+            "To petabyte and back", (fun x -> x |> Terabyte.toPetabytes |> Petabyte.toTerabytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Terabyte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let petabyteConversionTests =
         [
-            "From petabyte to bit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toBits |> Bit.toPetabytes)
-            "From petabyte to kilobit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toKilobits |> Kilobit.toPetabytes)
-            "From petabyte to megabit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toMegabits |> Megabit.toPetabytes)
-            "From petabyte to gigabit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toGigabits |> Gigabit.toPetabytes)
-            "From petabyte to terabit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toTerabits |> Terabit.toPetabytes)
-            "From petabyte to petabit and back",
-            (fun x -> Petabyte.create x |> Petabyte.toPetabits |> Petabit.toPetabytes)
-            "From petabyte to byte and back",
-            (fun x -> Petabyte.create x |> Petabyte.toBytes |> Byte.toPetabytes)
-            "From petabyte to kilobyte and back",
-            (fun x -> Petabyte.create x |> Petabyte.toKilobytes |> Kilobyte.toPetabytes)
-            "From petabyte to megabyte and back",
-            (fun x -> Petabyte.create x |> Petabyte.toMegabytes |> Megabyte.toPetabytes)
-            "From petabyte to gigabyte and back",
-            (fun x -> Petabyte.create x |> Petabyte.toGigabytes |> Gigabyte.toPetabytes)
-            "From petabyte to terabyte and back",
-            (fun x -> Petabyte.create x |> Petabyte.toTerabytes |> Terabyte.toPetabytes)
+            "To bit and back", (fun x -> x |> Petabyte.toBits |> Bit.toPetabytes)
+            "To kilobit and back", (fun x -> x |> Petabyte.toKilobits |> Kilobit.toPetabytes)
+            "To megabit and back", (fun x -> x |> Petabyte.toMegabits |> Megabit.toPetabytes)
+            "To gigabit and back", (fun x -> x |> Petabyte.toGigabits |> Gigabit.toPetabytes)
+            "To terabit and back", (fun x -> x |> Petabyte.toTerabits |> Terabit.toPetabytes)
+            "To petabit and back", (fun x -> x |> Petabyte.toPetabits |> Petabit.toPetabytes)
+            "To byte and back", (fun x -> x |> Petabyte.toBytes |> Byte.toPetabytes)
+            "To kilobyte and back", (fun x -> x |> Petabyte.toKilobytes |> Kilobyte.toPetabytes)
+            "To megabyte and back", (fun x -> x |> Petabyte.toMegabytes |> Megabyte.toPetabytes)
+            "To gigabyte and back", (fun x -> x |> Petabyte.toGigabytes |> Gigabyte.toPetabytes)
+            "To terabyte and back", (fun x -> x |> Petabyte.toTerabytes |> Terabyte.toPetabytes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Petabyte.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Data storage tests -> "
+        "Data storage tests"
         [
-            testList "Bit conversion tests -> " bitConversionTests
-            testList "Kilobit conversion tests -> " kilobitConversionTests
-            testList "Megabit conversion tests -> " megabitConversionTests
-            testList "Gigabit conversion tests -> " gigabitConversionTests
-            testList "Terabit conversion tests -> " terabitConversionTests
-            testList "Petabit conversion tests -> " petabitConversionTests
-            testList "Byte conversion tests -> " byteConversionTests
-            testList "Kilobyte conversion tests -> " kilobyteConversionTests
-            testList "Megabyte conversion tests -> " megabyteConversionTests
-            testList "Gigabyte conversion tests -> " gigabyteConversionTests
-            testList "Terabyte conversion tests -> " terabyteConversionTests
-            testList "Petabyte conversion tests -> " petabyteConversionTests
+            testList "Bit conversions" bitConversionTests
+            testList "Kilobit conversions" kilobitConversionTests
+            testList "Megabit conversions" megabitConversionTests
+            testList "Gigabit conversions" gigabitConversionTests
+            testList "Terabit conversions" terabitConversionTests
+            testList "Petabit conversions" petabitConversionTests
+            testList "Byte conversions" byteConversionTests
+            testList "Kilobyte conversions" kilobyteConversionTests
+            testList "Megabyte conversions" megabyteConversionTests
+            testList "Gigabyte conversions" gigabyteConversionTests
+            testList "Terabyte conversions" terabyteConversionTests
+            testList "Petabyte conversions" petabyteConversionTests
         ]
 
 let fuelEconomyTests config =
 
     let kilometerPerLiterConversionTests =
         [
-            "From km/l to mpg",
-            (fun x ->
-                KilometerPerLiter.create x
-                |> KilometerPerLiter.toMilesPerGallon
-                |> MilePerGallon.toKilometersPerLiter)
+            "From km/l to mpg", (fun x -> x |> KilometerPerLiter.toMilesPerGallon |> MilePerGallon.toKilometersPerLiter)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> KilometerPerLiter.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let milePerGallonConversionTests =
         [
-            "From mpg to km/l",
-            (fun x ->
-                MilePerGallon.create x
-                |> MilePerGallon.toKilometersPerLiter
-                |> KilometerPerLiter.toMilesPerGallon)
+            "To km/l", (fun x -> x |> MilePerGallon.toKilometersPerLiter |> KilometerPerLiter.toMilesPerGallon)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> MilePerGallon.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Fuel economy tests -> "
+        "Fuel economy tests"
         [
-            testList "Kilometer per liter tests -> " kilometerPerLiterConversionTests
-            testList "Mile per gallon tests -> " milePerGallonConversionTests
+            testList "Kilometer per liter conversions" kilometerPerLiterConversionTests
+            testList "Mile per gallon conversions" milePerGallonConversionTests
         ]
 
 let frequencyTests config =
 
     let hertzConversionTest =
         [
-            "From hertz to kilohertz and back",
-            (fun x -> Hertz.create x |> Hertz.toKilohertz |> Kilohertz.toHertz)
-            "From hertz to megahertz and back",
-            (fun x -> Hertz.create x |> Hertz.toMegahertz |> Megahertz.toHertz)
-            "From hertz to gigahertz and back",
-            (fun x -> Hertz.create x |> Hertz.toGigahertz |> Gigahertz.toHertz)
+            "To kilohertz and back", (fun x -> x |> Hertz.toKilohertz |> Kilohertz.toHertz)
+            "To megahertz and back", (fun x -> x |> Hertz.toMegahertz |> Megahertz.toHertz)
+            "To gigahertz and back", (fun x -> x |> Hertz.toGigahertz |> Gigahertz.toHertz)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Hertz.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let kilohertzConversionTest =
         [
-            "From kilohertz to hertz and back",
-            (fun x -> Kilohertz.create x |> Kilohertz.toHertz |> Hertz.toKilohertz)
-            "From kilohertz to megahertz and back",
-            (fun x -> Kilohertz.create x |> Kilohertz.toMegahertz |> Megahertz.toKilohertz)
-            "From kilohertz to gigahertz and back",
-            (fun x -> Kilohertz.create x |> Kilohertz.toGigahertz |> Gigahertz.toKilohertz)
+            "To hertz and back", (fun x -> x |> Kilohertz.toHertz |> Hertz.toKilohertz)
+            "To megahertz and back", (fun x -> x |> Kilohertz.toMegahertz |> Megahertz.toKilohertz)
+            "To gigahertz and back", (fun x -> x |> Kilohertz.toGigahertz |> Gigahertz.toKilohertz)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Kilohertz.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let megahertzConversionTest =
         [
-            "From megahertz to hertz and back",
-            (fun x -> Megahertz.create x |> Megahertz.toHertz |> Hertz.toMegahertz)
-            "From megahertz to kilohertz and back",
-            (fun x -> Megahertz.create x |> Megahertz.toKilohertz |> Kilohertz.toMegahertz)
-            "From megahertz to gigahertz and back",
-            (fun x -> Megahertz.create x |> Megahertz.toGigahertz |> Gigahertz.toMegahertz)
+            "To hertz and back", (fun x -> x |> Megahertz.toHertz |> Hertz.toMegahertz)
+            "To kilohertz and back", (fun x -> x |> Megahertz.toKilohertz |> Kilohertz.toMegahertz)
+            "To gigahertz and back", (fun x -> x |> Megahertz.toGigahertz |> Gigahertz.toMegahertz)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Megahertz.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let gigahertzConversionTest =
         [
-            "From gigahertz to hertz and back",
-            (fun x -> Gigahertz.create x |> Gigahertz.toHertz |> Hertz.toGigahertz)
-            "From gigahertz to kilohertz and back",
-            (fun x -> Gigahertz.create x |> Gigahertz.toKilohertz |> Kilohertz.toGigahertz)
-            "From gigahertz to megahertz and back",
-            (fun x -> Gigahertz.create x |> Gigahertz.toMegahertz |> Megahertz.toGigahertz)
+            "To hertz and back", (fun x -> x |> Gigahertz.toHertz |> Hertz.toGigahertz)
+            "To kilohertz and back", (fun x -> x |> Gigahertz.toKilohertz |> Kilohertz.toGigahertz)
+            "To megahertz and back", (fun x -> x |> Gigahertz.toMegahertz |> Megahertz.toGigahertz)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Gigahertz.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Frequency tests -> "
+        "Frequency tests"
         [
-            testList "Hertz conversion tests -> " hertzConversionTest
-            testList "Kilohertz conversion tests -> " kilohertzConversionTest
-            testList "Megahertz conversion tests -> " megahertzConversionTest
-            testList "Gigahertz conversion tests -> " gigahertzConversionTest
+            testList "Hertz conversions" hertzConversionTest
+            testList "Kilohertz conversions" kilohertzConversionTest
+            testList "Megahertz conversions" megahertzConversionTest
+            testList "Gigahertz conversions" gigahertzConversionTest
         ]
 
 let illuminanceTests config =
 
     let footcandleConversionTests =
         [
-            "From footcandle to lux and back",
-            (fun x -> Footcandle.create x |> Footcandle.toLux |> Lux.toFootcandle)
-            "From footcandle to phot and back",
-            (fun x -> Footcandle.create x |> Footcandle.toPhot |> Phot.toFootcandle)
-            "From footcandle to nox and back",
-            (fun x -> Footcandle.create x |> Footcandle.toNox |> Nox.toFootcandle)
+            "To lux and back", (fun x -> x |> Footcandle.toLux |> Lux.toFootcandle)
+            "To phot and back", (fun x -> x |> Footcandle.toPhot |> Phot.toFootcandle)
+            "To nox and back", (fun x -> x |> Footcandle.toNox |> Nox.toFootcandle)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Footcandle.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let luxConversionTests =
         [
-            "From lux to footcandle and back",
-            (fun x -> Lux.create x |> Lux.toFootcandle |> Footcandle.toLux)
-            "From lux to phot and back", (fun x -> Lux.create x |> Lux.toPhot |> Phot.toLux)
-            "From lux to nox and back", (fun x -> Lux.create x |> Lux.toNox |> Nox.toLux)
+            "To footcandle and back", (fun x -> x |> Lux.toFootcandle |> Footcandle.toLux)
+            "To phot and back", (fun x -> x |> Lux.toPhot |> Phot.toLux)
+            "To nox and back", (fun x -> x |> Lux.toNox |> Nox.toLux)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Lux.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let photConversionTests =
         [
-            "From phot to footcandle and back",
-            (fun x -> Phot.create x |> Phot.toFootcandle |> Footcandle.toPhot)
-            "From phot to lux and back", (fun x -> Phot.create x |> Phot.toLux |> Lux.toPhot)
-            "From phot to nox and back", (fun x -> Phot.create x |> Phot.toNox |> Nox.toPhot)
+            "To footcandle and back", (fun x -> x |> Phot.toFootcandle |> Footcandle.toPhot)
+            "To lux and back", (fun x -> x |> Phot.toLux |> Lux.toPhot)
+            "To nox and back", (fun x -> x |> Phot.toNox |> Nox.toPhot)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Phot.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let noxConversionTests =
         [
-            "From nox to footcandle and back",
-            (fun x -> Nox.create x |> Nox.toFootcandle |> Footcandle.toNox)
-            "From nox to lux and back", (fun x -> Nox.create x |> Nox.toLux |> Lux.toNox)
-            "From nox to phot and back", (fun x -> Nox.create x |> Nox.toPhot |> Phot.toNox)
+            "To footcandle and back", (fun x -> x |> Nox.toFootcandle |> Footcandle.toNox)
+            "To lux and back", (fun x -> x |> Nox.toLux |> Lux.toNox)
+            "To phot and back", (fun x -> x |> Nox.toPhot |> Phot.toNox)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Nox.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Illuminance tests -> "
+        "Illuminance tests"
         [
-            testList "Footcandle conversion tests -> " footcandleConversionTests
-            testList "Lux conversion tests -> " luxConversionTests
-            testList "Phot conversion tests -> " photConversionTests
-            testList "Nox conversion tests -> " noxConversionTests
+            testList "Footcandle conversions" footcandleConversionTests
+            testList "Lux conversions" luxConversionTests
+            testList "Phot conversions" photConversionTests
+            testList "Nox conversions" noxConversionTests
         ]
 
 let currentTests config =
 
     let ampereConversionTests =
         [
-            "From ampere to milliampere and back",
-            (fun x -> Ampere.create x |> Ampere.toMilliamperes |> Milliampere.toAmperes)
-            "From ampere to microampere and back",
-            (fun x -> Ampere.create x |> Ampere.toMicroamperes |> Microampere.toAmperes)
-            "From ampere to biot and back",
-            (fun x -> Ampere.create x |> Ampere.toBiots |> Biot.toAmperes)
+            "To milliampere and back", (fun x -> x |> Ampere.toMilliamperes |> Milliampere.toAmperes)
+            "To microampere and back", (fun x -> x |> Ampere.toMicroamperes |> Microampere.toAmperes)
+            "To biot and back", (fun x -> x |> Ampere.toBiots |> Biot.toAmperes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Ampere.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let milliampereConversionTests =
         [
-            "From milliampere to ampere and back",
-            (fun x -> Milliampere.create x |> Milliampere.toAmperes |> Ampere.toMilliamperes)
-            "From milliampere to microampere and back",
-            (fun x ->
-                Milliampere.create x |> Milliampere.toMicroamperes |> Microampere.toMilliamperes)
-            "From milliampere to biot and back",
-            (fun x -> Milliampere.create x |> Milliampere.toBiots |> Biot.toMilliamperes)
+            "To ampere and back", (fun x -> x |> Milliampere.toAmperes |> Ampere.toMilliamperes)
+            "To microampere and back", (fun x -> x |> Milliampere.toMicroamperes |> Microampere.toMilliamperes)
+            "To biot and back", (fun x -> x |> Milliampere.toBiots |> Biot.toMilliamperes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Milliampere.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let microampereConversionTests =
         [
-            "From microampere to ampere and back",
-            (fun x -> Microampere.create x |> Microampere.toAmperes |> Ampere.toMicroamperes)
-            "From microampere to milliampere and back",
-            (fun x ->
-                Microampere.create x |> Microampere.toMilliamperes |> Milliampere.toMicroamperes)
-            "From microampere to biot and back",
-            (fun x -> Microampere.create x |> Microampere.toBiots |> Biot.toMicroamperes)
+            "To ampere and back", (fun x -> x |> Microampere.toAmperes |> Ampere.toMicroamperes)
+            "To milliampere and back", (fun x -> x |> Microampere.toMilliamperes |> Milliampere.toMicroamperes)
+            "To biot and back", (fun x -> x |> Microampere.toBiots |> Biot.toMicroamperes)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Microampere.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     let biotConversionTests =
         [
-            "From biot to ampere and back",
-            (fun x -> Biot.create x |> Biot.toAmperes |> Ampere.toBiots)
-            "From biot to milliampere and back",
-            (fun x -> Biot.create x |> Biot.toMilliamperes |> Milliampere.toBiots)
-            "From biot to microampere and back",
-            (fun x -> Biot.create x |> Biot.toMicroamperes |> Microampere.toBiots)
+            "To ampere and back", (fun x -> x |> Biot.toAmperes |> Ampere.toBiots)
+            "To milliampere and back", (fun x -> x |> Biot.toMilliamperes |> Milliampere.toBiots)
+            "To microampere and back", (fun x -> x |> Biot.toMicroamperes |> Microampere.toBiots)
         ]
+        |> List.map (fun (x, y) -> x, (fun z -> Biot.create z |> y))
         |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
     testList
-        "Current tests -> "
+        "Current tests"
         [
-            testList "Ampere conversion tests -> " ampereConversionTests
-            testList "Milliampere conversion tests -> " milliampereConversionTests
-            testList "Microampere conversion tests -> " microampereConversionTests
-            testList "Biot conversion tests -> " biotConversionTests
+            testList "Ampere conversions" ampereConversionTests
+            testList "Milliampere conversions" milliampereConversionTests
+            testList "Microampere conversions" microampereConversionTests
+            testList "Biot conversions" biotConversionTests
         ]

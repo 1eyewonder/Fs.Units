@@ -26,7 +26,7 @@ module Length =
     /// Centimeter
     [<Measure>]
     type cm
-    
+
     /// Decimeter
     [<Measure>]
     type dm
@@ -176,10 +176,10 @@ module Length =
         let toLeagues (x: float<cm>) = x / 482803.2<cm> * 1.0<league>
         let toHands (x: float<cm>) = x / 10.16<cm> * 1.0<hand>
         let toRods (x: float<cm>) = x / 502.92<cm> * 1.0<rd>
-        
+
     [<RequireQualifiedAccess>]
     module Decimeter =
-        
+
         let create (x: float) = x * 1.0<dm>
         let toInches (x: float<dm>) = x / 0.254<dm> * 1.0<inch>
         let toFeet (x: float<dm>) = x / 3.048<dm> * 1.0<ft>
@@ -206,7 +206,7 @@ module Length =
         let toMiles (x: float<m>) = x / 1609.344<m> * 1.0<mi>
         let toMillimeters (x: float<m>) = x * 1000.0<mm> / 1.0<m>
         let toCentimeters (x: float<m>) = x * 100.0<cm> / 1.0<m>
-        let toDecimeters (x: float<m>) = x * 10.0<dm> / 1.0<m>       
+        let toDecimeters (x: float<m>) = x * 10.0<dm> / 1.0<m>
         let toKilometers (x: float<m>) = x / 1000.0<m> * 1.0<km>
         let toNauticalMiles (x: float<m>) = x / 1852.0<m> * 1.0<nmi>
         let toChains (x: float<m>) = x / 20.1168<m> * 1.0<chain>

@@ -1,0 +1,32 @@
+﻿name: Build master
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup necessary dotnet SDKs
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+          dotnet-version: |
+            6.x
+
+      - name: Build via Bash
+        if: runner.os != 'Windows'
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
+        env:
+          CI: true
+      - name: Build via Windows
+        if: runner.os == 'Windows'
+        run: ./build.cmd
+        env:
+          CI: true

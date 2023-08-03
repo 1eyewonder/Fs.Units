@@ -23,6 +23,8 @@ Feedback and assistance are welcome!
 ## Table of Contents
 
 - [Fs.Units](#fsunits)
+  - [NuGet](#nuget)
+  - [Builds](#builds)
   - [Table of Contents](#table-of-contents)
   - [Unit Types](#unit-types)
   - [Examples](#examples)
@@ -89,19 +91,32 @@ For some compound units, implicit conversion is supported. This allows for a mor
 ```fsharp
 open Fs.Units
 
-let area1 = Coulomb.create 1.0 // float<ElectricCharge.C>
-let area2 = 1.<A> * 1.<s> // float<A*s>
+let thing1 = Coulomb.create 1.0 // float<ElectricCharge.C>
+let thing2 = 1.<A> * 1.<s> // float<A*s>
 
-let totalArea = area1 + area2 // float<ElectricCharge.C>
+let totalThing = area1 + area2 // float<ElectricCharge.C>
 ```
 
 ```fsharp
 open Fs.Units
 
-let area1 = Liter.create 1.0 // float<L>
-let area2 = 1.<dm> * 1.<dm> * 1.<dm> // float<dm * dm * dm>
+let thing1 = Liter.create 1.0 // float<L>
+let thing2 = 1.<dm> * 1.<dm> * 1.<dm> // float<dm * dm * dm>
 
-let totalArea = area1 + area2 // float<L>
+let totalThing = area1 + area2 // float<L>
+```
+
+#### Helper Functions
+
+Some helper functions are provided to prevent boilerplate code for common math operations such as min, max, abs, etc.
+
+```fsharp
+open Fs.Units
+open Fs.Units.Helpers
+
+let value1 = Foot.create 1.0 // float<ft>
+let value2 = Foot.create 2.0 // float<ft>
+let maxValue = max value1 value2 // float<ft>
 ```
 
 ### C#

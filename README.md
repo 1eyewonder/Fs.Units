@@ -1,16 +1,24 @@
 ﻿# Fs.Units
 
-[![NuGet version (Fs.Units)](https://img.shields.io/nuget/v/Fs.Units.svg?style=flat-square)](https://www.nuget.org/packages/Fs.Units/)
-[![NuGet version (Fs.Units.CSharp)](https://img.shields.io/nuget/v/Fs.Units.CSharp.svg?style=flat-square)](https://www.nuget.org/packages/Fs.Units.CSharp/)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/1eyewonder/Fs.Units/blob/main/LICENSE.md)
-[![GitHub Releases](https://img.shields.io/github/release/1eyewonder/Fs.Units.svg)](https://github.com/1eyewonder/Fs.Units/releases)
-[![GitHub Issues](https://img.shields.io/github/issues/1eyewonder/Fs.Units.svg)](https://github.com/1eyewonder/Fs.Units/issues)
-
-A simple library for working with units of measure in .NET. 
+A simple library for working with units of measure in .NET.
 
 The goal of this library is to assist developers with quick proof of concepts as well as full functioning projects which involve common units of measure.
 
 Feedback and assistance are welcome!
+
+## NuGet
+
+| Package | Release                                                                                                                              | Pre-Release                                                                                                                                      | License                                                                                                                              |
+| ------- |--------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Fs.Units | [![NuGet version (Fs.Units)](https://buildstats.info/nuget/Fs.Units)](https://www.nuget.org/packages/Fs.Units/)                      | [![NuGet](https://buildstats.info/nuget/Fs.Units?includePreReleases=true)](https://www.nuget.org/packages/Fs.Units/absoluteLatest)               | [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/1eyewonder/Fs.Units/blob/main/LICENSE.md)  |
+| Fs.Units.CSharp | [![NuGet version (Fs.Units.CSharp)](https://buildstats.info/nuget/Fs.Units.CSharp)](https://www.nuget.org/packages/Fs.Units.CSharp/) | [![NuGet](https://buildstats.info/nuget/Fs.Units.CSharp?includePreReleases=true)](https://www.nuget.org/packages/Fs.Units.CSharp/absoluteLatest) |  [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/1eyewonder/Fs.Units/blob/main/LICENSE.md) |
+
+## Builds
+
+|                                                                          GitHub Actions                                                                          |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [![GitHub Actions](https://github.com/1eyewonder/Fs.Units/workflows/Build%20main/badge.svg)](https://github.com/1eyewonder/Fs.Units/actions?query=branch%3Amain) |
+|   [![Build History](https://buildstats.info/github/chart/1eyewonder/Fs.Units?branch=main)](https://github.com/1eyewonder/Fs.Units/actions?query=branch%3Amain)   |
 
 ## Table of Contents
 

@@ -76,11 +76,7 @@ let checkFormatCode _ =
         Trace.logf "Errors while formatting: %A" result.Errors
 
 let clean _ =
-    !! "bin"
-    ++ "src/**/bin"
-    ++ "tests/**/bin"
-    ++ "src/**/obj"
-    ++ "tests/**/obj"
+    !! "bin" ++ "src/**/bin" ++ "tests/**/bin" ++ "src/**/obj" ++ "tests/**/obj"
     |> Shell.cleanDirs
 
     [ "paket-files/paket.restore.cached" ] |> Seq.iter Shell.rm
@@ -128,10 +124,7 @@ let generateAssemblyInfo _ =
     let getProjectDetails (projectPath: string) =
         let projectName = Path.GetFileNameWithoutExtension(projectPath)
 
-        (projectPath,
-         projectName,
-         Path.GetDirectoryName(projectPath),
-         (getAssemblyInfoAttributes projectName))
+        (projectPath, projectName, Path.GetDirectoryName(projectPath), (getAssemblyInfoAttributes projectName))
 
     srcAndTest
     |> Seq.map getProjectDetails
@@ -151,11 +144,7 @@ let nuget _ =
                 MSBuildParams =
                     { MSBuild.CliArguments.Create() with
                         // "/p" (property) arguments to MSBuild.exe
-                        Properties =
-                            [
-                                ("Version", release.NugetVersion)
-                                ("PackageReleaseNotes", releaseNotes)
-                            ]
+                        Properties = [ ("Version", release.NugetVersion); ("PackageReleaseNotes", releaseNotes) ]
                     }
             })
     )
@@ -215,10 +204,10 @@ let initTargets () =
     Target.create "Build" build
     Target.create "Restore" restore
     Target.create "RunTests" dotnetTest
-    Target.create "AssemblyInfo" generateAssemblyInfo
-    Target.create "NuGet" nuget
     Target.create "FormatCode" formatCode
     Target.create "CheckFormatCode" checkFormatCode
+    Target.create "AssemblyInfo" generateAssemblyInfo
+    Target.create "NuGet" nuget
     Target.create "PublishNuget" publishNuget
     Target.create "GitRelease" gitRelease
     Target.create "GitHubRelease" githubRelease
@@ -233,7 +222,6 @@ let initTargets () =
     "Clean"
     ==> "AssemblyInfo"
     ==> "Restore"
-    ==> "NpmRestore"
     ==> "CheckFormatCode"
     ==> "Build"
     ==> "RunTests"

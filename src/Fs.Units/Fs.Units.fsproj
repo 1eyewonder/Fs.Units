@@ -4,7 +4,17 @@
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <LangVersion>latest</LangVersion>
-    <DebugType>portable</DebugType>
+    <Title>Fs.Units</Title>
+    <Authors>1eyewonder</Authors>
+    <Description>A simple library for working with units of measure in .NET</Description>
+    <RepositoryUrl>https://github.com/1eyewonder/Fs.Units</RepositoryUrl>
+    <PackageTags>fsharp, dotnet, units-of-measure, units-converter</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>False</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Simple\Length.fs" />
@@ -33,6 +43,17 @@
     <Compile Include="Compound\Inductance.fs" />
     <Content Include="paket.references" />
     <Compile Include="Helpers.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   
   <Import Project="..\..\.paket\Paket.Restore.targets" />

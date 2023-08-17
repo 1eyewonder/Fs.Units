@@ -10,11 +10,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{F1E7
 	ProjectSection(SolutionItems) = preProject
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 		.editorconfig = .editorconfig
+		global.json = global.json
+		.fantomasignore = .fantomasignore
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{176FA884-3899-42F0-BDFD-B3875FC54579}"
 	ProjectSection(SolutionItems) = preProject
 		RELEASE_NOTES.md = RELEASE_NOTES.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{179F015A-544E-4E2D-9A3E-13E5B2D0E332}"

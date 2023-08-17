@@ -1,4 +1,5 @@
-﻿open BenchmarkDotNet.Attributes
+﻿open System.Runtime.Versioning
+open BenchmarkDotNet.Attributes
 open BenchmarkDotNet.Running
 open Fs.Units
 

@@ -1,4 +1,5 @@
 ### 2.0.0 - 2023-07-25
+- Convert library to .NET Standard 2.0
 - Namespace reorganization
 - Project folder restructure
 - Add build project

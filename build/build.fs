@@ -203,9 +203,9 @@ let initTargets () =
     Target.create "Clean" clean
     Target.create "Build" build
     Target.create "Restore" restore
-    Target.create "RunTests" dotnetTest
-    Target.create "FormatCode" formatCode
-    Target.create "CheckFormatCode" checkFormatCode
+    Target.create "Test" dotnetTest
+    // Target.create "FormatCode" formatCode
+    Target.create "CheckFormat" checkFormatCode
     Target.create "AssemblyInfo" generateAssemblyInfo
     Target.create "NuGet" nuget
     Target.create "PublishNuget" publishNuget
@@ -213,18 +213,18 @@ let initTargets () =
     Target.create "GitHubRelease" githubRelease
     Target.create "Release" ignore
 
-    Target.create "UpdateDocs" (fun _ ->
-        Git.Staging.stageAll ""
-        Git.Commit.exec "" "update docs"
-        Git.Branches.push "")
+    // Target.create "UpdateDocs" (fun _ ->
+    //     Git.Staging.stageAll ""
+    //     Git.Commit.exec "" "update docs"
+    //     Git.Branches.push "")
 
     // *** Define Dependencies ***
     "Clean"
     ==> "AssemblyInfo"
     ==> "Restore"
-    ==> "CheckFormatCode"
+    ==> "CheckFormat"
     ==> "Build"
-    ==> "RunTests"
+    ==> "Test"
     ==> "NuGet"
     ==> "PublishNuGet"
     ==> "GitRelease"

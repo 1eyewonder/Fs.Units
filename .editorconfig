@@ -1,7 +1,6 @@
 root = true
 
 [*.{fs,fsx,fsi}]
-max_line_length = 120
 trim_trailing_whitespace = true
 fsharp_multiline_block_brackets_on_same_column = true
 fsharp_multiline_lambda_closing_newline = true
@@ -10,6 +9,7 @@ fsharp_align_function_signature_to_indentation = true
 fsharp_keep_max_number_of_blank_lines = 1
 fsharp_multiline_bracket_style = aligned
 fsharp_newline_before_multiline_computation_expression = false
+indent_size = 2
 
 # Visual Studio Solution Files
 [*.sln]

@@ -3,11 +3,11 @@
 [<AutoOpen>]
 module Capacitance =
 
-    /// Farad
-    [<Measure>]
-    type F = s * s * s * s * A * A / m / m / kg
+  /// Farad
+  [<Measure>]
+  type F = s * s * s * s * A * A / m / m / kg
 
-    [<RequireQualifiedAccess>]
-    module Farad =
+  [<RequireQualifiedAccess>]
+  module Farad =
 
-        let create (x: float) = x * 1.0<F>
+    let create (x: float) = x * 1.0<F>

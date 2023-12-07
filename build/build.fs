@@ -246,6 +246,6 @@ let main argv =
 
   initTargets () |> ignore
 
-  Target.runOrDefaultWithArguments "NuGet"
+  Target.runOrDefaultWithArguments "DotnetPack"
 
   0 // return an integer exit code

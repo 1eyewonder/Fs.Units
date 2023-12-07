@@ -133,7 +133,7 @@ let generateAssemblyInfo _ =
 
 let releaseNotes = String.toLines release.Notes
 
-let nuget _ =
+let dotnetPack _ =
   [ solutionFile ]
   |> Seq.iter (
     DotNet.pack (fun p ->
@@ -150,6 +150,18 @@ let nuget _ =
   )
 
 let publishNuget _ =
+  DotNet.nugetPush
+    (fun c ->
+      { c with
+          Common = { c.Common with WorkingDirectory = distDir }
+          PushParams =
+            { c.PushParams with
+                Source = Some "https://www.nuget.org"
+                ApiKey = nugetToken
+            }
+      })
+    "*.nupkg"
+
   Paket.push (fun p ->
     { p with
         ToolType = ToolType.CreateLocalTool()
@@ -205,7 +217,7 @@ let initTargets () =
   Target.create "Test" dotnetTest
   Target.create "CheckFormat" checkFormatCode
   Target.create "AssemblyInfo" generateAssemblyInfo
-  Target.create "NuGet" nuget
+  Target.create "DotnetPack" dotnetPack
   Target.create "PublishNuget" publishNuget
   Target.create "GitRelease" gitRelease
   Target.create "GitHubRelease" githubRelease
@@ -218,7 +230,7 @@ let initTargets () =
   ==> "CheckFormat"
   ==> "Build"
   ==> "Test"
-  ==> "NuGet"
+  ==> "DotnetPack"
   ==> "PublishNuGet"
   ==> "GitRelease"
   ==> "GitHubRelease"

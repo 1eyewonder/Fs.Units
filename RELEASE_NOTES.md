@@ -1,4 +1,4 @@
-### 2.0.0-alpha - 2023-12-06
+### 2.0.0 - 2023-12-06
 - Convert library to .NET Standard 2.0
 - Namespace reorganization for better ergonomics (Only need to `open Fs.Units` now)
 - Project folder restructure

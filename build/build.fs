@@ -173,16 +173,13 @@ let publishNuget _ =
           | _ -> p.ApiKey // assume paket-config was set properly
     })
 
-let remote = Environment.environVarOrDefault "FSTK_GIT_REMOTE" "origin"
-
 let gitRelease _ =
-
+  Git.Staging.stageFile "" "RELEASE_NOTES.md" |> ignore
   Git.Staging.stageAll ""
   Git.Commit.exec "" (sprintf "Bump version to %s\n\n%s" release.NugetVersion releaseNotes)
   Git.Branches.push ""
-
   Git.Branches.tag "" release.NugetVersion
-  Git.Branches.pushTag "" remote release.NugetVersion
+  Git.Branches.pushTag "" "origin" release.NugetVersion
 
 let githubRelease _ =
   let token =

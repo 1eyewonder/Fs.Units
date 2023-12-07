@@ -1,10 +1,28 @@
-source "C:\Program Files (x86)\Microsoft SDKs\NuGetPackages\"
 source https://api.nuget.org/v3/index.json
 
-nuget BenchmarkDotNet
-nuget Expecto
+storage: none
+
 nuget Expecto.FsCheck
-nuget FsCheck
-nuget FSharp.Core
 nuget Microsoft.NET.Test.Sdk
 nuget YoloDev.Expecto.TestSdk
+
+group Benchmarks
+    source https://api.nuget.org/v3/index.json
+    storage: none
+    framework: net8.0
+    nuget FSharp.Core
+    nuget BenchmarkDotNet
+
+
+group Build
+    source https://api.nuget.org/v3/index.json
+    storage: none
+    framework: net8.0
+    nuget Fake.Core.Target
+    nuget Fake.Core.ReleaseNotes
+    nuget Fake.DotNet.AssemblyInfoFile
+    nuget Fake.DotNet.Paket
+    nuget Fake.DotNet.Testing.Expecto
+    nuget Fake.Tools.Git
+    nuget Fake.Api.GitHub
+    nuget Fake.BuildServer.GitHubActions

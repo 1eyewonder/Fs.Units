@@ -9,7 +9,6 @@ nuget YoloDev.Expecto.TestSdk
 group Benchmarks
     source https://api.nuget.org/v3/index.json
     storage: none
-    framework: net8.0
     nuget FSharp.Core
     nuget BenchmarkDotNet
 
@@ -17,7 +16,6 @@ group Benchmarks
 group Build
     source https://api.nuget.org/v3/index.json
     storage: none
-    framework: net8.0
     nuget Fake.Core.Target
     nuget Fake.Core.ReleaseNotes
     nuget Fake.DotNet.AssemblyInfoFile

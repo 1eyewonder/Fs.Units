@@ -71,6 +71,8 @@ module dotnet =
 
   let analyzers args = DotNet.exec id "fsharp-analyzers" args
 
+  let fsdocs args = DotNet.exec id "fsdocs" args
+
 let formatCode _ =
   let result = dotnet.fantomas "."
 
@@ -112,6 +114,12 @@ let analyze _ =
     let result = createArgsForProject fsproj analyzerPaths |> dotnet.analyzers
 
     result.Errors |> Seq.iter Trace.traceError)
+
+let generateDocs _ =
+  [ "build"; "--properties"; $"Configuration=%s{configuration}" ]
+  |> String.concat " "
+  |> dotnet.fsdocs
+  |> failOnBadExitAndPrint
 
 let clean _ =
   !! "bin" ++ "src/**/bin" ++ "tests/**/bin" ++ "src/**/obj" ++ "tests/**/obj"
@@ -258,6 +266,7 @@ let initTargets () =
   Target.create "Test" dotnetTest
   Target.create "CheckFormat" checkFormatCode
   Target.create "Analyze" analyze
+  Target.create "GenerateDocs" generateDocs
   Target.create "AssemblyInfo" generateAssemblyInfo
   Target.create "DotnetPack" dotnetPack
   Target.create "PublishNuget" publishNuget
@@ -276,12 +285,14 @@ let initTargets () =
   // dotnet tools
   "Restore" ==>! "Analyze"
   "Restore" ==>! "CheckFormat"
+  "Build" ==>! "GenerateDocs"
 
   // publishing
   "AssemblyInfo" ==>! "PublishNuGet"
 
   "Clean"
   ==> "CheckFormat"
+  ==> "GenerateDocs"
   ==> "DotnetPack"
   ==> "PublishNuGet"
   ==> "GitRelease"

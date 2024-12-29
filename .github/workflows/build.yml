@@ -1,11 +1,14 @@
 ﻿name: Build master
 
 on: 
+  push:
+    branches:
+      - main
+
   pull_request:
+    branches:
+      - main
     types: [ opened, synchronize, reopened ]
-    paths-ignore:
-      - ".github"
-      - ".vscode"
 
 jobs:
   build:
@@ -20,7 +23,7 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           global-json-file: global.json
-          dotnet-version: 8.x
+          dotnet-version: 9.x
 
       - name: Build via Bash
         if: runner.os != 'Windows'
@@ -34,3 +37,27 @@ jobs:
         run: ./build.cmd
         env:
           CI: true
+
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup necessary dotnet SDKs
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+          dotnet-version: 9.x
+      - name: Analyze
+        run: |
+          chmod +x ./build.sh
+          ./build.sh Analyze
+        # This is important, you want to continue your Action even if you found problems.
+        # As you always want the report to upload
+        continue-on-error: true
+        env:
+          CI: true
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          # You can also specify the path to a folder for `sarif_file`
+          sarif_file: analysisreports

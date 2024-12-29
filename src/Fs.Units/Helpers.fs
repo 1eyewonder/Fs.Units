@@ -4,6 +4,8 @@ open System
 
 module Helpers =
 
+  let removeUnits<[<Measure>] 'm> (value: float<'m>) = float value
+
   let inline max (x: float<'Measure>) (y: float<'Measure>) =
     Math.Max(float x, float y) |> LanguagePrimitives.FloatWithMeasure<'Measure>
 

@@ -366,3 +366,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# FSharp.Formatting
+.fsdocs/
+output/
+tmp/

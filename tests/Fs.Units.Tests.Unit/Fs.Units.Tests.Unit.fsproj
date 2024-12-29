@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <GenerateProgramFile>false</GenerateProgramFile>
     <RootNamespace>Fs.Tests.Unit</RootNamespace>
+    <IsTestProject>true</IsTestProject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers.fs" />

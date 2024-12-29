@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <RepositoryUrl>https://github.com/1eyewonder/Fs.Units</RepositoryUrl>
+    <FsDocsLicenseLink>https://github.com/1eyewonder/Fs.Units/blob/main/LICENSE.md</FsDocsLicenseLink>
+    <FsDocsReleaseNotesLink>https://github.com/1eyewonder/Fs.Units/blob/main/RELEASE_NOTES.md</FsDocsReleaseNotesLink>
+    <PackageProjectUrl>https://1eyewonder.github.io/Fs.Units</PackageProjectUrl>
+  </PropertyGroup>
+</Project>

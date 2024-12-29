@@ -44,14 +44,12 @@ let areaTests config =
     |> List.map (fun (x, y) -> x, (fun z -> SquareMeter.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Area tests"
-    [
-      testList "Square inch conversions" squareInchConversionTests
-      testList "Square foot conversions" squareFootConversionTests
-      testList "Square centimeter conversions" squareCentimeterConversionTests
-      testList "Square meter conversions" squareMeterConversionTests
-    ]
+  testList "Area tests" [
+    testList "Square inch conversions" squareInchConversionTests
+    testList "Square foot conversions" squareFootConversionTests
+    testList "Square centimeter conversions" squareCentimeterConversionTests
+    testList "Square meter conversions" squareMeterConversionTests
+  ]
 
 let volumeTests config =
 
@@ -121,16 +119,14 @@ let volumeTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Gallon.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Volume tests"
-    [
-      testList "Cubic inch conversions" cubicInchConversionTests
-      testList "Cubic foot conversions" cubicFootConversionTests
-      testList "Cubic centimeter conversions" cubicCentimeterConversionTests
-      testList "Cubic meter conversions" cubicMeterConversionTests
-      testList "Liter conversions" literConversionTests
-      testList "Gallon conversions" gallonConversionTests
-    ]
+  testList "Volume tests" [
+    testList "Cubic inch conversions" cubicInchConversionTests
+    testList "Cubic foot conversions" cubicFootConversionTests
+    testList "Cubic centimeter conversions" cubicCentimeterConversionTests
+    testList "Cubic meter conversions" cubicMeterConversionTests
+    testList "Liter conversions" literConversionTests
+    testList "Gallon conversions" gallonConversionTests
+  ]
 
 let inertiaTests config =
 
@@ -150,12 +146,10 @@ let inertiaTests config =
     |> List.map (fun (x, y) -> x, (fun z -> QuarticCentimeter.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Inertia tests"
-    [
-      testList "Quartic inch conversions" quarticInchConversionTests
-      testList "Quartic centimeter conversions" quarticCentimeterConversionTests
-    ]
+  testList "Inertia tests" [
+    testList "Quartic inch conversions" quarticInchConversionTests
+    testList "Quartic centimeter conversions" quarticCentimeterConversionTests
+  ]
 
 let speedTests config =
 
@@ -207,14 +201,12 @@ let speedTests config =
     |> List.map (fun (x, y) -> x, (fun z -> MilePerHour.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Speed tests"
-    [
-      testList "Feet per second tests" feetPerSecondTests
-      testList "Meters per second tests" metersPerSecondTests
-      testList "Kilometers per hour tests" kilometersPerHourTests
-      testList "Miles per hour tests" milesPerHourTests
-    ]
+  testList "Speed tests" [
+    testList "Feet per second tests" feetPerSecondTests
+    testList "Meters per second tests" metersPerSecondTests
+    testList "Kilometers per hour tests" kilometersPerHourTests
+    testList "Miles per hour tests" milesPerHourTests
+  ]
 
 let forceTests config =
 
@@ -254,14 +246,12 @@ let forceTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Kip.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Force tests"
-    [
-      testList "Newton conversions" newtonConversionTests
-      testList "Pound force conversions" poundForceConversionTests
-      testList "Dyne conversions" dyneConversionTests
-      testList "Kip conversions" kipConversionTests
-    ]
+  testList "Force tests" [
+    testList "Newton conversions" newtonConversionTests
+    testList "Pound force conversions" poundForceConversionTests
+    testList "Dyne conversions" dyneConversionTests
+    testList "Kip conversions" kipConversionTests
+  ]
 
 let dataTransferRateTests config =
 
@@ -807,23 +797,21 @@ let dataTransferRateTests config =
     |> List.map (fun (x, y) -> x, (fun z -> PetabytePerSecond.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Data transfer rate tests"
-    [
-      testList "Baud per second conversions" baudPerSecondConversionTests
-      testList "Bit per second conversions" bitPerSecondConversionTests
-      testList "Kilobit per second conversions" kilobitPerSecondConversionTests
-      testList "Megabit per second conversions" megabitPerSecondConversionTests
-      testList "Gigabit per second conversions" gigabitPerSecondConversionTests
-      testList "Terabit per second conversions" terabitPerSecondConversionTests
-      testList "Petabit per second conversions" petabitPerSecondConversionTests
-      testList "Byte per second conversions" bytePerSecondConversionTests
-      testList "Kilobyte per second conversions" kilobytePerSecondConversionTests
-      testList "Megabyte per second conversions" megabytePerSecondConversionTests
-      testList "Gigabyte per second conversions" gigabytePerSecondConversionTests
-      testList "Terabyte per second conversions" terabytePerSecondConversionTests
-      testList "Petabyte per second conversions" petabytePerSecondConversionTests
-    ]
+  testList "Data transfer rate tests" [
+    testList "Baud per second conversions" baudPerSecondConversionTests
+    testList "Bit per second conversions" bitPerSecondConversionTests
+    testList "Kilobit per second conversions" kilobitPerSecondConversionTests
+    testList "Megabit per second conversions" megabitPerSecondConversionTests
+    testList "Gigabit per second conversions" gigabitPerSecondConversionTests
+    testList "Terabit per second conversions" terabitPerSecondConversionTests
+    testList "Petabit per second conversions" petabitPerSecondConversionTests
+    testList "Byte per second conversions" bytePerSecondConversionTests
+    testList "Kilobyte per second conversions" kilobytePerSecondConversionTests
+    testList "Megabyte per second conversions" megabytePerSecondConversionTests
+    testList "Gigabyte per second conversions" gigabytePerSecondConversionTests
+    testList "Terabyte per second conversions" terabytePerSecondConversionTests
+    testList "Petabyte per second conversions" petabytePerSecondConversionTests
+  ]
 
 let densityTests config =
 
@@ -911,14 +899,12 @@ let densityTests config =
     |> List.map (fun (x, y) -> x, (fun z -> PoundMassPerCubicInch.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Density tests"
-    [
-      testList "Kilogram per cubic meter conversions" kilogramPerCubicMeterConversionTests
-      testList "Gram per cubic centimeter conversions" gramPerCubicCentimeterConversionTests
-      testList "Pound mass per cubic foot conversions" poundMassPerCubicFootConversionTests
-      testList "Pound mass per cubic inch conversions" poundMassPerCubicInchConversionTests
-    ]
+  testList "Density tests" [
+    testList "Kilogram per cubic meter conversions" kilogramPerCubicMeterConversionTests
+    testList "Gram per cubic centimeter conversions" gramPerCubicCentimeterConversionTests
+    testList "Pound mass per cubic foot conversions" poundMassPerCubicFootConversionTests
+    testList "Pound mass per cubic inch conversions" poundMassPerCubicInchConversionTests
+  ]
 
 let pressureTests config =
 
@@ -937,12 +923,10 @@ let pressureTests config =
     |> List.map (fun (x, y) -> x, (fun z -> PoundPerSquareInch.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Pressure tests"
-    [
-      testList "Pascal conversions" pascalConversionTests
-      testList "Pound per square inch conversions" poundPerSquareInchConversionTests
-    ]
+  testList "Pressure tests" [
+    testList "Pascal conversions" pascalConversionTests
+    testList "Pound per square inch conversions" poundPerSquareInchConversionTests
+  ]
 
 let powerTests config =
 
@@ -984,14 +968,12 @@ let powerTests config =
     |> List.map (fun (x, y) -> x, (fun z -> TonOfRefrigeration.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Power tests"
-    [
-      testList "Watt conversions" wattConversionTests
-      testList "Kilowatt conversions" kilowattConversionTests
-      testList "Horsepower conversions" horsepowerConversionTests
-      testList "Ton of refrigeration conversions" tonOfRefrigerationConversionTests
-    ]
+  testList "Power tests" [
+    testList "Watt conversions" wattConversionTests
+    testList "Kilowatt conversions" kilowattConversionTests
+    testList "Horsepower conversions" horsepowerConversionTests
+    testList "Ton of refrigeration conversions" tonOfRefrigerationConversionTests
+  ]
 
 let energyTests config =
 
@@ -1067,16 +1049,14 @@ let energyTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Q.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Energy tests"
-    [
-      testList "Joule conversion tests" jouleConversionTests
-      testList "Kilojoule conversions" kilojouleConversionTests
-      testList "British thermal unit conversions" britishThermalUnitConversionTests
-      testList "Calorie conversions" calorieConversionTests
-      testList "Quad conversions" quadConversionTests
-      testList "Q conversions" qConversionTests
-    ]
+  testList "Energy tests" [
+    testList "Joule conversion tests" jouleConversionTests
+    testList "Kilojoule conversions" kilojouleConversionTests
+    testList "British thermal unit conversions" britishThermalUnitConversionTests
+    testList "Calorie conversions" calorieConversionTests
+    testList "Quad conversions" quadConversionTests
+    testList "Q conversions" qConversionTests
+  ]
 
 let electricChargeTests config =
 
@@ -1104,13 +1084,11 @@ let electricChargeTests config =
     |> List.map (fun (x, y) -> x, (fun z -> AmpereSecond.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Electric charge tests"
-    [
-      testList "Coloumb conversion tests" coloumbConversionTests
-      testList "Ampere hour conversions" ampereHourConversionTests
-      testList "Ampere second conversions" ampereSecondConversionTests
-    ]
+  testList "Electric charge tests" [
+    testList "Coloumb conversion tests" coloumbConversionTests
+    testList "Ampere hour conversions" ampereHourConversionTests
+    testList "Ampere second conversions" ampereSecondConversionTests
+  ]
 
 let electromotiveForceTests config =
 
@@ -1164,15 +1142,13 @@ let electromotiveForceTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Megavolt.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Electromotive force tests"
-    [
-      testList "Microvolt conversion tests" microvoltConversionTests
-      testList "Millivolt conversions" millivoltConversionTests
-      testList "Volt conversions" voltConversionTests
-      testList "Kilovolt conversions" kilovoltConversionTests
-      testList "Megavolt conversions" megavoltConversionTests
-    ]
+  testList "Electromotive force tests" [
+    testList "Microvolt conversion tests" microvoltConversionTests
+    testList "Millivolt conversions" millivoltConversionTests
+    testList "Volt conversions" voltConversionTests
+    testList "Kilovolt conversions" kilovoltConversionTests
+    testList "Megavolt conversions" megavoltConversionTests
+  ]
 
 let inductanceTests config =
 
@@ -1200,10 +1176,8 @@ let inductanceTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Henry.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Inductance tests"
-    [
-      testList "MicroHenry conversion tests" microHenryConversionTest
-      testList "MilliHenry conversions" milliHenryConversionTest
-      testList "Henry conversions" henryConversionTest
-    ]
+  testList "Inductance tests" [
+    testList "MicroHenry conversion tests" microHenryConversionTest
+    testList "MilliHenry conversions" milliHenryConversionTest
+    testList "Henry conversions" henryConversionTest
+  ]

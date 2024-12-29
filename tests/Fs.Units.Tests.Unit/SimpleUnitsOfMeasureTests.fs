@@ -299,25 +299,23 @@ let lengthTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Rod.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Length Tests"
-    [
-      testList "Convert inch to other and back" inchConversionTests
-      testList "Convert foot to other and back" footConversionTests
-      testList "Convert yard to other and back" yardConversionTests
-      testList "Convert mile to other and back" mileConversionTests
-      testList "Convert millimeter to other and back" millimeterConversionTests
-      testList "Convert centimeter to other and back" centimeterConversionTests
-      testList "Convert decimeter to other and back" decimeterConversionTests
-      testList "Convert meter to other and back" meterConversionTests
-      testList "Convert kilometer to other and back" kilometerConversionTests
-      testList "Convert nautical mile to other and back" nauticalMileConversionTests
-      testList "Convert chain to other and back" chainConversionTests
-      testList "Convert furlong to other and back" furlongConversionTests
-      testList "Convert league to other and back" leagueConversionTests
-      testList "Convert hand to other and back" handConversionTests
-      testList "Convert rod to other and back" rodConversionTests
-    ]
+  testList "Length Tests" [
+    testList "Convert inch to other and back" inchConversionTests
+    testList "Convert foot to other and back" footConversionTests
+    testList "Convert yard to other and back" yardConversionTests
+    testList "Convert mile to other and back" mileConversionTests
+    testList "Convert millimeter to other and back" millimeterConversionTests
+    testList "Convert centimeter to other and back" centimeterConversionTests
+    testList "Convert decimeter to other and back" decimeterConversionTests
+    testList "Convert meter to other and back" meterConversionTests
+    testList "Convert kilometer to other and back" kilometerConversionTests
+    testList "Convert nautical mile to other and back" nauticalMileConversionTests
+    testList "Convert chain to other and back" chainConversionTests
+    testList "Convert furlong to other and back" furlongConversionTests
+    testList "Convert league to other and back" leagueConversionTests
+    testList "Convert hand to other and back" handConversionTests
+    testList "Convert rod to other and back" rodConversionTests
+  ]
 
 let timeTests config =
 
@@ -621,25 +619,23 @@ let timeTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Eon.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Time Tests"
-    [
-      testList "Nanosecond conversions" nanoSecondConversionTests
-      testList "Microsecond conversions" microSecondConversionTests
-      testList "Millisecond conversions" milliSecondConversionTests
-      testList "Second conversions" secondConversionTests
-      testList "Minute conversions" minuteConversionTests
-      testList "Hour conversions" hourConversionTests
-      testList "Day conversions" dayConversionTests
-      testList "Week conversions" weekConversionTests
-      testList "Fortnight conversions" fortnightConversionTests
-      testList "Month conversions" monthConversionTests
-      testList "Year conversions" yearConversionTests
-      testList "Decade conversions" decadeConversionTests
-      testList "Century conversions" centuryConversionTests
-      testList "Millennium conversions" millenniumConversionTests
-      testList "Eon conversions" eonConversionTests
-    ]
+  testList "Time Tests" [
+    testList "Nanosecond conversions" nanoSecondConversionTests
+    testList "Microsecond conversions" microSecondConversionTests
+    testList "Millisecond conversions" milliSecondConversionTests
+    testList "Second conversions" secondConversionTests
+    testList "Minute conversions" minuteConversionTests
+    testList "Hour conversions" hourConversionTests
+    testList "Day conversions" dayConversionTests
+    testList "Week conversions" weekConversionTests
+    testList "Fortnight conversions" fortnightConversionTests
+    testList "Month conversions" monthConversionTests
+    testList "Year conversions" yearConversionTests
+    testList "Decade conversions" decadeConversionTests
+    testList "Century conversions" centuryConversionTests
+    testList "Millennium conversions" millenniumConversionTests
+    testList "Eon conversions" eonConversionTests
+  ]
 
 let massTests config =
 
@@ -679,14 +675,12 @@ let massTests config =
     |> List.map (fun (x, y) -> x, (fun z -> PoundMass.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Mass tests"
-    [
-      testList "Milligram conversions" milligramConversionTests
-      testList "Gram conversions" gramConversionTests
-      testList "Kilogram conversions" kilogramConversionTests
-      testList "Pound conversions" poundConversionTests
-    ]
+  testList "Mass tests" [
+    testList "Milligram conversions" milligramConversionTests
+    testList "Gram conversions" gramConversionTests
+    testList "Kilogram conversions" kilogramConversionTests
+    testList "Pound conversions" poundConversionTests
+  ]
 
 let temperatureTests config =
 
@@ -726,14 +720,12 @@ let temperatureTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Rankine.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Temperature Tests"
-    [
-      testList "Kelvin conversions" kelvinConversionTests
-      testList "Celsius conversions" celsiusConversionTests
-      testList "Fahrenheit conversions" fahrenheitConversionTests
-      testList "Rankine conversions" rankineConversionTests
-    ]
+  testList "Temperature Tests" [
+    testList "Kelvin conversions" kelvinConversionTests
+    testList "Celsius conversions" celsiusConversionTests
+    testList "Fahrenheit conversions" fahrenheitConversionTests
+    testList "Rankine conversions" rankineConversionTests
+  ]
 
 let angleTests config =
 
@@ -803,16 +795,14 @@ let angleTests config =
     |> List.map (fun (x, y) -> x, (fun z -> ArcSecond.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Angle Tests"
-    [
-      testList "Degree conversions" degreeConversionTests
-      testList "Radian conversions" radianConversionTests
-      testList "Gradian conversions" gradianConversionTests
-      testList "Revolution conversions" revolutionConversionTests
-      testList "ArcMinute conversions" arcMinuteConversionTests
-      testList "ArcSecond conversions" arcSecondConversionTests
-    ]
+  testList "Angle Tests" [
+    testList "Degree conversions" degreeConversionTests
+    testList "Radian conversions" radianConversionTests
+    testList "Gradian conversions" gradianConversionTests
+    testList "Revolution conversions" revolutionConversionTests
+    testList "ArcMinute conversions" arcMinuteConversionTests
+    testList "ArcSecond conversions" arcSecondConversionTests
+  ]
 
 let dataStorageTests config =
 
@@ -1020,22 +1010,20 @@ let dataStorageTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Petabyte.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Data storage tests"
-    [
-      testList "Bit conversions" bitConversionTests
-      testList "Kilobit conversions" kilobitConversionTests
-      testList "Megabit conversions" megabitConversionTests
-      testList "Gigabit conversions" gigabitConversionTests
-      testList "Terabit conversions" terabitConversionTests
-      testList "Petabit conversions" petabitConversionTests
-      testList "Byte conversions" byteConversionTests
-      testList "Kilobyte conversions" kilobyteConversionTests
-      testList "Megabyte conversions" megabyteConversionTests
-      testList "Gigabyte conversions" gigabyteConversionTests
-      testList "Terabyte conversions" terabyteConversionTests
-      testList "Petabyte conversions" petabyteConversionTests
-    ]
+  testList "Data storage tests" [
+    testList "Bit conversions" bitConversionTests
+    testList "Kilobit conversions" kilobitConversionTests
+    testList "Megabit conversions" megabitConversionTests
+    testList "Gigabit conversions" gigabitConversionTests
+    testList "Terabit conversions" terabitConversionTests
+    testList "Petabit conversions" petabitConversionTests
+    testList "Byte conversions" byteConversionTests
+    testList "Kilobyte conversions" kilobyteConversionTests
+    testList "Megabyte conversions" megabyteConversionTests
+    testList "Gigabyte conversions" gigabyteConversionTests
+    testList "Terabyte conversions" terabyteConversionTests
+    testList "Petabyte conversions" petabyteConversionTests
+  ]
 
 let fuelEconomyTests config =
 
@@ -1053,12 +1041,10 @@ let fuelEconomyTests config =
     |> List.map (fun (x, y) -> x, (fun z -> MilePerGallon.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Fuel economy tests"
-    [
-      testList "Kilometer per liter conversions" kilometerPerLiterConversionTests
-      testList "Mile per gallon conversions" milePerGallonConversionTests
-    ]
+  testList "Fuel economy tests" [
+    testList "Kilometer per liter conversions" kilometerPerLiterConversionTests
+    testList "Mile per gallon conversions" milePerGallonConversionTests
+  ]
 
 let frequencyTests config =
 
@@ -1098,14 +1084,12 @@ let frequencyTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Gigahertz.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Frequency tests"
-    [
-      testList "Hertz conversions" hertzConversionTest
-      testList "Kilohertz conversions" kilohertzConversionTest
-      testList "Megahertz conversions" megahertzConversionTest
-      testList "Gigahertz conversions" gigahertzConversionTest
-    ]
+  testList "Frequency tests" [
+    testList "Hertz conversions" hertzConversionTest
+    testList "Kilohertz conversions" kilohertzConversionTest
+    testList "Megahertz conversions" megahertzConversionTest
+    testList "Gigahertz conversions" gigahertzConversionTest
+  ]
 
 let illuminanceTests config =
 
@@ -1145,14 +1129,12 @@ let illuminanceTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Nox.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Illuminance tests"
-    [
-      testList "Footcandle conversions" footcandleConversionTests
-      testList "Lux conversions" luxConversionTests
-      testList "Phot conversions" photConversionTests
-      testList "Nox conversions" noxConversionTests
-    ]
+  testList "Illuminance tests" [
+    testList "Footcandle conversions" footcandleConversionTests
+    testList "Lux conversions" luxConversionTests
+    testList "Phot conversions" photConversionTests
+    testList "Nox conversions" noxConversionTests
+  ]
 
 let currentTests config =
 
@@ -1192,11 +1174,9 @@ let currentTests config =
     |> List.map (fun (x, y) -> x, (fun z -> Biot.create z |> y))
     |> List.map (fun (x, y) -> testConversionRoundingError config Accuracy.high x y)
 
-  testList
-    "Current tests"
-    [
-      testList "Ampere conversions" ampereConversionTests
-      testList "Milliampere conversions" milliampereConversionTests
-      testList "Microampere conversions" microampereConversionTests
-      testList "Biot conversions" biotConversionTests
-    ]
+  testList "Current tests" [
+    testList "Ampere conversions" ampereConversionTests
+    testList "Milliampere conversions" milliampereConversionTests
+    testList "Microampere conversions" microampereConversionTests
+    testList "Biot conversions" biotConversionTests
+  ]

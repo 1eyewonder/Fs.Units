@@ -82,11 +82,11 @@ let clean _ =
   [ "paket-files/paket.restore.cached" ] |> Seq.iter Shell.rm
 
 let build _ =
-  let setParams (defaults: DotNet.BuildOptions) =
-    { defaults with
+  let setParams (defaults: DotNet.BuildOptions) = {
+    defaults with
         NoRestore = true
         Configuration = DotNet.BuildConfiguration.fromString configuration
-    }
+  }
 
   DotNet.build setParams solutionFile
 
@@ -102,24 +102,24 @@ let dotnetTest ctx =
   DotNet.test
     (fun c ->
 
-      { c with
-          Configuration = DotNet.BuildConfiguration.Release
-          Common = c.Common |> DotNet.Options.withAdditionalArgs args
+      {
+        c with
+            Configuration = DotNet.BuildConfiguration.Release
+            Common = c.Common |> DotNet.Options.withAdditionalArgs args
       })
     solutionFile
 
 let release = ReleaseNotes.load (rootDir </> "RELEASE_NOTES.md")
 
 let generateAssemblyInfo _ =
-  let getAssemblyInfoAttributes projectName =
-    [
-      AssemblyInfo.Title(projectName)
-      AssemblyInfo.Product project
-      AssemblyInfo.Description summary
-      AssemblyInfo.Version release.AssemblyVersion
-      AssemblyInfo.FileVersion release.AssemblyVersion
-      AssemblyInfo.Configuration configuration
-    ]
+  let getAssemblyInfoAttributes projectName = [
+    AssemblyInfo.Title(projectName)
+    AssemblyInfo.Product project
+    AssemblyInfo.Description summary
+    AssemblyInfo.Version release.AssemblyVersion
+    AssemblyInfo.FileVersion release.AssemblyVersion
+    AssemblyInfo.Configuration configuration
+  ]
 
   let getProjectDetails (projectPath: string) =
     let projectName = Path.GetFileNameWithoutExtension(projectPath)
@@ -136,34 +136,34 @@ let releaseNotes = String.toLines release.Notes
 let dotnetPack _ =
   [ solutionFile ]
   |> Seq.iter (
-    DotNet.pack (fun p ->
-      { p with
+    DotNet.pack (fun p -> {
+      p with
           // ./bin from the solution root matching the "PublishNuget" target WorkingDir
           OutputPath = Some distDir
           Configuration = DotNet.BuildConfiguration.Release
-          MSBuildParams =
-            { MSBuild.CliArguments.Create() with
+          MSBuildParams = {
+            MSBuild.CliArguments.Create() with
                 // "/p" (property) arguments to MSBuild.exe
                 Properties = [ ("Version", release.NugetVersion); ("PackageReleaseNotes", releaseNotes) ]
-            }
-      })
+          }
+    })
   )
 
 let publishNuget _ =
   DotNet.nugetPush
-    (fun c ->
-      { c with
+    (fun c -> {
+      c with
           Common = { c.Common with WorkingDirectory = distDir }
-          PushParams =
-            { c.PushParams with
+          PushParams = {
+            c.PushParams with
                 Source = Some "https://www.nuget.org"
                 ApiKey = nugetToken
-            }
-      })
+          }
+    })
     "*.nupkg"
 
-  Paket.push (fun p ->
-    { p with
+  Paket.push (fun p -> {
+    p with
         ToolType = ToolType.CreateLocalTool()
         PublishUrl = "https://www.nuget.org"
         WorkingDir = distDir
@@ -171,7 +171,7 @@ let publishNuget _ =
           match nugetToken with
           | Some s -> s
           | _ -> p.ApiKey // assume paket-config was set properly
-    })
+  })
 
 let gitRelease _ =
   Git.Staging.stageFile "" "RELEASE_NOTES.md" |> ignore

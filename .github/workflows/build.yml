@@ -1,4 +1,4 @@
-﻿name: Build master
+﻿name: Build main
 
 on: 
   push:
@@ -40,18 +40,21 @@ jobs:
 
       # Upload the static files
       - name: Upload documentation
-        uses: actions/upload-pages-artifact@v2
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./output
 
   # GitHub Actions recommends deploying in a separate job.
-  build-docs:
+  upload-docs:
     runs-on: ubuntu-latest
     needs: build
+    # ensures that the job only runs when the workflow is triggered by a push event to the main branch
+    if: github.ref == 'refs/heads/main'
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
 
   analyze:
     runs-on: ubuntu-latest

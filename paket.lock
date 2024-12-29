@@ -34,6 +34,12 @@ NUGET
       FSharp.Core (>= 7.0.200) - restriction: >= net6.0
       System.Collections.Immutable (>= 6.0) - restriction: >= net6.0
 
+GROUP analyzers
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    G-Research.FSharp.Analyzers (0.12)
+    Ionide.Analyzers (0.13)
+
 GROUP Benchmarks
 STORAGE: NONE
 NUGET

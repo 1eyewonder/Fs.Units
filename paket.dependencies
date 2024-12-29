@@ -24,3 +24,9 @@ group Build
     nuget Fake.Tools.Git
     nuget Fake.Api.GitHub
     nuget Fake.BuildServer.GitHubActions
+
+group analyzers
+    source https://api.nuget.org/v3/index.json
+
+    nuget Ionide.Analyzers
+    nuget G-Research.FSharp.Analyzers

@@ -4,12 +4,22 @@ open Fake.IO
 open Fake.DotNet
 open Fake.IO.FileSystemOperators
 open Fake.Core.TargetOperators
-open Fake.DotNet.Testing
 open Fake.IO.Globbing.Operators
 open Fake.Tools
-open System
 open System.IO
 open Fake.BuildServer
+
+let environVarAsBoolOrDefault varName defaultValue =
+  let truthyConsts = [ "1"; "Y"; "YES"; "T"; "TRUE" ]
+
+  try
+    let envvar = (Environment.environVar varName).ToUpper()
+
+    truthyConsts |> List.exists ((=) envvar)
+  with _ ->
+    defaultValue
+
+let isCI = lazy (environVarAsBoolOrDefault "CI" false)
 
 let project = "Fs.Units"
 let summary = "A simple library for working with units of measure in .NET"
@@ -59,6 +69,8 @@ module dotnet =
 
   let fantomas args = DotNet.exec id "fantomas" args
 
+  let analyzers args = DotNet.exec id "fsharp-analyzers" args
+
 let formatCode _ =
   let result = dotnet.fantomas "."
 
@@ -74,6 +86,32 @@ let checkFormatCode _ =
     failwith "Some files need formatting, check output for more info"
   else
     Trace.logf "Errors while formatting: %A" result.Errors
+
+let analyze _ =
+  let analyzerPaths = !! "packages/analyzers/**/analyzers/dotnet/fs"
+
+  let createArgsForProject (project: string) analyzerPaths =
+    let projectName = Path.GetFileNameWithoutExtension project
+
+    [
+      yield "--project"
+      yield project
+      yield "--analyzers-path"
+      yield! analyzerPaths
+      if isCI.Value then
+        yield "--report"
+        yield $"analysisreports/%s{projectName}-analysis.sarif"
+    ]
+    |> String.concat " "
+
+  seq {
+    yield! !! "src/**/*.fsproj"
+    yield! !! "build/**/*.fsproj"
+  }
+  |> Seq.iter (fun fsproj ->
+    let result = createArgsForProject fsproj analyzerPaths |> dotnet.analyzers
+
+    result.Errors |> Seq.iter Trace.traceError)
 
 let clean _ =
   !! "bin" ++ "src/**/bin" ++ "tests/**/bin" ++ "src/**/obj" ++ "tests/**/obj"
@@ -203,6 +241,12 @@ let githubRelease _ =
 
 let initTargets () =
 
+  /// Defines a dependency - y is dependent on x. Finishes the chain.
+  let (==>!) x y = x ==> y |> ignore
+
+  /// Defines a soft dependency. x must run before y, if it is present, but y does not require x to be run. Finishes the chain.
+  let (?=>!) x y = x ?=> y |> ignore
+
   BuildServer.install [ GitHubActions.Installer ]
 
   Option.iter (TraceSecrets.register "<GITHUB_TOKEN>") githubToken
@@ -213,6 +257,7 @@ let initTargets () =
   Target.create "Restore" restore
   Target.create "Test" dotnetTest
   Target.create "CheckFormat" checkFormatCode
+  Target.create "Analyze" analyze
   Target.create "AssemblyInfo" generateAssemblyInfo
   Target.create "DotnetPack" dotnetPack
   Target.create "PublishNuget" publishNuget
@@ -220,18 +265,28 @@ let initTargets () =
   Target.create "GitHubRelease" githubRelease
   Target.create "Release" ignore
 
-  // *** Define Dependencies ***
+  // dotnet build
+  "Clean" ?=>! "Restore"
+  "Restore" ?=>! "AssemblyInfo"
+  "Restore" ?=>! "Build"
+  "Build" ==>! "Test"
+  "AssemblyInfo" ?=>! "DotnetPack"
+  "Test" ==>! "DotnetPack"
+
+  // dotnet tools
+  "Restore" ==>! "Analyze"
+  "Restore" ==>! "CheckFormat"
+
+  // publishing
+  "AssemblyInfo" ==>! "PublishNuGet"
+
   "Clean"
-  ==> "AssemblyInfo"
-  ==> "Restore"
   ==> "CheckFormat"
-  ==> "Build"
-  ==> "Test"
   ==> "DotnetPack"
   ==> "PublishNuGet"
   ==> "GitRelease"
   ==> "GitHubRelease"
-  ==> "Release"
+  ==>! "Release"
 
 //-----------------------------------------------------------------------------
 // Target Start
